@@ -1,0 +1,825 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18F9433703733B19EEB270352E0B94D6 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414CB4604480D77454D7FAC864B080 /* Element.swift */; };
+		37420A4D179BB69C6F6555DF5BCADA4B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F06F2C27F16DD81A64A64033555577 /* Error.swift */; };
+		3FEE2D3A04EA1D06257695698CCE491B /* SwiftyXMLParser-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DABD55D3810F7D91DDB5915E8F9CAC /* SwiftyXMLParser-dummy.m */; };
+		6F8E4033B1122B06AEDF5D0B2AC176E8 /* Pods-Parking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 97FBD0A77DB8F0B2CAB5BD99D87B6F5B /* Pods-Parking-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		73DA5E78712C0234BB6E2606956A6853 /* Accessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A1823C65ACE5479845C5CA099DD19 /* Accessor.swift */; };
+		899B1C3DDCC1C94ADFACBB45EAE65656 /* SwiftyXMLParser-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6754E28B20406B959F45F23E5571F93D /* SwiftyXMLParser-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		89B1ECFD72DE89396D31D88473FBBE62 /* Pods-Parking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C35FB252576638176531882BF5FDC813 /* Pods-Parking-dummy.m */; };
+		92FFFBBA587EFCB1BEEDFBE0FAFF4BF3 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659895D3DC77C57A4D1DDD52280402C /* Parser.swift */; };
+		99B24C8E7211065380C4A35C0843C5B0 /* Pods-ParkingTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E11352B86796FFCA19DED8613A78EDC7 /* Pods-ParkingTests-dummy.m */; };
+		CF48CAFB71FDFD99C3C27ECB6164711F /* Pods-Parking-ParkingUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77955DF9C3195DD4BC5D3DB00BCEA77C /* Pods-Parking-ParkingUITests-dummy.m */; };
+		DDCFB2369C0A71928E4DF378AA3EDA68 /* Pods-Parking-ParkingUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DEA06B3E0F34CBF1A82EFEA880561E2C /* Pods-Parking-ParkingUITests-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FF88C09F7BB7F9C2B8EB2905DFC96662 /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8FDCC6320DEA6125A34CA88F6BA3E7 /* XML.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6D47ABD93F5276FC5438D4C84729E7D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C96998A189BC645DB45F2AFFF9D802BD;
+			remoteInfo = SwiftyXMLParser;
+		};
+		BC200646AF39873B70B838D98493C243 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C96998A189BC645DB45F2AFFF9D802BD;
+			remoteInfo = SwiftyXMLParser;
+		};
+		F5BBA1E8B8B4C38140ED87BB7A6317BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55DD46D0EDACE5BF10C208900C5CBDC5;
+			remoteInfo = "Pods-Parking";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0ABA7C3FB8759649D1D7DA20B61625EC /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
+		3443811E0DA972C67FC2D15AF55E97BA /* Pods-ParkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ParkingTests.release.xcconfig"; sourceTree = "<group>"; };
+		4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = SwiftyXMLParser; path = libSwiftyXMLParser.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A43CF6247416D6312AB0097381CE3F9 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
+		4BD099325A7FC047526E11A876A0B9C6 /* SwiftyXMLParser-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyXMLParser-prefix.pch"; sourceTree = "<group>"; };
+		5659895D3DC77C57A4D1DDD52280402C /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = SwiftyXMLParser/Parser.swift; sourceTree = "<group>"; };
+		57F06F2C27F16DD81A64A64033555577 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = SwiftyXMLParser/Error.swift; sourceTree = "<group>"; };
+		6754E28B20406B959F45F23E5571F93D /* SwiftyXMLParser-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyXMLParser-umbrella.h"; sourceTree = "<group>"; };
+		716D07D86DAE703D5E2764EB8724B22A /* Pods-Parking-ParkingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Parking-ParkingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		77955DF9C3195DD4BC5D3DB00BCEA77C /* Pods-Parking-ParkingUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Parking-ParkingUITests-dummy.m"; sourceTree = "<group>"; };
+		78414CB4604480D77454D7FAC864B080 /* Element.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Element.swift; path = SwiftyXMLParser/Element.swift; sourceTree = "<group>"; };
+		79D5B01DD28C099A6FCEA33AA3E7ABA4 /* Pods-Parking-ParkingUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Parking-ParkingUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		863B5E15F9E447B8266A92205A0CF6CB /* SwiftyXMLParser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyXMLParser.debug.xcconfig; sourceTree = "<group>"; };
+		89390F0A98296403E5711B3E7745C28C /* Pods-ParkingTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ParkingTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		906A407731A3ED3CD8D08FEC807E161D /* SwiftyXMLParser.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyXMLParser.modulemap; sourceTree = "<group>"; };
+		97FBD0A77DB8F0B2CAB5BD99D87B6F5B /* Pods-Parking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Parking-umbrella.h"; sourceTree = "<group>"; };
+		9D9200727CF5A3A7D596FC5EC41E94D0 /* Pods-Parking */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-Parking"; path = "libPods-Parking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A7C74B00555D0880CFABBD0EB6DFBEFA /* Pods-Parking-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Parking-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A7CAED71002A5C90CEBDFE8A220144D3 /* Pods-ParkingTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ParkingTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BD2628831AD0FB1997A57A22576AB664 /* Pods-Parking-ParkingUITests */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-Parking-ParkingUITests"; path = "libPods-Parking-ParkingUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C16C0F4CB906C18AD81CAF960EFB5240 /* Pods-ParkingTests */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-ParkingTests"; path = "libPods-ParkingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C35FB252576638176531882BF5FDC813 /* Pods-Parking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Parking-dummy.m"; sourceTree = "<group>"; };
+		CB3BAD7576C5CF0A2059BF589A919015 /* Pods-Parking-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Parking-acknowledgements.plist"; sourceTree = "<group>"; };
+		CD8FDCC6320DEA6125A34CA88F6BA3E7 /* XML.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XML.swift; path = SwiftyXMLParser/XML.swift; sourceTree = "<group>"; };
+		CE2B9CA29942D0C24CB0609797B0AE08 /* Pods-Parking-ParkingUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Parking-ParkingUITests.modulemap"; sourceTree = "<group>"; };
+		D5DABD55D3810F7D91DDB5915E8F9CAC /* SwiftyXMLParser-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyXMLParser-dummy.m"; sourceTree = "<group>"; };
+		D881A5373AD413E6134CA0166A3447C4 /* Pods-ParkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ParkingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D9775DBD9654B1CBEDBBBFF78470C583 /* Pods-Parking-ParkingUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Parking-ParkingUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D9C47966B980B8DE4E58E4E530F11ED4 /* Pods-Parking-ParkingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Parking-ParkingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DEA06B3E0F34CBF1A82EFEA880561E2C /* Pods-Parking-ParkingUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Parking-ParkingUITests-umbrella.h"; sourceTree = "<group>"; };
+		E11352B86796FFCA19DED8613A78EDC7 /* Pods-ParkingTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ParkingTests-dummy.m"; sourceTree = "<group>"; };
+		F36A1823C65ACE5479845C5CA099DD19 /* Accessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Accessor.swift; path = SwiftyXMLParser/Accessor.swift; sourceTree = "<group>"; };
+		F828B09A2ADD1B3DAB60D99955254B55 /* Pods-Parking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Parking.modulemap"; sourceTree = "<group>"; };
+		F9AB3DE86D1093363AF9D5B1418AC6DB /* SwiftyXMLParser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyXMLParser.release.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0462C9D0655652E30D8E194BD91DE25F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7018D0F7FAB3A5D090049FCE07F3B521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F63FFD79FBCDF0B7A7137809D59D1B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95EF9E6E30AD67B80A5326C337D8ADF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0318F558BB91EA6E8F43EDDD477FA8C9 /* Pods-Parking-ParkingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CE2B9CA29942D0C24CB0609797B0AE08 /* Pods-Parking-ParkingUITests.modulemap */,
+				D9775DBD9654B1CBEDBBBFF78470C583 /* Pods-Parking-ParkingUITests-acknowledgements.markdown */,
+				79D5B01DD28C099A6FCEA33AA3E7ABA4 /* Pods-Parking-ParkingUITests-acknowledgements.plist */,
+				77955DF9C3195DD4BC5D3DB00BCEA77C /* Pods-Parking-ParkingUITests-dummy.m */,
+				DEA06B3E0F34CBF1A82EFEA880561E2C /* Pods-Parking-ParkingUITests-umbrella.h */,
+				D9C47966B980B8DE4E58E4E530F11ED4 /* Pods-Parking-ParkingUITests.debug.xcconfig */,
+				716D07D86DAE703D5E2764EB8724B22A /* Pods-Parking-ParkingUITests.release.xcconfig */,
+			);
+			name = "Pods-Parking-ParkingUITests";
+			path = "Target Support Files/Pods-Parking-ParkingUITests";
+			sourceTree = "<group>";
+		};
+		486E295320CDB2A51B37FC2CCA2D5258 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				906A407731A3ED3CD8D08FEC807E161D /* SwiftyXMLParser.modulemap */,
+				D5DABD55D3810F7D91DDB5915E8F9CAC /* SwiftyXMLParser-dummy.m */,
+				4BD099325A7FC047526E11A876A0B9C6 /* SwiftyXMLParser-prefix.pch */,
+				6754E28B20406B959F45F23E5571F93D /* SwiftyXMLParser-umbrella.h */,
+				863B5E15F9E447B8266A92205A0CF6CB /* SwiftyXMLParser.debug.xcconfig */,
+				F9AB3DE86D1093363AF9D5B1418AC6DB /* SwiftyXMLParser.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyXMLParser";
+			sourceTree = "<group>";
+		};
+		504318E926D7B6F4CC097836C37536F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				530F6D7734F3DA62AC8CC1DD35397ED3 /* SwiftyXMLParser */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		530F6D7734F3DA62AC8CC1DD35397ED3 /* SwiftyXMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				F36A1823C65ACE5479845C5CA099DD19 /* Accessor.swift */,
+				78414CB4604480D77454D7FAC864B080 /* Element.swift */,
+				57F06F2C27F16DD81A64A64033555577 /* Error.swift */,
+				5659895D3DC77C57A4D1DDD52280402C /* Parser.swift */,
+				CD8FDCC6320DEA6125A34CA88F6BA3E7 /* XML.swift */,
+				486E295320CDB2A51B37FC2CCA2D5258 /* Support Files */,
+			);
+			name = SwiftyXMLParser;
+			path = SwiftyXMLParser;
+			sourceTree = "<group>";
+		};
+		8057BE6DD909C8E12B0D05D2B01E014F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D9200727CF5A3A7D596FC5EC41E94D0 /* Pods-Parking */,
+				BD2628831AD0FB1997A57A22576AB664 /* Pods-Parking-ParkingUITests */,
+				C16C0F4CB906C18AD81CAF960EFB5240 /* Pods-ParkingTests */,
+				4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B338C04ACA35D4438A7F9B128379F9EC /* Pods-Parking */ = {
+			isa = PBXGroup;
+			children = (
+				F828B09A2ADD1B3DAB60D99955254B55 /* Pods-Parking.modulemap */,
+				A7C74B00555D0880CFABBD0EB6DFBEFA /* Pods-Parking-acknowledgements.markdown */,
+				CB3BAD7576C5CF0A2059BF589A919015 /* Pods-Parking-acknowledgements.plist */,
+				C35FB252576638176531882BF5FDC813 /* Pods-Parking-dummy.m */,
+				97FBD0A77DB8F0B2CAB5BD99D87B6F5B /* Pods-Parking-umbrella.h */,
+				4A43CF6247416D6312AB0097381CE3F9 /* Pods-Parking.debug.xcconfig */,
+				0ABA7C3FB8759649D1D7DA20B61625EC /* Pods-Parking.release.xcconfig */,
+			);
+			name = "Pods-Parking";
+			path = "Target Support Files/Pods-Parking";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				504318E926D7B6F4CC097836C37536F8 /* Pods */,
+				8057BE6DD909C8E12B0D05D2B01E014F /* Products */,
+				DC3882592E3D52B233F9A8BA2E84A711 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D009B72FB1A9A4BCEEDAFAC950816143 /* Pods-ParkingTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7CAED71002A5C90CEBDFE8A220144D3 /* Pods-ParkingTests-acknowledgements.markdown */,
+				89390F0A98296403E5711B3E7745C28C /* Pods-ParkingTests-acknowledgements.plist */,
+				E11352B86796FFCA19DED8613A78EDC7 /* Pods-ParkingTests-dummy.m */,
+				D881A5373AD413E6134CA0166A3447C4 /* Pods-ParkingTests.debug.xcconfig */,
+				3443811E0DA972C67FC2D15AF55E97BA /* Pods-ParkingTests.release.xcconfig */,
+			);
+			name = "Pods-ParkingTests";
+			path = "Target Support Files/Pods-ParkingTests";
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC3882592E3D52B233F9A8BA2E84A711 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B338C04ACA35D4438A7F9B128379F9EC /* Pods-Parking */,
+				0318F558BB91EA6E8F43EDDD477FA8C9 /* Pods-Parking-ParkingUITests */,
+				D009B72FB1A9A4BCEEDAFAC950816143 /* Pods-ParkingTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0209A22672C27036FD0815F433816363 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F8E4033B1122B06AEDF5D0B2AC176E8 /* Pods-Parking-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44D828F17191C02460C86AA98C7B3738 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				899B1C3DDCC1C94ADFACBB45EAE65656 /* SwiftyXMLParser-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EA8DB07C8B92E283278A771C39A6DE3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5BA96BCBB937C015542719A923B807A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDCFB2369C0A71928E4DF378AA3EDA68 /* Pods-Parking-ParkingUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		19FF5DFD5BB46734A49C605106A8F43E /* Pods-Parking-ParkingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E93B7CBDF356C04976D7107B58C5260 /* Build configuration list for PBXNativeTarget "Pods-Parking-ParkingUITests" */;
+			buildPhases = (
+				C5BA96BCBB937C015542719A923B807A /* Headers */,
+				9CC1A3C2F5FB28C16BB3EF633C526F77 /* Sources */,
+				E95EF9E6E30AD67B80A5326C337D8ADF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5D9E5ED6EC0ACA5E8592BD14930E8BA /* PBXTargetDependency */,
+			);
+			name = "Pods-Parking-ParkingUITests";
+			productName = "Pods-Parking-ParkingUITests";
+			productReference = BD2628831AD0FB1997A57A22576AB664 /* Pods-Parking-ParkingUITests */;
+			productType = "com.apple.product-type.library.static";
+		};
+		55DD46D0EDACE5BF10C208900C5CBDC5 /* Pods-Parking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AA889DD07A97E8DBA01D78AE4174836 /* Build configuration list for PBXNativeTarget "Pods-Parking" */;
+			buildPhases = (
+				0209A22672C27036FD0815F433816363 /* Headers */,
+				1573E33EC315253B84DE45EF4405F809 /* Sources */,
+				8F63FFD79FBCDF0B7A7137809D59D1B4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAADA94F03E324D6D3E0026946368F8D /* PBXTargetDependency */,
+			);
+			name = "Pods-Parking";
+			productName = "Pods-Parking";
+			productReference = 9D9200727CF5A3A7D596FC5EC41E94D0 /* Pods-Parking */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7646CEAF69494D228C0FEFF75D952E4F /* Pods-ParkingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92F53C2ACBFAEF6A7A93A085B8B89E2C /* Build configuration list for PBXNativeTarget "Pods-ParkingTests" */;
+			buildPhases = (
+				6EA8DB07C8B92E283278A771C39A6DE3 /* Headers */,
+				2C9CECF5413CF07F257D6C97F0225002 /* Sources */,
+				7018D0F7FAB3A5D090049FCE07F3B521 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE13BB1DCC21AD0A42B5940670FBB229 /* PBXTargetDependency */,
+			);
+			name = "Pods-ParkingTests";
+			productName = "Pods-ParkingTests";
+			productReference = C16C0F4CB906C18AD81CAF960EFB5240 /* Pods-ParkingTests */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C96998A189BC645DB45F2AFFF9D802BD /* SwiftyXMLParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68459EF1447126106F4E74B4294DDB50 /* Build configuration list for PBXNativeTarget "SwiftyXMLParser" */;
+			buildPhases = (
+				44D828F17191C02460C86AA98C7B3738 /* Headers */,
+				D3C89FA3F63E5B4481F1C724C6B2EE3E /* Sources */,
+				0462C9D0655652E30D8E194BD91DE25F /* Frameworks */,
+				24A4563A3A27CB393AB5D5F522DE0D80 /* Copy generated compatibility header */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyXMLParser;
+			productName = SwiftyXMLParser;
+			productReference = 4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 8057BE6DD909C8E12B0D05D2B01E014F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				55DD46D0EDACE5BF10C208900C5CBDC5 /* Pods-Parking */,
+				19FF5DFD5BB46734A49C605106A8F43E /* Pods-Parking-ParkingUITests */,
+				7646CEAF69494D228C0FEFF75D952E4F /* Pods-ParkingTests */,
+				C96998A189BC645DB45F2AFFF9D802BD /* SwiftyXMLParser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24A4563A3A27CB393AB5D5F522DE0D80 /* Copy generated compatibility header */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h",
+				"${PODS_ROOT}/Headers/Public/SwiftyXMLParser/SwiftyXMLParser.modulemap",
+				"${PODS_ROOT}/Headers/Public/SwiftyXMLParser/SwiftyXMLParser-umbrella.h",
+			);
+			name = "Copy generated compatibility header";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap",
+				"${BUILT_PRODUCTS_DIR}/SwiftyXMLParser-umbrella.h",
+				"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "COMPATIBILITY_HEADER_PATH=\"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h\"\nMODULE_MAP_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap\"\n\nditto \"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h\" \"${COMPATIBILITY_HEADER_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/SwiftyXMLParser/SwiftyXMLParser.modulemap\" \"${MODULE_MAP_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/SwiftyXMLParser/SwiftyXMLParser-umbrella.h\" \"${BUILT_PRODUCTS_DIR}\"\nprintf \"\\n\\nmodule ${PRODUCT_MODULE_NAME}.Swift {\\n  header \\\"${COMPATIBILITY_HEADER_PATH}\\\"\\n  requires objc\\n}\\n\" >> \"${MODULE_MAP_PATH}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1573E33EC315253B84DE45EF4405F809 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89B1ECFD72DE89396D31D88473FBBE62 /* Pods-Parking-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C9CECF5413CF07F257D6C97F0225002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99B24C8E7211065380C4A35C0843C5B0 /* Pods-ParkingTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CC1A3C2F5FB28C16BB3EF633C526F77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF48CAFB71FDFD99C3C27ECB6164711F /* Pods-Parking-ParkingUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3C89FA3F63E5B4481F1C724C6B2EE3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73DA5E78712C0234BB6E2606956A6853 /* Accessor.swift in Sources */,
+				18F9433703733B19EEB270352E0B94D6 /* Element.swift in Sources */,
+				37420A4D179BB69C6F6555DF5BCADA4B /* Error.swift in Sources */,
+				92FFFBBA587EFCB1BEEDFBE0FAFF4BF3 /* Parser.swift in Sources */,
+				3FEE2D3A04EA1D06257695698CCE491B /* SwiftyXMLParser-dummy.m in Sources */,
+				FF88C09F7BB7F9C2B8EB2905DFC96662 /* XML.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B5D9E5ED6EC0ACA5E8592BD14930E8BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyXMLParser;
+			target = C96998A189BC645DB45F2AFFF9D802BD /* SwiftyXMLParser */;
+			targetProxy = 6D47ABD93F5276FC5438D4C84729E7D2 /* PBXContainerItemProxy */;
+		};
+		CAADA94F03E324D6D3E0026946368F8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyXMLParser;
+			target = C96998A189BC645DB45F2AFFF9D802BD /* SwiftyXMLParser */;
+			targetProxy = BC200646AF39873B70B838D98493C243 /* PBXContainerItemProxy */;
+		};
+		CE13BB1DCC21AD0A42B5940670FBB229 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Parking";
+			target = 55DD46D0EDACE5BF10C208900C5CBDC5 /* Pods-Parking */;
+			targetProxy = F5BBA1E8B8B4C38140ED87BB7A6317BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1828F9839C0F72CC8133E3BB5AB16B3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 716D07D86DAE703D5E2764EB8724B22A /* Pods-Parking-ParkingUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Parking-ParkingUITests/Pods-Parking-ParkingUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C9552EB91E2E69C46F256B5C8DB5868 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D881A5373AD413E6134CA0166A3447C4 /* Pods-ParkingTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4214E6946993DF02ED98D89047C64016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		4797E4983E49215F2B0F44703FBC84E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9C47966B980B8DE4E58E4E530F11ED4 /* Pods-Parking-ParkingUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Parking-ParkingUITests/Pods-Parking-ParkingUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BD2A1C99F3ED1E4BB329743C75F5DD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A43CF6247416D6312AB0097381CE3F9 /* Pods-Parking.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Parking/Pods-Parking.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5CDB6C9307D814AF71F59DA80FD1DDF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0ABA7C3FB8759649D1D7DA20B61625EC /* Pods-Parking.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Parking/Pods-Parking.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8C17A230797F9AD7CA3D86D9B8ED34D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3443811E0DA972C67FC2D15AF55E97BA /* Pods-ParkingTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B52E5F7D35A113DA360CA54D14AFB38C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 863B5E15F9E447B8266A92205A0CF6CB /* SwiftyXMLParser.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyXMLParser/SwiftyXMLParser-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MODULEMAP_FILE = Headers/Public/SwiftyXMLParser/SwiftyXMLParser.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SwiftyXMLParser;
+				PRODUCT_NAME = SwiftyXMLParser;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0D3E0790A4AD3EA549A49E36DD523B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9AB3DE86D1093363AF9D5B1418AC6DB /* SwiftyXMLParser.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyXMLParser/SwiftyXMLParser-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MODULEMAP_FILE = Headers/Public/SwiftyXMLParser/SwiftyXMLParser.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SwiftyXMLParser;
+				PRODUCT_NAME = SwiftyXMLParser;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD85FD90473CFBE797E4264E7BBC70AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AA889DD07A97E8DBA01D78AE4174836 /* Build configuration list for PBXNativeTarget "Pods-Parking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BD2A1C99F3ED1E4BB329743C75F5DD2 /* Debug */,
+				5CDB6C9307D814AF71F59DA80FD1DDF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E93B7CBDF356C04976D7107B58C5260 /* Build configuration list for PBXNativeTarget "Pods-Parking-ParkingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4797E4983E49215F2B0F44703FBC84E8 /* Debug */,
+				1828F9839C0F72CC8133E3BB5AB16B3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4214E6946993DF02ED98D89047C64016 /* Debug */,
+				CD85FD90473CFBE797E4264E7BBC70AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68459EF1447126106F4E74B4294DDB50 /* Build configuration list for PBXNativeTarget "SwiftyXMLParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B52E5F7D35A113DA360CA54D14AFB38C /* Debug */,
+				C0D3E0790A4AD3EA549A49E36DD523B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92F53C2ACBFAEF6A7A93A085B8B89E2C /* Build configuration list for PBXNativeTarget "Pods-ParkingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C9552EB91E2E69C46F256B5C8DB5868 /* Debug */,
+				8C17A230797F9AD7CA3D86D9B8ED34D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

@@ -1,0 +1,6 @@
+module Pods_Parking_ParkingUITests {
+  umbrella header "Pods-Parking-ParkingUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
