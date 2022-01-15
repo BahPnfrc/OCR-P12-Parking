@@ -19,26 +19,28 @@ class NetworkService {
         self.bikeDataSession = bikeDataSession
     }
 
+    private let montpellier3mURL = "https://data.montpellier3m.fr/api/3/"
+
+    private let carEndpoint = "action/package_show?"
+    private let bikeEndpoint = "action/resource_show?"
+
+    private static let carMetaDataID = "90e17b94-989f-4d66-83f4-766d4587bec2"
+    private static let bikeMetaDataID = "adb98f8d-c4d2-4012-8abe-cf02903e2ea0"
+
     private struct MetaParams: Encodable {
         let id: String
-        let utm_source: String
-        let utm_campaign: String
-        let utm_term: String
     }
 
     // MARK: - Car
-    
     /// https://data.montpellier3m.fr/dataset/disponibilite-des-places-dans-les-parkings-de-montpellier-mediterranee-metropole
-    private let carMetaURL = "https://data.montpellier3m.fr/api/3/action/package_show?"
+
     private let carMetaParams = MetaParams(
-        id: "90e17b94-989f-4d66-83f4-766d4587bec2",
-        utm_source: "Site%20internet",
-        utm_campaign: "Clic%20sur%20%3A%20https%3A//data.montpellier3m.fr/api/3/action/package_show/90e17b94-989f-4d66-83f4-766d4587bec2",
-        utm_term: "https%3A//data.montpellier3m.fr/api/3/action/package_show/90e17b94-989f-4d66-83f4-766d4587bec2")
+        id: NetworkService.carMetaDataID
+    )
 
     func getCarMetaData(
         completion: @escaping (Result<CarMetaData, ApiError>) -> Void) {
-            AF.request(carMetaURL,
+            AF.request(montpellier3mURL + carEndpoint,
                        method: .get,
                        parameters: carMetaParams).response { response in
                 guard let data = response.data,
@@ -56,17 +58,14 @@ class NetworkService {
         }
 
     // MARK: - Bike
-
     /// https://data.montpellier3m.fr/dataset/disponibilite-des-places-velomagg-en-temps-reel/resource/adb98f8d-c4d2-4012-8abe
-    private let bikeMetaURL = "https://data.montpellier3m.fr/api/3/action/resource_show?"
+
     private let bikeMetaParams = MetaParams(
-        id: "adb98f8d-c4d2-4012-8abe-cf02903e2ea0",
-        utm_source: "Site%20internet",
-        utm_campaign: "Clic%20sur%20%3A%20https%3A//data.montpellier3m.fr/api/3/action/resource_show/adb98f8d-c4d2-4012-8abe-cf02903e2ea0",
-        utm_term: "https%3A//data.montpellier3m.fr/api/3/action/resource_show/adb98f8d-c4d2-4012-8abe-cf02903e2ea0")
+        id: NetworkService.bikeMetaDataID
+    )
 
     func getBikeMetaData(completion: @escaping (Result<BikeMetadata, ApiError>) -> Void) {
-        AF.request(bikeMetaURL,
+        AF.request(montpellier3mURL + bikeEndpoint,
                    method: .get,
                    parameters: bikeMetaParams).response { response in
             guard let data = response.data,
@@ -101,6 +100,7 @@ class NetworkService {
 
             #if targetEnvironment(simulator)
             let xml = String(decoding: data, as: UTF8.self)
+            print(String.init(repeating: "=", count: 20))
             print("🟧", url, " : \n", xml)
             #endif
 
