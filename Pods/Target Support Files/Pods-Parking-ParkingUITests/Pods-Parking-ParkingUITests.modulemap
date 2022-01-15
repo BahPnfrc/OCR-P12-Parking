@@ -1,4 +1,4 @@
-module Pods_Parking_ParkingUITests {
+framework module Pods_Parking_ParkingUITests {
   umbrella header "Pods-Parking-ParkingUITests-umbrella.h"
 
   export *

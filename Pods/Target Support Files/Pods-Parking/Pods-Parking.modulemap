@@ -1,4 +1,4 @@
-module Pods_Parking {
+framework module Pods_Parking {
   umbrella header "Pods-Parking-umbrella.h"
 
   export *

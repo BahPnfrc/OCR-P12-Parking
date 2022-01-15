@@ -1,4 +1,4 @@
-module SwiftyXMLParser {
+framework module SwiftyXMLParser {
   umbrella header "SwiftyXMLParser-umbrella.h"
 
   export *

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1029F0DA3011ED2B9EA4C736 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7495ABF377037BA287D6A7 /* Pods_Parking.framework */; };
 		52C53C3D2788731F004586F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3C2788731F004586F6 /* AppDelegate.swift */; };
 		52C53C3F2788731F004586F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3E2788731F004586F6 /* SceneDelegate.swift */; };
 		52C53C412788731F004586F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C402788731F004586F6 /* ViewController.swift */; };
@@ -26,9 +27,8 @@
 		52C53C8127889908004586F6 /* CarStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C8027889908004586F6 /* CarStation.swift */; };
 		52C53C89278F7D90004586F6 /* BikeMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C88278F7D90004586F6 /* BikeMetadata.swift */; };
 		52E8A9A62790886E00212D88 /* BikeStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E8A9A52790886E00212D88 /* BikeStation.swift */; };
-		60CB7C392A5E3466876C3C05 /* libPods-Parking-ParkingUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5808BE41F1F32D032578102 /* libPods-Parking-ParkingUITests.a */; };
-		E9490F5E107A87AA68AB4533 /* libPods-ParkingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEC6B4FC87310D8938922189 /* libPods-ParkingTests.a */; };
-		F8B01148E269ED273D424FD2 /* libPods-Parking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF63C1DDD5B6D2B24834D9C /* libPods-Parking.a */; };
+		B56C7EC4E8506416AE72087E /* Pods_Parking_ParkingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C8243120BFC703C70730BE /* Pods_Parking_ParkingUITests.framework */; };
+		C3AD8C5C9BEBF24837D7D6B3 /* Pods_ParkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF50652B4A49CAEEB78ADD9 /* Pods_ParkingTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1DF63C1DDD5B6D2B24834D9C /* libPods-Parking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Parking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00C8243120BFC703C70730BE /* Pods_Parking_ParkingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking_ParkingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AF50652B4A49CAEEB78ADD9 /* Pods_ParkingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E7495ABF377037BA287D6A7 /* Pods_Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C53C392788731F004586F6 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C53C3C2788731F004586F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C53C3E2788731F004586F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,10 +79,8 @@
 		82114403BC4438E5CD499ADB /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
 		8A7FA629F97B594CE1698606 /* Pods-ParkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingTests.debug.xcconfig"; path = "Target Support Files/Pods-ParkingTests/Pods-ParkingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		969F5590935FFC93E2428DAE /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
-		B5808BE41F1F32D032578102 /* libPods-Parking-ParkingUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Parking-ParkingUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73BA77D4C7903FB1F02D3C4 /* Pods-ParkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingTests.release.xcconfig"; path = "Target Support Files/Pods-ParkingTests/Pods-ParkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		C9F25E345F1A4A6617EDFD68 /* Pods-Parking-ParkingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking-ParkingUITests.release.xcconfig"; path = "Target Support Files/Pods-Parking-ParkingUITests/Pods-Parking-ParkingUITests.release.xcconfig"; sourceTree = "<group>"; };
-		DEC6B4FC87310D8938922189 /* libPods-ParkingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParkingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8B01148E269ED273D424FD2 /* libPods-Parking.a in Frameworks */,
+				1029F0DA3011ED2B9EA4C736 /* Pods_Parking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9490F5E107A87AA68AB4533 /* libPods-ParkingTests.a in Frameworks */,
+				C3AD8C5C9BEBF24837D7D6B3 /* Pods_ParkingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60CB7C392A5E3466876C3C05 /* libPods-Parking-ParkingUITests.a in Frameworks */,
+				B56C7EC4E8506416AE72087E /* Pods_Parking_ParkingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,9 +246,9 @@
 		BB54B359DD49F6C548D1CDE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1DF63C1DDD5B6D2B24834D9C /* libPods-Parking.a */,
-				B5808BE41F1F32D032578102 /* libPods-Parking-ParkingUITests.a */,
-				DEC6B4FC87310D8938922189 /* libPods-ParkingTests.a */,
+				0E7495ABF377037BA287D6A7 /* Pods_Parking.framework */,
+				00C8243120BFC703C70730BE /* Pods_Parking_ParkingUITests.framework */,
+				0AF50652B4A49CAEEB78ADD9 /* Pods_ParkingTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -264,6 +264,7 @@
 				52C53C352788731F004586F6 /* Sources */,
 				52C53C362788731F004586F6 /* Frameworks */,
 				52C53C372788731F004586F6 /* Resources */,
+				0DDBD25ED398018DEC840503 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -301,6 +302,7 @@
 				52C53C5827887320004586F6 /* Sources */,
 				52C53C5927887320004586F6 /* Frameworks */,
 				52C53C5A27887320004586F6 /* Resources */,
+				5A47EE5B9A857630F970696C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -404,6 +406,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0DDBD25ED398018DEC840503 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Parking/Pods-Parking-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Parking/Pods-Parking-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Parking/Pods-Parking-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A47EE5B9A857630F970696C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Parking-ParkingUITests/Pods-Parking-ParkingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Parking-ParkingUITests/Pods-Parking-ParkingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Parking-ParkingUITests/Pods-Parking-ParkingUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0EFFFBB8EC00FB175B14C5E /* [CP] Check Pods Manifest.lock */ = {
