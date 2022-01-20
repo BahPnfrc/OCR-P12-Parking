@@ -8,15 +8,10 @@ class NetworkService {
     static let shared = NetworkService()
     private init() {}
 
-    private var task: URLSessionDataTask?
-    private var carDataSession = URLSession(configuration: .default)
-    private var bikeDataSession = URLSession(configuration: .default)
+    private var sessionManager = Alamofire.Session(configuration: URLSessionConfiguration.default)
 
-    init(carDataSession: URLSession) {
-        self.carDataSession = carDataSession
-    }
-    init(bikeDataSession: URLSession) {
-        self.bikeDataSession = bikeDataSession
+    init(session: Session) {
+        self.sessionManager = session
     }
 
     private let montpellier3mURL = "https://data.montpellier3m.fr/api/3/"
@@ -31,8 +26,7 @@ class NetworkService {
         let id: String
     }
 
-    // MARK: - Car
-    /// https://data.montpellier3m.fr/dataset/disponibilite-des-places-dans-les-parkings-de-montpellier-mediterranee-metropole
+    // MARK: - Car Stations
 
     private let carMetaParams = MetaParams(
         id: NetworkService.carMetaDataID
@@ -40,12 +34,12 @@ class NetworkService {
 
     func getCarMetaData(
         completion: @escaping (Result<CarMetaData, ApiError>) -> Void) {
-            AF.request(montpellier3mURL + carEndpoint,
+            sessionManager.request(montpellier3mURL + carEndpoint,
                        method: .get,
                        parameters: carMetaParams).response { response in
-                guard let data = response.data,
-                        response.error == nil,
-                        response.response?.statusCode == 200 else {
+                guard response.error == nil,
+                      response.response?.statusCode == 200,
+                      let data = response.data else {
                           completion(.failure(.server))
                           return
                       }
@@ -57,24 +51,23 @@ class NetworkService {
             }
         }
 
-    // MARK: - Bike
-    /// https://data.montpellier3m.fr/dataset/disponibilite-des-places-velomagg-en-temps-reel/resource/adb98f8d-c4d2-4012-8abe
+    // MARK: - Bike Stations
 
     private let bikeMetaParams = MetaParams(
         id: NetworkService.bikeMetaDataID
     )
 
-    func getBikeMetaData(completion: @escaping (Result<BikeMetadata, ApiError>) -> Void) {
-        AF.request(montpellier3mURL + bikeEndpoint,
+    func getBikeMetaData(completion: @escaping (Result<BikeMetaData, ApiError>) -> Void) {
+        sessionManager.request(montpellier3mURL + bikeEndpoint,
                    method: .get,
                    parameters: bikeMetaParams).response { response in
-            guard let data = response.data,
-                  response.error == nil,
-                  response.response?.statusCode == 200 else {
+            guard response.error == nil,
+                  response.response?.statusCode == 200,
+                  let data = response.data else {
                       completion(.failure(.server))
                       return
                   }
-            guard let bikeMetadata = try? JSONDecoder().decode(BikeMetadata.self, from: data) else {
+            guard let bikeMetadata = try? JSONDecoder().decode(BikeMetaData.self, from: data) else {
                 completion(.failure(.decoding))
                 return
             }
@@ -90,10 +83,10 @@ class NetworkService {
             return
         }
 
-        AF.request(url, method: .get).response { response in
-            guard let data = response.data,
-                  response.error == nil,
-                  response.response?.statusCode == 200 else {
+        sessionManager.request(url, method: .get).response { response in
+            guard response.error == nil,
+                  response.response?.statusCode == 200,
+                  let data = response.data else {
                       completion(.failure(.server))
                       return
                   }

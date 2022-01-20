@@ -1,9 +1,7 @@
-//   let bikeMetadata = try? newJSONDecoder().decode(BikeMetadata.self, from: jsonData)
-
 import Foundation
 
-// MARK: - BikeMetadata
-struct BikeMetadata: Codable {
+// MARK: - BikeMetaData
+struct BikeMetaData: Codable {
     let help: String
     let success: Bool
     let result: BikeTopResult

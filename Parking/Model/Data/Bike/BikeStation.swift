@@ -4,7 +4,7 @@ import SwiftyXMLParser
 // MARK: - BikeStation
 class BikeStation {
 
-    private static var metadata: BikeMetadata?
+    private static var metadata: BikeMetaData?
     private(set) static var all = [BikeStation]()
 
     let name: String
@@ -54,12 +54,12 @@ extension BikeStation {
             case .failure(let error):
                 print(error)
             case .success(let accessor):
-                guard let elements = accessor["vcs", "sl", "si"].all, elements.count > 0 else {
+                guard let stations = accessor["vcs", "sl", "si"].all, stations.count > 0 else {
                     return
                 }
-                for element in elements {
-                    if let bikeParking = parseXML(withElement: element) {
-                        BikeStation.all.append(bikeParking)
+                for station in stations {
+                    if let bikeStation = parseBikeXML(with: station) {
+                        BikeStation.all.append(bikeStation)
                     }
                 }
             }
@@ -69,26 +69,26 @@ extension BikeStation {
 
 // MARK: XML Data Parsing
 extension BikeStation {
-    static func parseXML(withElement element: XML.Element) -> BikeStation? {
+    static func parseBikeXML(with element: XML.Element) -> BikeStation? {
         guard let name = element.attributes[CodingKeys.name.rawValue],
               let id = element.attributes[CodingKeys.id.rawValue],
               let latitude = element.attributes[CodingKeys.latitude.rawValue],
               let longitude = element.attributes[CodingKeys.longitude.rawValue],
               let free = element.attributes[CodingKeys.free.rawValue],
               let total = element.attributes[CodingKeys.total.rawValue] else {
-                  print("🟥 BIKE PARKING : KO")
+                  print("🟥 BIKE STATION : KO")
                   return nil
               }
 
-        let bikeParking = BikeStation(
+        let bikeStation = BikeStation(
             name: name,
             id: Int(id) ?? 0,
             latitude: Double(latitude) ?? 0,
             longitude: Double(longitude) ?? 0,
             free: Int(free) ?? 0,
             total: Int(total) ?? 0)
-        print("🟩 BIKE PARKING : OK @\(name) :", free, "sur", total)
-        return bikeParking
+        print("🟩 BIKE STATION : OK @\(name) :", free, "sur", total)
+        return bikeStation
     }
 
     private static func formattedDate(from dateStr: String) -> Date {

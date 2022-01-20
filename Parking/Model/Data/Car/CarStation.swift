@@ -54,10 +54,10 @@ extension CarStation {
                 case .failure(let error):
                     print(error)
                 case .success(let accessor):
-                    if let newParking = CarStation.parseXML(
+                    if let newParking = CarStation.parseCarXML(
                         name: resource.name,
                         url: resource.url,
-                        withAccessor: accessor) {
+                        with: accessor) {
                         CarStation.all.append(newParking)
                     }
                 }
@@ -72,7 +72,7 @@ extension CarStation {
 
 // MARK: - XML Data Parsing
 extension CarStation {
-    static func parseXML(name: String, url: String, withAccessor accessor: XML.Accessor) -> CarStation? {
+    static func parseCarXML(name: String, url: String, with accessor: XML.Accessor) -> CarStation? {
         guard let dateTime = accessor["park", CodingKeys.dateTime.rawValue].text,
               let shortName = accessor["park", CodingKeys.shortName.rawValue].text,
               let status = accessor["park", CodingKeys.status.rawValue].text,
@@ -90,7 +90,7 @@ extension CarStation {
             status: status,
             free: Int(free) ?? 0,
             total: Int(total) ?? 0)
-        print("🟩 CAR PARKING : OK @\(shortName) :", free, "sur", total)
+        print("🟩 CAR PARKING : OK @\(name) :", free, "sur", total)
         return carParKing
     }
 
