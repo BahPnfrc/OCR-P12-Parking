@@ -11,7 +11,6 @@ class TestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         CarStation.reloadMetadata()
         BikeStation.reloadMetadata()
     }
