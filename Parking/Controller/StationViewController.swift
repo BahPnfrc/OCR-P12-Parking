@@ -11,15 +11,14 @@ class StationViewController: GlobalViewController {
 
     @IBOutlet weak var backImageView: UIImageView!
 
-    @IBOutlet weak var searchBar: UISearchBar!
-
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerTopImageView: UIImageView!
     @IBOutlet weak var headerTopLabel: UILabel!
     @IBOutlet weak var headerSubImageView: UIImageView!
-    @IBOutlet weak var headerSubLabel: UILabel!
+    @IBOutlet weak var searchBar: UISearchBar!
 
     @IBOutlet weak var tableView: UITableView!
+    let tableViewIsReversed = false
 
     var dataType: CellType = .Bike
     var dataSource: [StationCellItem] {
@@ -44,6 +43,10 @@ class StationViewController: GlobalViewController {
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        if tableViewIsReversed {
+            tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        }
+
 
 
     }
@@ -54,7 +57,6 @@ class StationViewController: GlobalViewController {
         headerTopImageView.image = Shared.paintedSystemImage(named: "parkingsign.circle.fill")
         headerTopLabel.text = "Décompte parkings"
         headerSubImageView.image = Shared.paintedSystemImage(named: "checkmark.circle.fill")
-        headerSubLabel.text = "Décompte places libres"
     }
 
     func paintTableView() {
@@ -109,8 +111,20 @@ extension StationViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let clearView = UIView()
+        clearView.backgroundColor = .clear
+        cell.selectedBackgroundView = clearView
+        cell.contentView.layer.masksToBounds = true
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
-        cell.contentView.layer.masksToBounds = true
+        if tableViewIsReversed {
+            cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        }
+
+    }
+
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        //        let selectedCell = tableView.cellForRow(at: indexPath)
+        //        selectedCell?.isSelected = false
     }
 }

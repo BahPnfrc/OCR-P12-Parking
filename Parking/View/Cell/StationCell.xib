@@ -42,7 +42,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-y5-3gx">
-                        <rect key="frame" x="40" y="106" width="400" height="65"/>
+                        <rect key="frame" x="25" y="106" width="400" height="65"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EE7-6D-Pob">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="30"/>
@@ -90,8 +90,8 @@
                 <constraints>
                     <constraint firstItem="OVW-y5-3gx" firstAttribute="top" secondItem="OCs-sx-iFu" secondAttribute="bottom" constant="24.5" id="6wD-Wf-Lxf"/>
                     <constraint firstItem="OVW-y5-3gx" firstAttribute="bottom" secondItem="P4G-0i-CiI" secondAttribute="bottom" constant="-20" id="Gtd-Gn-vsO"/>
-                    <constraint firstItem="hw1-vN-0h8" firstAttribute="top" secondItem="XDW-bb-Cey" secondAttribute="top" constant="20" id="LMT-vb-WZQ"/>
-                    <constraint firstItem="hw1-vN-0h8" firstAttribute="leading" secondItem="XDW-bb-Cey" secondAttribute="leading" constant="20" id="P1d-sL-FOE"/>
+                    <constraint firstItem="hw1-vN-0h8" firstAttribute="top" secondItem="P4G-0i-CiI" secondAttribute="top" constant="20" id="LMT-vb-WZQ"/>
+                    <constraint firstItem="hw1-vN-0h8" firstAttribute="leading" secondItem="P4G-0i-CiI" secondAttribute="leading" constant="20" id="P1d-sL-FOE"/>
                     <constraint firstItem="P4G-0i-CiI" firstAttribute="leading" secondItem="XDW-bb-Cey" secondAttribute="leading" id="Uw4-7c-apZ"/>
                     <constraint firstItem="8fs-je-R32" firstAttribute="centerX" secondItem="hw1-vN-0h8" secondAttribute="centerX" id="gZ7-t1-JeK"/>
                     <constraint firstItem="P4G-0i-CiI" firstAttribute="top" secondItem="XDW-bb-Cey" secondAttribute="top" id="k6k-ce-sN8"/>
@@ -100,7 +100,7 @@
                     <constraint firstAttribute="trailing" secondItem="P4G-0i-CiI" secondAttribute="trailing" id="rCu-h7-pjk"/>
                     <constraint firstItem="OCs-sx-iFu" firstAttribute="leading" secondItem="hw1-vN-0h8" secondAttribute="trailing" constant="20" id="tYx-bp-Yad"/>
                     <constraint firstAttribute="bottom" secondItem="P4G-0i-CiI" secondAttribute="bottom" constant="30" id="tyj-oQ-sl9"/>
-                    <constraint firstItem="OVW-y5-3gx" firstAttribute="leading" secondItem="hw1-vN-0h8" secondAttribute="centerX" id="wVO-8E-UOs"/>
+                    <constraint firstItem="OVW-y5-3gx" firstAttribute="leading" secondItem="hw1-vN-0h8" secondAttribute="centerX" constant="-15" id="wVO-8E-UOs"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
