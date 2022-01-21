@@ -9,14 +9,40 @@ import UIKit
 
 class BikeStationViewController: StationViewController {
 
-    private func loadDataSource() {
-        BikeStation.reloadMetadata()
+    private func reloadMetaData() {
+        isRequesting = true
+        NetworkService.shared.getBikeMetaData { [weak self] result in
+            guard let self = self else { return }
+            self.isRequesting = false
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let metaData):
+                BikeStation.metadata = metaData
+                self.reloadData()
+            }
+        }
+    }
+
+    private func reloadData() {
+        guard let metadata = BikeStation.metadata else { return }
+        isRequesting = true
+        NetworkService.shared.getBikeStations(from: metadata) { [weak self] result in
+            guard let self = self else { return }
+            self.isRequesting = false
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let allStations):
+                BikeStation.allStations = allStations
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func viewDidLoad() {
-        loadDataSource()
+        reloadMetaData()
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     

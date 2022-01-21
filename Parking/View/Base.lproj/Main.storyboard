@@ -39,7 +39,7 @@
         <!--Bike-->
         <scene sceneID="TRN-mS-IV6">
             <objects>
-                <viewController id="uqB-8t-Ldf" userLabel="Bike" customClass="StationViewController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uqB-8t-Ldf" userLabel="Bike" customClass="BikeStationViewController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DQK-wE-mBJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,7 +144,7 @@
         <!--Car-->
         <scene sceneID="KPO-P0-EmA">
             <objects>
-                <viewController id="cnd-s2-OpC" userLabel="Car" customClass="StationViewController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cnd-s2-OpC" userLabel="Car" customClass="CarStationViewController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OWc-ws-8Ni">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

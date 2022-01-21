@@ -4,8 +4,8 @@ import SwiftyXMLParser
 // MARK: - CarParking
 class CarStation {
 
-    private static var metadata: CarMetaData?
-    private(set) static var all = [CarStation]()
+    static var metadata: CarMetaData?
+    static var allStations = [CarStation]()
 
     let name: String
     let url: String
@@ -29,44 +29,6 @@ class CarStation {
         self.status = status
         self.free = free
         self.total = total
-    }
-}
-
-// MARK: - Network Data Loading
-extension CarStation {
-    static func reloadMetadata() {
-        NetworkService.shared.getCarMetaData { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let metadata):
-                CarStation.metadata = metadata
-                CarStation.reloadData()
-            }
-        }
-    }
-
-    static func reloadData() {
-        guard let resources = metadata?.result.resources, resources.count > 0 else { return }
-        for resource in resources {
-            NetworkService.shared.getRemoteXmlData(fromUrl: resource.url) { result in
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let accessor):
-                    if let newParking = CarStation.parseCarXML(
-                        name: resource.name,
-                        url: resource.url,
-                        with: accessor) {
-                        CarStation.all.append(newParking)
-                    }
-                }
-            }
-        }
-    }
-
-    static func clearData() {
-        CarStation.all.removeAll()
     }
 }
 

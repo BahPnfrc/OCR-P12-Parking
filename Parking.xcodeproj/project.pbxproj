@@ -298,8 +298,8 @@
 			children = (
 				52C53C4A27887320004586F6 /* LaunchScreen.storyboard */,
 				52C53C422788731F004586F6 /* Main.storyboard */,
-				5269C034279998AB00E29FDA /* Tab */,
 				524412D127933EAB00BB3411 /* Layout */,
+				5269C034279998AB00E29FDA /* Tab */,
 				524412CE27933B1400BB3411 /* Cell */,
 			);
 			path = View;

@@ -25,9 +25,9 @@ class StationViewController: GlobalViewController {
     var dataSource: [StationCellItem] {
         switch dataType {
         case .Bike:
-            return BikeStation.all
+            return BikeStation.allStations
         case .Car:
-            return CarStation.all
+            return CarStation.allStations
         default:
             return [StationCellItem]()
         }

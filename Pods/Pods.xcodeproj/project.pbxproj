@@ -123,7 +123,7 @@
 		37D0E5A45AF95A758233C4DAFC53EE65 /* SwiftyXMLParser.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyXMLParser.modulemap; sourceTree = "<group>"; };
 		3E27DB12CC3841BA2FF1730DF8507C21 /* AuthenticationInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticationInterceptor.swift; path = Source/AuthenticationInterceptor.swift; sourceTree = "<group>"; };
 		406B7AD7BA938B6A3BD58D9A3DC952CE /* RequestTaskMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestTaskMap.swift; path = Source/RequestTaskMap.swift; sourceTree = "<group>"; };
-		4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyXMLParser; path = SwiftyXMLParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyXMLParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4985F7B7F61C2BB5768075828E020F12 /* Element.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Element.swift; path = SwiftyXMLParser/Element.swift; sourceTree = "<group>"; };
 		4A357D490B00872B3ECAB06A7AA53938 /* Pods-Parking-ParkingUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Parking-ParkingUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		509D514B4A1557ADA1333B248DC56DA3 /* Pods-Parking-ParkingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Parking-ParkingUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		5A67CB518113FA6654FB563583BF55EA /* Pods-Parking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Parking-umbrella.h"; sourceTree = "<group>"; };
 		5B9454F921BA038D36AFD8C0842BA5A7 /* AlamofireExtended.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlamofireExtended.swift; path = Source/AlamofireExtended.swift; sourceTree = "<group>"; };
 		5BD43035A675F22D3762B0A1AF63B674 /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
-		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F3A9A8DFEC5330E612593D10564AB8B /* Pods-Parking-ParkingUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Parking-ParkingUITests-Info.plist"; sourceTree = "<group>"; };
 		60C41EAB6E1803E26A3955C17676147B /* SwiftyXMLParser-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyXMLParser-prefix.pch"; sourceTree = "<group>"; };
 		67C01D4364D5FEA42D1E690D9A8CD4D5 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		9B6848A0BF7AE08F2F7C0D8D81F93060 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		9D78012D71E7B4BB17D3323EBEDF2C20 /* Pods-ParkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ParkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D9200727CF5A3A7D596FC5EC41E94D0 /* Pods-Parking */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Parking"; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FF2EC0AC0483B0CFE6F8C4E0480E7F3 /* Pods-ParkingTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ParkingTests.modulemap"; sourceTree = "<group>"; };
 		A35F0FD51B0482FD34B4E1667F1C31C1 /* Pods-ParkingTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ParkingTests-umbrella.h"; sourceTree = "<group>"; };
 		A61E96D91E8C86554FF17872CC30F45D /* HTTPHeaders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPHeaders.swift; path = Source/HTTPHeaders.swift; sourceTree = "<group>"; };
@@ -282,7 +282,6 @@
 				AF91577470EBC13332174A4FEA664007 /* Validation.swift */,
 				666456D4BB0DA533AAF65AB39A583311 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -296,7 +295,6 @@
 				9374D2A0BAA5F3FAFB25A29A98754A0D /* XML.swift */,
 				8E827EBD79C65AE52ABDE39AE3D0D949 /* Support Files */,
 			);
-			name = SwiftyXMLParser;
 			path = SwiftyXMLParser;
 			sourceTree = "<group>";
 		};
@@ -419,11 +417,11 @@
 		C834AB97FC4619CCF38D7C34D6247825 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
+				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
 				9D9200727CF5A3A7D596FC5EC41E94D0 /* Pods-Parking */,
 				BD2628831AD0FB1997A57A22576AB664 /* Pods-Parking-ParkingUITests */,
 				C16C0F4CB906C18AD81CAF960EFB5240 /* Pods-ParkingTests */,
-				4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser */,
+				4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -559,7 +557,7 @@
 			);
 			name = SwiftyXMLParser;
 			productName = SwiftyXMLParser;
-			productReference = 4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser */;
+			productReference = 4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */ = {
@@ -577,7 +575,7 @@
 			);
 			name = Alamofire;
 			productName = Alamofire;
-			productReference = 5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */;
+			productReference = 5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -587,7 +585,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1320;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -782,7 +780,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftyXMLParser/SwiftyXMLParser-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftyXMLParser/SwiftyXMLParser-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -958,7 +956,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -994,7 +992,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1028,7 +1026,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftyXMLParser/SwiftyXMLParser-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftyXMLParser/SwiftyXMLParser-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

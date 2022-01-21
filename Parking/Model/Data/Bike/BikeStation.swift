@@ -4,8 +4,8 @@ import SwiftyXMLParser
 // MARK: - BikeStation
 class BikeStation {
 
-    private static var metadata: BikeMetaData?
-    private(set) static var all = [BikeStation]()
+    static var metadata: BikeMetaData?
+    static var allStations = [BikeStation]()
 
     let name: String
     let id: Int
@@ -30,40 +30,6 @@ class BikeStation {
         self.longitude = longitude
         self.free = free
         self.total = total
-    }
-}
-
-// MARK: Network Data Loading
-extension BikeStation {
-    static func reloadMetadata() {
-        NetworkService.shared.getBikeMetaData { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let metadata):
-                BikeStation.metadata = metadata
-                BikeStation.reloadData()
-            }
-        }
-    }
-
-    static func reloadData() {
-        guard let url = metadata?.result.result.url else { return }
-        NetworkService.shared.getRemoteXmlData(fromUrl: url) { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let accessor):
-                guard let stations = accessor["vcs", "sl", "si"].all, stations.count > 0 else {
-                    return
-                }
-                for station in stations {
-                    if let bikeStation = parseBikeXML(with: station) {
-                        BikeStation.all.append(bikeStation)
-                    }
-                }
-            }
-        }
     }
 }
 

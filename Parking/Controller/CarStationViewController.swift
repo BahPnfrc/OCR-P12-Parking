@@ -9,12 +9,39 @@ import UIKit
 
 class CarStationViewController: StationViewController {
 
-    private func loadDataSource() {
-        CarStation.reloadMetadata()
+    private func reloadMetaData() {
+        isRequesting = true
+        NetworkService.shared.getCarMetaData { [weak self] result in
+            guard let self = self else { return }
+            self.isRequesting = false
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let metaData):
+                CarStation.metadata = metaData
+                self.reloadData()
+            }
+        }
+    }
+
+    private func reloadData() {
+        guard let metadata = CarStation.metadata else { return }
+        isRequesting = true
+        NetworkService.shared.getCarStations(from: metadata) { [weak self] result in
+            guard let self = self else { return }
+            self.isRequesting = false
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let allStations):
+                CarStation.allStations = allStations
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func viewDidLoad() {
-        loadDataSource()
+        reloadMetaData()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
