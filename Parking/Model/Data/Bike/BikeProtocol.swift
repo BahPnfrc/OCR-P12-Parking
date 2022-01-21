@@ -12,6 +12,10 @@ extension BikeStation: StationCellItem {
         .Bike
     }
 
+    var isLoaded: Bool {
+        true
+    }
+
     func cellName() -> String {
         self.name
     }

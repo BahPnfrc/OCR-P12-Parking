@@ -23,7 +23,7 @@ class Shared {
     static let tabCarIcon = paintedSystemImage(named: "car.fill")
     static let tabFavoriteIcon = paintedSystemImage(named: "star.fill")
 
-    static let cellBikeIcon = paintedSystemImage(named: "bicycle.circle.fill")
-    static let cellCarIcon = paintedSystemImage(named: "car.circle.fill")
+    static let cellBikeIcon = paintedSystemImage(named: "bicycle.circle.fill", .white, .black, .black)
+    static let cellCarIcon = paintedSystemImage(named: "car.circle.fill", .white, .black, .black)
     static let cellDefaultIcon = paintedSystemImage(named: "xmark.circle.fill")
 }

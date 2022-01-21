@@ -19,12 +19,12 @@ class BikeStationViewController: StationViewController {
                 print(error)
             case .success(let metaData):
                 BikeStation.metadata = metaData
-                self.reloadData()
+                self.reloadDataSource()
             }
         }
     }
 
-    private func reloadData() {
+    private func reloadDataSource() {
         guard let metadata = BikeStation.metadata else { return }
         isRequesting = true
         NetworkService.shared.getBikeStations(from: metadata) { [weak self] result in
@@ -41,9 +41,14 @@ class BikeStationViewController: StationViewController {
     }
 
     override func viewDidLoad() {
-        reloadMetaData()
+        self.dataType = .Bike
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        reloadMetaData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
 

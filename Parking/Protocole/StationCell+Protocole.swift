@@ -13,6 +13,8 @@ enum CellType {
 
 protocol StationCellItem {
     var cellType: CellType { get }
+    var isLoaded: Bool { get }
+
     func cellName() -> String
     func cellFreePlaces() -> Int
     func cellTotalPlaces() ->Int
@@ -21,6 +23,7 @@ protocol StationCellItem {
 
     func cellPlacesLabel() -> String
     func cellUpdatedLabel() -> String
+
 }
 
 extension StationCellItem {

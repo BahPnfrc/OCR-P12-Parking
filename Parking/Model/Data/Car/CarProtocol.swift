@@ -12,16 +12,20 @@ extension CarStation: StationCellItem {
         .Car
     }
 
+    var isLoaded: Bool {
+        self.values != nil
+    }
+
     func cellName() -> String {
         self.name
     }
 
     func cellFreePlaces() -> Int {
-        self.free
+        self.values?.free ?? 0
     }
 
     func cellTotalPlaces() -> Int {
-        self.total
+        self.values?.total ?? 0
     }
 
     func cellCoordonates() -> (Lat: Double, Lon: Double)? {

@@ -21,15 +21,13 @@ class StationViewController: GlobalViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var dataType: CellType?
+    var dataType: CellType = .Bike
     var dataSource: [StationCellItem] {
         switch dataType {
         case .Bike:
             return BikeStation.allStations
         case .Car:
             return CarStation.allStations
-        default:
-            return [StationCellItem]()
         }
     }
 
@@ -44,7 +42,6 @@ class StationViewController: GlobalViewController {
         let nib = UINib(nibName: "StationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "stationCell")
     }
-
 }
 
 extension StationViewController: UISearchBarDelegate {
@@ -63,14 +60,29 @@ extension StationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationCell", for: indexPath) as! StationTableViewCell
 
-        let data = dataSource[indexPath.row]
+        let item = dataSource[indexPath.row]
+        cell.nameLabel.text = item.cellName()
 
-        cell.nameLabel.text = data.cellName()
-        cell.freeLabel.text = data.cellPlacesLabel()
-        cell.updateLabel.text = data.cellUpdatedLabel()
-
-        cell.typeImageView.image = data.cellType == .Bike ? Shared.cellBikeIcon : Shared.cellCarIcon
-
+        switch dataType {
+        case .Bike:
+            cell.freeLabel.text = item.cellPlacesLabel()
+            cell.updateLabel.text = item.cellUpdatedLabel()
+            cell.typeImageView.image = Shared.cellBikeIcon
+        case .Car:
+            if !item.isLoaded {
+                NetworkService.shared.getCarValues(for: item as! CarStation) { result in
+                    if case .success = result {
+                        cell.freeLabel.text = item.cellPlacesLabel()
+                        cell.updateLabel.text = item.cellUpdatedLabel()
+                        cell.typeImageView.image = Shared.cellCarIcon
+                    } else  {
+                        cell.freeLabel.text = "--"
+                        cell.updateLabel.text = "--"
+                        cell.typeImageView.image = Shared.cellDefaultIcon
+                    }
+                }
+            }
+        }
         return cell
     }
 }

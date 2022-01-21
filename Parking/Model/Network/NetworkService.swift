@@ -117,25 +117,31 @@ class NetworkService {
             let url = resource.url
             let name = resource.name
             guard !name.contains("_") else { continue }
-            NetworkService.shared.getRemoteXmlData(fromUrl: url) { result in
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let accessor):
-                    if let newParking = CarStation.parseCarXML(
-                        name: name,
-                        url: url,
-                        with: accessor) {
-                        allStations.append(newParking)
-                    }
-                }
-            }
+            let parking = CarStation(name: name, url: url)
+            allStations.append(parking)
         }
-        guard allStations.isEmpty else {
+        guard !allStations.isEmpty else {
             completion(.failure(.other(error: "No station decoded")))
             return
         }
         completion(.success(allStations))
+    }
+
+    func getCarValues(for station: CarStation, completion: @escaping (Result<CarValues, ApiError>) -> Void) {
+        NetworkService.shared.getRemoteXmlData(fromUrl: station.url) { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+                completion(.failure(error))
+            case .success(let accessor):
+                guard let values = CarStation.parseCarXML(for: station.name, with: accessor) else {
+                    completion(.failure(.other(error: "Parsing Car XML")))
+                    return
+                }
+                station.values = values
+                completion(.success(values))
+            }
+        }
     }
 
     // MARK: - XML File
