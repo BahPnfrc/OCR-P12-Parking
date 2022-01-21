@@ -8,11 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		1029F0DA3011ED2B9EA4C736 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7495ABF377037BA287D6A7 /* Pods_Parking.framework */; };
-		524412D027933B3300BB3411 /* ParkingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524412CF27933B3300BB3411 /* ParkingCell.xib */; };
+		524412D027933B3300BB3411 /* StationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524412CF27933B3300BB3411 /* StationCell.xib */; };
 		524412D327933F0A00BB3411 /* Paint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524412D227933F0A00BB3411 /* Paint.swift */; };
 		524412D527933FE100BB3411 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524412D427933FE100BB3411 /* UIColor+Extension.swift */; };
 		5269C036279998E300E29FDA /* MainUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C035279998E300E29FDA /* MainUITabBarController.swift */; };
 		5269C03827999BD600E29FDA /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C03727999BD600E29FDA /* Shared.swift */; };
+		5269C03A2799BA1C00E29FDA /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C0392799BA1C00E29FDA /* StationTableViewCell.swift */; };
+		5269C03C2799F36D00E29FDA /* GlobalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C03B2799F36D00E29FDA /* GlobalViewController.swift */; };
+		5269C03E2799F3B700E29FDA /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C03D2799F3B700E29FDA /* UINavigationController+Extension.swift */; };
+		5269C0402799F44C00E29FDA /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C03F2799F44C00E29FDA /* StationViewController.swift */; };
+		5269C042279A034900E29FDA /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C041279A034900E29FDA /* UIViewController+Extension.swift */; };
+		5269C045279A06FA00E29FDA /* StationCell+Protocole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C044279A06FA00E29FDA /* StationCell+Protocole.swift */; };
+		5269C047279A0F5F00E29FDA /* CarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C046279A0F5F00E29FDA /* CarProtocol.swift */; };
+		5269C049279A0FB400E29FDA /* BikeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C048279A0FB400E29FDA /* BikeProtocol.swift */; };
+		5269C04D279A9ADB00E29FDA /* CarStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C04C279A9ADB00E29FDA /* CarStationViewController.swift */; };
+		5269C04F279A9B3400E29FDA /* BikeStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C04E279A9B3400E29FDA /* BikeStationViewController.swift */; };
 		52C53C3D2788731F004586F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3C2788731F004586F6 /* AppDelegate.swift */; };
 		52C53C3F2788731F004586F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3E2788731F004586F6 /* SceneDelegate.swift */; };
 		52C53C412788731F004586F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C402788731F004586F6 /* ViewController.swift */; };
@@ -57,11 +67,21 @@
 		00C8243120BFC703C70730BE /* Pods_Parking_ParkingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking_ParkingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF50652B4A49CAEEB78ADD9 /* Pods_ParkingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7495ABF377037BA287D6A7 /* Pods_Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		524412CF27933B3300BB3411 /* ParkingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParkingCell.xib; sourceTree = "<group>"; };
+		524412CF27933B3300BB3411 /* StationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationCell.xib; sourceTree = "<group>"; };
 		524412D227933F0A00BB3411 /* Paint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paint.swift; sourceTree = "<group>"; };
 		524412D427933FE100BB3411 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5269C035279998E300E29FDA /* MainUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUITabBarController.swift; sourceTree = "<group>"; };
 		5269C03727999BD600E29FDA /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		5269C0392799BA1C00E29FDA /* StationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
+		5269C03B2799F36D00E29FDA /* GlobalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewController.swift; sourceTree = "<group>"; };
+		5269C03D2799F3B700E29FDA /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		5269C03F2799F44C00E29FDA /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
+		5269C041279A034900E29FDA /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		5269C044279A06FA00E29FDA /* StationCell+Protocole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationCell+Protocole.swift"; sourceTree = "<group>"; };
+		5269C046279A0F5F00E29FDA /* CarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarProtocol.swift; sourceTree = "<group>"; };
+		5269C048279A0FB400E29FDA /* BikeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeProtocol.swift; sourceTree = "<group>"; };
+		5269C04C279A9ADB00E29FDA /* CarStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarStationViewController.swift; sourceTree = "<group>"; };
+		5269C04E279A9B3400E29FDA /* BikeStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationViewController.swift; sourceTree = "<group>"; };
 		52C53C392788731F004586F6 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C53C3C2788731F004586F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C53C3E2788731F004586F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,7 +157,8 @@
 		524412CE27933B1400BB3411 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				524412CF27933B3300BB3411 /* ParkingCell.xib */,
+				524412CF27933B3300BB3411 /* StationCell.xib */,
+				5269C0392799BA1C00E29FDA /* StationTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -157,6 +178,37 @@
 				5269C035279998E300E29FDA /* MainUITabBarController.swift */,
 			);
 			path = Tab;
+			sourceTree = "<group>";
+		};
+		5269C043279A066600E29FDA /* Protocole */ = {
+			isa = PBXGroup;
+			children = (
+				5269C044279A06FA00E29FDA /* StationCell+Protocole.swift */,
+			);
+			path = Protocole;
+			sourceTree = "<group>";
+		};
+		5269C050279A9F1A00E29FDA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52C53C402788731F004586F6 /* ViewController.swift */,
+				52C53C7B2788897C004586F6 /* TestViewController.swift */,
+				5269C03B2799F36D00E29FDA /* GlobalViewController.swift */,
+				5269C03F2799F44C00E29FDA /* StationViewController.swift */,
+				5269C04C279A9ADB00E29FDA /* CarStationViewController.swift */,
+				5269C04E279A9B3400E29FDA /* BikeStationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5269C051279A9F3D00E29FDA /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				52C53C4827887320004586F6 /* Assets.xcassets */,
+				52C53C3C2788731F004586F6 /* AppDelegate.swift */,
+				52C53C3E2788731F004586F6 /* SceneDelegate.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		52C53C302788731F004586F6 = {
@@ -184,14 +236,13 @@
 		52C53C3B2788731F004586F6 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
-				52C53C7D27888F21004586F6 /* Extension */,
-				52C53C7A27888944004586F6 /* View */,
-				52C53C6F278876A5004586F6 /* Model */,
-				52C53C3C2788731F004586F6 /* AppDelegate.swift */,
-				52C53C3E2788731F004586F6 /* SceneDelegate.swift */,
-				52C53C4827887320004586F6 /* Assets.xcassets */,
 				52C53C4D27887320004586F6 /* Info.plist */,
-				52C53C452788731F004586F6 /* Parking.xcdatamodeld */,
+				5269C051279A9F3D00E29FDA /* Support */,
+				5269C043279A066600E29FDA /* Protocole */,
+				52C53C7D27888F21004586F6 /* Extension */,
+				52C53C6F278876A5004586F6 /* Model */,
+				52C53C7A27888944004586F6 /* View */,
+				5269C050279A9F1A00E29FDA /* Controller */,
 			);
 			path = Parking;
 			sourceTree = "<group>";
@@ -235,6 +286,7 @@
 		52C53C79278882A0004586F6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				52C53C452788731F004586F6 /* Parking.xcdatamodeld */,
 				52E8A9AA27918AB100212D88 /* Bike */,
 				52E8A9A927918A9A00212D88 /* Car */,
 			);
@@ -244,8 +296,6 @@
 		52C53C7A27888944004586F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				52C53C402788731F004586F6 /* ViewController.swift */,
-				52C53C7B2788897C004586F6 /* TestViewController.swift */,
 				52C53C4A27887320004586F6 /* LaunchScreen.storyboard */,
 				52C53C422788731F004586F6 /* Main.storyboard */,
 				5269C034279998AB00E29FDA /* Tab */,
@@ -260,6 +310,8 @@
 			children = (
 				52C53C7E27888F34004586F6 /* String+Extension.swift */,
 				524412D427933FE100BB3411 /* UIColor+Extension.swift */,
+				5269C03D2799F3B700E29FDA /* UINavigationController+Extension.swift */,
+				5269C041279A034900E29FDA /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -269,6 +321,7 @@
 			children = (
 				52C53C7727887F3F004586F6 /* CarMetaData.swift */,
 				52C53C8027889908004586F6 /* CarStation.swift */,
+				5269C046279A0F5F00E29FDA /* CarProtocol.swift */,
 			);
 			path = Car;
 			sourceTree = "<group>";
@@ -278,6 +331,7 @@
 			children = (
 				52C53C88278F7D90004586F6 /* BikeMetaData.swift */,
 				52E8A9A52790886E00212D88 /* BikeStation.swift */,
+				5269C048279A0FB400E29FDA /* BikeProtocol.swift */,
 			);
 			path = Bike;
 			sourceTree = "<group>";
@@ -401,7 +455,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524412D027933B3300BB3411 /* ParkingCell.xib in Resources */,
+				524412D027933B3300BB3411 /* StationCell.xib in Resources */,
 				52C53C4C27887320004586F6 /* LaunchScreen.storyboard in Resources */,
 				52C53C4927887320004586F6 /* Assets.xcassets in Resources */,
 				52C53C442788731F004586F6 /* Main.storyboard in Resources */,
@@ -535,20 +589,30 @@
 			files = (
 				5269C036279998E300E29FDA /* MainUITabBarController.swift in Sources */,
 				52C53C72278876C3004586F6 /* NetworkService.swift in Sources */,
+				5269C03E2799F3B700E29FDA /* UINavigationController+Extension.swift in Sources */,
 				52C53C7F27888F34004586F6 /* String+Extension.swift in Sources */,
+				5269C04F279A9B3400E29FDA /* BikeStationViewController.swift in Sources */,
+				5269C03A2799BA1C00E29FDA /* StationTableViewCell.swift in Sources */,
 				52C53C7827887F3F004586F6 /* CarMetaData.swift in Sources */,
 				52C53C7C2788897C004586F6 /* TestViewController.swift in Sources */,
 				52C53C472788731F004586F6 /* Parking.xcdatamodeld in Sources */,
 				524412D327933F0A00BB3411 /* Paint.swift in Sources */,
 				52C53C8127889908004586F6 /* CarStation.swift in Sources */,
+				5269C049279A0FB400E29FDA /* BikeProtocol.swift in Sources */,
 				524412D527933FE100BB3411 /* UIColor+Extension.swift in Sources */,
 				52E8A9A62790886E00212D88 /* BikeStation.swift in Sources */,
 				52C53C89278F7D90004586F6 /* BikeMetaData.swift in Sources */,
 				52C53C412788731F004586F6 /* ViewController.swift in Sources */,
+				5269C045279A06FA00E29FDA /* StationCell+Protocole.swift in Sources */,
+				5269C03C2799F36D00E29FDA /* GlobalViewController.swift in Sources */,
 				52C53C3D2788731F004586F6 /* AppDelegate.swift in Sources */,
 				52C53C3F2788731F004586F6 /* SceneDelegate.swift in Sources */,
 				5269C03827999BD600E29FDA /* Shared.swift in Sources */,
+				5269C042279A034900E29FDA /* UIViewController+Extension.swift in Sources */,
+				5269C04D279A9ADB00E29FDA /* CarStationViewController.swift in Sources */,
 				52C53C7427887D17004586F6 /* ApiError.swift in Sources */,
+				5269C047279A0F5F00E29FDA /* CarProtocol.swift in Sources */,
+				5269C0402799F44C00E29FDA /* StationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,9 +23,9 @@ class MainUITabBarController: UITabBarController {
     private func setTabItems() {
         let items = tabBar.items! as [UITabBarItem]
         let data: [(title: String, image: UIImage?)] = [
-            ("Voiture", Shared.paintedSystemImage(named: "car.fill")),
-            ("Vélo", Shared.paintedSystemImage(named: "bicycle")),
-            ("Mes Parkings", Shared.paintedSystemImage(named: "star.fill"))
+            ("Voiture", Shared.tabCarIcon ),
+            ("Vélo", Shared.tabBikeIcon),
+            ("Favoris", Shared.tabFavoriteIcon)
         ]
 
         guard items.count == data.count else {
