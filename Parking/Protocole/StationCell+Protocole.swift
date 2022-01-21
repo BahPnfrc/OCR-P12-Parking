@@ -28,7 +28,7 @@ protocol StationCellItem {
 
 extension StationCellItem {
     func cellPlacesLabel() -> String {
-        "Disponibilité :\t\(cellTotalPlaces())\tsur\(cellTotalPlaces())"
+        "Disponibilité :\t\(cellFreePlaces()) sur \(cellTotalPlaces())"
     }
 
     func cellUpdatedLabel() -> String {

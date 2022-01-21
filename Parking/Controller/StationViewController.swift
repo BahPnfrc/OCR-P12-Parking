@@ -35,12 +35,32 @@ class StationViewController: GlobalViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
 
+        paintHeader()
+        paintTableView()
+
+        searchBar.placeholder = "Filtrer par nom"
+        searchBar.backgroundImage = UIImage()
+
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
 
+
+    }
+
+    func paintHeader() {
+        headerView.backgroundColor = Paint.defViewColor
+        headerView.layer.cornerRadius = Paint.defRadius
+        headerTopImageView.image = Shared.paintedSystemImage(named: "parkingsign.circle.fill")
+        headerTopLabel.text = "Décompte parkings"
+        headerSubImageView.image = Shared.paintedSystemImage(named: "checkmark.circle.fill")
+        headerSubLabel.text = "Décompte places libres"
+    }
+
+    func paintTableView() {
         let nib = UINib(nibName: "StationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "stationCell")
+        tableView.backgroundColor = .white.withAlphaComponent(0)
     }
 }
 
@@ -62,6 +82,7 @@ extension StationViewController: UITableViewDataSource {
 
         let item = dataSource[indexPath.row]
         cell.nameLabel.text = item.cellName()
+        cell.isRequesting = true
 
         switch dataType {
         case .Bike:
@@ -83,6 +104,13 @@ extension StationViewController: UITableViewDataSource {
                 }
             }
         }
+        cell.isRequesting = false
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
+        cell.contentView.layer.masksToBounds = true
     }
 }

@@ -56,7 +56,7 @@ extension CarStation {
               let status = accessor["park", CarValues.CodingKeys.status.rawValue].text,
               let free = accessor["park", CarValues.CodingKeys.free.rawValue].text,
               let total = accessor["park", CarValues.CodingKeys.total.rawValue].text else {
-                  print("🟥 CAR VALUES : \(name)")
+                  print("🟥 CAR STATION : \(name)")
                   return nil
               }
 
@@ -66,7 +66,7 @@ extension CarStation {
             status: status,
             free: Int(free) ?? 0,
             total: Int(total) ?? 0)
-        print("🟩 CAR VALUES : \(name) :", free, "sur", total)
+        print("🟩 CAR STATION : \(name) :", free, "sur", total)
         return values
     }
 

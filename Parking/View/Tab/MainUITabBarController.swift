@@ -11,8 +11,18 @@ class MainUITabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavBar()
         setTabBar()
         setTabItems()
+    }
+
+    func setNavBar() {
+        if #available(iOS 15.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.backgroundColor = Paint.defViewColor
+            UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+            UINavigationBar.appearance().standardAppearance = navBarAppearance
+        }
     }
     
     private func setTabBar() {
@@ -23,7 +33,7 @@ class MainUITabBarController: UITabBarController {
     private func setTabItems() {
         let items = tabBar.items! as [UITabBarItem]
         let data: [(title: String, image: UIImage?)] = [
-            ("Voiture", Shared.tabCarIcon ),
+            ("Voiture", Shared.tabCarIcon),
             ("Vélo", Shared.tabBikeIcon),
             ("Favoris", Shared.tabFavoriteIcon)
         ]
@@ -33,7 +43,9 @@ class MainUITabBarController: UITabBarController {
         }
 
         for index in 0...items.count - 1 {
-            (items[index].title, items[index].image) = (data[index].title, data[index].image)
+            items[index].title = data[index].title
+            items[index].image = data[index].image
+            items[index].selectedImage = data[index].image
         }
 
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)

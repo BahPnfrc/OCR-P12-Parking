@@ -44,13 +44,7 @@ class CarStationViewController: StationViewController {
         self.dataType = .Car
         super.viewDidLoad()
         reloadMetaData()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-    }
-    
+    }    
 
     /*
     // MARK: - Navigation
