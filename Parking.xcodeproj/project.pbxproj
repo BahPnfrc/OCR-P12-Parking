@@ -23,6 +23,8 @@
 		5269C049279A0FB400E29FDA /* BikeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C048279A0FB400E29FDA /* BikeProtocol.swift */; };
 		5269C04D279A9ADB00E29FDA /* CarStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C04C279A9ADB00E29FDA /* CarStationViewController.swift */; };
 		5269C04F279A9B3400E29FDA /* BikeStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C04E279A9B3400E29FDA /* BikeStationViewController.swift */; };
+		5269C05E279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C05C279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift */; };
+		5269C05F279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C05D279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift */; };
 		52C53C3D2788731F004586F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3C2788731F004586F6 /* AppDelegate.swift */; };
 		52C53C3F2788731F004586F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3E2788731F004586F6 /* SceneDelegate.swift */; };
 		52C53C412788731F004586F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C402788731F004586F6 /* ViewController.swift */; };
@@ -82,6 +84,8 @@
 		5269C048279A0FB400E29FDA /* BikeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeProtocol.swift; sourceTree = "<group>"; };
 		5269C04C279A9ADB00E29FDA /* CarStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarStationViewController.swift; sourceTree = "<group>"; };
 		5269C04E279A9B3400E29FDA /* BikeStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationViewController.swift; sourceTree = "<group>"; };
+		5269C05C279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StationFavorite+CoreDataClass.swift"; path = "Parking/Model/CoreData/StationFavorite+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		5269C05D279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StationFavorite+CoreDataProperties.swift"; path = "Parking/Model/CoreData/StationFavorite+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		52C53C392788731F004586F6 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C53C3C2788731F004586F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C53C3E2788731F004586F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				52C53C452788731F004586F6 /* Parking.xcdatamodeld */,
+				5269C05C279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift */,
+				5269C05D279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -599,6 +605,7 @@
 				52C53C72278876C3004586F6 /* NetworkService.swift in Sources */,
 				5269C03E2799F3B700E29FDA /* UINavigationController+Extension.swift in Sources */,
 				52C53C7F27888F34004586F6 /* String+Extension.swift in Sources */,
+				5269C05E279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift in Sources */,
 				5269C04F279A9B3400E29FDA /* BikeStationViewController.swift in Sources */,
 				5269C03A2799BA1C00E29FDA /* StationTableViewCell.swift in Sources */,
 				52C53C7827887F3F004586F6 /* CarMetaData.swift in Sources */,
@@ -618,6 +625,7 @@
 				5269C03827999BD600E29FDA /* Shared.swift in Sources */,
 				5269C042279A034900E29FDA /* UIViewController+Extension.swift in Sources */,
 				5269C04D279A9ADB00E29FDA /* CarStationViewController.swift in Sources */,
+				5269C05F279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift in Sources */,
 				52C53C7427887D17004586F6 /* ApiError.swift in Sources */,
 				5269C047279A0F5F00E29FDA /* CarProtocol.swift in Sources */,
 				5269C0402799F44C00E29FDA /* StationViewController.swift in Sources */,
