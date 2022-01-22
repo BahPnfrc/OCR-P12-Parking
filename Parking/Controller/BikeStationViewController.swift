@@ -9,7 +9,7 @@ import UIKit
 
 class BikeStationViewController: StationViewController {
 
-    private func reloadMetaData() {
+    private func reloadBikeMetaData() {
         isRequesting = true
         NetworkService.shared.getBikeMetaData { [weak self] result in
             guard let self = self else { return }
@@ -19,12 +19,12 @@ class BikeStationViewController: StationViewController {
                 print(error)
             case .success(let metaData):
                 BikeStation.metadata = metaData
-                self.reloadDataSource()
+                self.reloadBikeStations()
             }
         }
     }
 
-    private func reloadDataSource() {
+    private func reloadBikeStations() {
         guard let metadata = BikeStation.metadata else { return }
         isRequesting = true
         NetworkService.shared.getBikeStations(from: metadata) { [weak self] result in
@@ -35,25 +35,29 @@ class BikeStationViewController: StationViewController {
                 print(error)
             case .success(let allStations):
                 BikeStation.allStations = allStations
-                self.tableView.reloadData()
             }
+            self.reloadDataSource()
         }
     }
 
     override func viewDidLoad() {
         self.dataType = .Bike
         super.viewDidLoad()
-        reloadMetaData()
+        reloadBikeMetaData()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        guard !isSearching else { return }
+        isLocalRequesting = true
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        UIView.animate(withDuration: 0.5, animations: {
+            tappedImage.transform = CGAffineTransform.init(rotationAngle: .pi)
+            self.reloadBikeMetaData()
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.5, animations: {
+                tappedImage.transform = CGAffineTransform.identity
+                self.isLocalRequesting = false
+            })
+        })
     }
-    */
-
 }

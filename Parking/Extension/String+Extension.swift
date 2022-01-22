@@ -10,40 +10,12 @@ extension String {
         return unicodeToUtf8
     }
     
-    func utf8DecodedString()-> String {
-        let data = self.data(using: .utf8)
-        let message = String(data: data!, encoding: .nonLossyASCII) ?? ""
-        return message
+    func formattedDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss"
+        let trimmedDateStr = self.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
+        return dateFormatter.date(from: trimmedDateStr)
     }
-
-    func utf8EncodedString()-> String {
-        let messageData = self.data(using: .nonLossyASCII)
-        let text = String(data: messageData!, encoding: .utf8) ?? ""
-        return text
-    }
-
-    func htmlDecoded() -> String {
-        guard let data = self.data(using: .utf8) else {
-            return self
-        }
-        let decoded = try? NSAttributedString(data: data, options: [
-            .documentType: NSAttributedString.DocumentType.html,
-            .characterEncoding: String.Encoding.utf8.rawValue
-        ], documentAttributes: nil).string
-        return decoded ?? self
-    }
-
-    var data: Data { .init(utf8) }
-    var html2AttributedString: NSAttributedString? {
-        do {
-            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-    var html2String: String { html2AttributedString?.string ?? "" }
-    var unicodes: [UInt32] { unicodeScalars.map(\.value) }
 }
 
 

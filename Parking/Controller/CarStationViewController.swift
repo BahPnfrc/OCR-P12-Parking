@@ -9,7 +9,7 @@ import UIKit
 
 class CarStationViewController: StationViewController {
 
-    private func reloadMetaData() {
+    private func reloadCarMetaData() {
         isRequesting = true
         NetworkService.shared.getCarMetaData { [weak self] result in
             guard let self = self else { return }
@@ -19,12 +19,12 @@ class CarStationViewController: StationViewController {
                 print(error)
             case .success(let metaData):
                 CarStation.metadata = metaData
-                self.reloadDataSource()
+                self.reloadCarStations()
             }
         }
     }
 
-    private func reloadDataSource() {
+    private func reloadCarStations() {
         guard let metadata = CarStation.metadata else { return }
         isRequesting = true
         NetworkService.shared.getCarStations(from: metadata) { [weak self] result in
@@ -35,25 +35,29 @@ class CarStationViewController: StationViewController {
                 print(error)
             case .success(let allStations):
                 CarStation.allStations = allStations
-                self.tableView.reloadData()
             }
+            self.reloadDataSource()
         }
     }
 
     override func viewDidLoad() {
         self.dataType = .Car
         super.viewDidLoad()
-        reloadMetaData()
-    }    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        reloadCarMetaData()
     }
-    */
 
+    override func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        guard !isSearching else { return }
+        isLocalRequesting = true
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        UIView.animate(withDuration: 0.5, animations: {
+            tappedImage.transform = CGAffineTransform.init(rotationAngle: .pi)
+            self.reloadCarMetaData()
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.5, animations: {
+                tappedImage.transform = CGAffineTransform.identity
+                self.isLocalRequesting = false
+            })
+        })
+    }
 }

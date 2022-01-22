@@ -7,6 +7,8 @@ class BikeStation {
     static var metadata: BikeMetaData?
     static var allStations = [BikeStation]()
 
+    let dateTime: Date
+
     let name: String
     let id: Int
     let latitude: Double
@@ -30,6 +32,7 @@ class BikeStation {
         self.longitude = longitude
         self.free = free
         self.total = total
+        self.dateTime = Date()
     }
 }
 
@@ -55,12 +58,5 @@ extension BikeStation {
             total: Int(total) ?? 0)
         print("🟩 BIKE STATION : OK @\(name) :", free, "sur", total)
         return bikeStation
-    }
-
-    private static func formattedDate(from dateStr: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss"
-        let trimmedDateStr = dateStr.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
-        return dateFormatter.date(from: trimmedDateStr)!
     }
 }

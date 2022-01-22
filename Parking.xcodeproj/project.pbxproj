@@ -35,7 +35,7 @@
 		52C53C6327887320004586F6 /* ParkingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C6227887320004586F6 /* ParkingUITestsLaunchTests.swift */; };
 		52C53C72278876C3004586F6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C71278876C3004586F6 /* NetworkService.swift */; };
 		52C53C7427887D17004586F6 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C7327887D17004586F6 /* ApiError.swift */; };
-		52C53C7627887D56004586F6 /* Model.json in Resources */ = {isa = PBXBuildFile; fileRef = 52C53C7527887D56004586F6 /* Model.json */; };
+		52C53C7627887D56004586F6 /* CarModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 52C53C7527887D56004586F6 /* CarModel.json */; };
 		52C53C7827887F3F004586F6 /* CarMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C7727887F3F004586F6 /* CarMetaData.swift */; };
 		52C53C7C2788897C004586F6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C7B2788897C004586F6 /* TestViewController.swift */; };
 		52C53C7F27888F34004586F6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C7E27888F34004586F6 /* String+Extension.swift */; };
@@ -98,7 +98,7 @@
 		52C53C6227887320004586F6 /* ParkingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		52C53C71278876C3004586F6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		52C53C7327887D17004586F6 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
-		52C53C7527887D56004586F6 /* Model.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Model.json; sourceTree = "<group>"; };
+		52C53C7527887D56004586F6 /* CarModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CarModel.json; sourceTree = "<group>"; };
 		52C53C7727887F3F004586F6 /* CarMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMetaData.swift; sourceTree = "<group>"; };
 		52C53C7B2788897C004586F6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		52C53C7E27888F34004586F6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				52C53C5627887320004586F6 /* ParkingTests.swift */,
-				52C53C7527887D56004586F6 /* Model.json */,
+				52C53C7527887D56004586F6 /* CarModel.json */,
 			);
 			path = ParkingTests;
 			sourceTree = "<group>";
@@ -466,7 +466,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52C53C7627887D56004586F6 /* Model.json in Resources */,
+				52C53C7627887D56004586F6 /* CarModel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

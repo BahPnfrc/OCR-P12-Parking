@@ -21,14 +21,23 @@ class StationTableViewCell: UITableViewCell {
     @IBOutlet weak var freeImageView: UIImageView!
     @IBOutlet weak var updatedImageView: UIImageView!
 
+    @IBOutlet weak var favoriteImageView: UIImageView!
+    @IBOutlet weak var favoriteButton: UIButton!
 
+    var isFavorite = false {
+        didSet {
+            if isFavorite {
+                favoriteImageView.image = Shared.paintedSystemImage(named: "star.fill", .black, .black, .black)
+            } else {
+                favoriteImageView.image = Shared.paintedSystemImage(named: "star.slash", .black, .black, .black)
+            }
+        }
+    }
     var isRequesting: Bool = false {
         didSet {
             if isRequesting {
-                typeImageView.isHidden = true
                 activityIndicator.startAnimating()
             } else {
-                typeImageView.isHidden = false
                 activityIndicator.stopAnimating()
             }
         }
@@ -36,6 +45,7 @@ class StationTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        isFavorite = false
         isRequesting = false
         paint()
     }
@@ -45,8 +55,13 @@ class StationTableViewCell: UITableViewCell {
         background.layer.cornerRadius = Paint.defRadius
         background.backgroundColor = Paint.defViewColor
 
-        freeImageView.image = Shared.paintedSystemImage(named: "checkmark.circle.fill", .white, .black, .black)
-        updatedImageView.image = Shared.paintedSystemImage(named: "clock.badge.checkmark.fill", .black, .black, .black)
+        freeImageView.image = Shared.paintedSystemImage(named: "arrow.left.arrow.right.circle", .black, .black, .black)
+        updatedImageView.image = Shared.paintedSystemImage(named: "clock.badge.checkmark", .black, .black, .black)
+    }
+
+
+    @IBAction func didTapFavoriteButton(_ sender: Any) {
+        isFavorite = !isFavorite
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -9,24 +9,43 @@ import UIKit
 
 class StationViewController: GlobalViewController {
 
+    // MARK: - Outlets
+
     @IBOutlet weak var backImageView: UIImageView!
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerTopImageView: UIImageView!
+
+    @IBOutlet weak var requestingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var headerTopLabel: UILabel!
+
+    @IBOutlet weak var headerSubReloader: UIImageView!
     @IBOutlet weak var headerSubImageView: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
 
     @IBOutlet weak var tableView: UITableView!
+
+    // MARK: - Properties
+
     let tableViewIsReversed = false
 
+    var isLocalRequesting = false {
+        didSet {
+            if isLocalRequesting {
+                requestingIndicator.startAnimating()
+            } else {
+                requestingIndicator.stopAnimating()
+            }
+        }
+    }
+
+    var isSearching = false
+    var searchingKey: String?
+
     var dataType: CellType = .Bike
-    var dataSource: [StationCellItem] {
-        switch dataType {
-        case .Bike:
-            return BikeStation.allStations
-        case .Car:
-            return CarStation.allStations
+    var dataSource: [StationCellItem]? {
+        didSet {
+            defineNewHeaderTitle()
         }
     }
 
@@ -35,54 +54,159 @@ class StationViewController: GlobalViewController {
         hideKeyboardWhenTappedAround()
 
         paintHeader()
+        paintSearchBar()
         paintTableView()
-
-        searchBar.placeholder = "Filtrer par nom"
-        searchBar.backgroundImage = UIImage()
 
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        if tableViewIsReversed {
-            tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
-        }
 
-
-
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        headerSubReloader.isUserInteractionEnabled = true
+        headerSubReloader.addGestureRecognizer(gesture)
     }
 
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        fatalError("Must override")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        defineNewHeaderTitle()
+    }
+
+
+}
+
+// MARK: - Paint functions
+
+extension StationViewController {
     func paintHeader() {
+        requestingIndicator.hidesWhenStopped = true
         headerView.backgroundColor = Paint.defViewColor
         headerView.layer.cornerRadius = Paint.defRadius
         headerTopImageView.image = Shared.paintedSystemImage(named: "parkingsign.circle.fill")
         headerTopLabel.text = "Décompte parkings"
-        headerSubImageView.image = Shared.paintedSystemImage(named: "checkmark.circle.fill")
+        headerSubImageView.image = Shared.paintedSystemImage(named: "magnifyingglass.circle.fill")
+        headerSubReloader.image = Shared.paintedSystemImage(named: "arrow.triangle.2.circlepath.circle.fill")
+    }
+
+    func paintSearchBar() {
+        searchBar.placeholder = "Filtrer"
+        searchBar.setImage(UIImage(), for: .search, state: .normal)
+        searchBar.backgroundImage = UIImage()
     }
 
     func paintTableView() {
         let nib = UINib(nibName: "StationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "stationCell")
         tableView.backgroundColor = .white.withAlphaComponent(0)
+        if tableViewIsReversed {
+            tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        }
+    }
+
+    func defineNewHeaderTitle() {
+        let count = countDataSource()
+        var newHeader:(image: UIImage?, label: String)
+        if isSearching {
+            switch count.items {
+            case 0:
+                newHeader = (Shared.paintedSystemImage(named: "magnifyingglass.circle.fill", .black, .systemRed, .systemRed), "Aucun résultat")
+            case 1:
+                newHeader = (Shared.paintedSystemImage(named: "magnifyingglass.circle.fill", .black, .systemGreen, .systemGreen), "1 seul résultat")
+            default:
+                newHeader = (Shared.paintedSystemImage(named: "magnifyingglass.circle.fill", .black, .systemGreen, .systemGreen), "\(count.items) résultats")
+            }
+        } else {
+            switch count.items {
+            case 0:
+                newHeader = (Shared.paintedSystemImage(named: "parkingsign.circle.fill"), "Aucune place libre")
+            case 1:
+                newHeader = (Shared.paintedSystemImage(named: "parkingsign.circle.fill"), "1 seule place libre")
+            default:
+                newHeader = (Shared.paintedSystemImage(named: "parkingsign.circle.fill"), "\(count.freePlaces) places libres")
+            }
+        }
+        (headerTopImageView.image, headerTopLabel.text) = newHeader
     }
 }
 
+// MARK: - Datasource functions
+
+extension StationViewController {
+    func reloadDataSource() {
+        if isSearching {
+            dataSource = [StationCellItem]()
+            tableView.reloadData()
+            guard let searchingKey = searchingKey?.lowercased() else { return }
+            switch dataType {
+            case .Bike:
+                dataSource = BikeStation.allStations
+                    .filter({$0.cellName().lowercased()
+                    .contains(searchingKey)
+                }).sorted(by: { $0.cellName() < $1.cellName()})
+            case .Car:
+                dataSource = CarStation.allStations
+                    .filter({ $0.cellName().lowercased()
+                    .contains(searchingKey)
+                }).sorted(by: { $0.cellName() < $1.cellName()})
+            }
+        } else {
+            switch dataType {
+            case .Bike:
+                dataSource = BikeStation.allStations
+            case .Car:
+                dataSource = CarStation.allStations
+            }
+        }
+        tableView.reloadData()
+    }
+
+    func countDataSource() -> (items: Int, freePlaces: Int) {
+        let items = dataSource?.count ?? 0
+        let freePlaces: Int = { () -> Int in
+            guard let dataSource = self.dataSource else {
+                return 0
+            }
+            return dataSource
+                .map({ $0.cellFreePlaces() })
+                .reduce(0, { $0 + $1 })
+        }()
+        return (items, freePlaces)
+    }
+}
+
+// MARK: UISearchBarDelegate
+
 extension StationViewController: UISearchBarDelegate {
-
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count > 0 {
+            isSearching = true
+            searchingKey = searchText
+        } else {
+            isSearching = false
+            searchingKey = nil
+        }
+        reloadDataSource()
+    }
 }
 
-extension StationViewController: UITableViewDelegate {
+// MARK: - UITableViewDelegate
 
-}
+extension StationViewController: UITableViewDelegate {}
+
+// MARK: - UITableViewDataSource
 
 extension StationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataSource.count
+        dataSource?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationCell", for: indexPath) as! StationTableViewCell
 
-        let item = dataSource[indexPath.row]
+        let item = dataSource![indexPath.row]
         cell.nameLabel.text = item.cellName()
         cell.isRequesting = true
 
@@ -121,10 +245,5 @@ extension StationViewController: UITableViewDataSource {
             cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         }
 
-    }
-
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //        let selectedCell = tableView.cellForRow(at: indexPath)
-        //        selectedCell?.isSelected = false
     }
 }

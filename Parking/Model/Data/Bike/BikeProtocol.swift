@@ -33,6 +33,6 @@ extension BikeStation: StationCellItem {
     }
 
     func cellUpdatedTime() -> Date? {
-        nil
+        self.dateTime
     }
 }
