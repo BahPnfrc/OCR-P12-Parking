@@ -211,6 +211,14 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		5269C057279C95C600E29FDA /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				52C53C452788731F004586F6 /* Parking.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		52C53C302788731F004586F6 = {
 			isa = PBXGroup;
 			children = (
@@ -286,7 +294,7 @@
 		52C53C79278882A0004586F6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				52C53C452788731F004586F6 /* Parking.xcdatamodeld */,
+				5269C057279C95C600E29FDA /* CoreData */,
 				52E8A9AA27918AB100212D88 /* Bike */,
 				52E8A9A927918A9A00212D88 /* Car */,
 			);
