@@ -1,41 +1,23 @@
 //
-//  StationCell+Protocole.swift
+//  StationCellItem+Extension.swift
 //  Parking
 //
-//  Created by Genapi on 20/01/2022.
+//  Created by Genapi on 22/01/2022.
 //
 
 import Foundation
 
-enum CellType {
-    case Car, Bike
-}
-
-protocol StationCellItem {
-    var cellType: CellType { get }
-    var isLoaded: Bool { get }
-
-    func cellName() -> String
-    func cellFreePlaces() -> Int
-    func cellTotalPlaces() ->Int
-    func cellCoordonates() -> (Lat: Double, Lon: Double)?
-    func cellUpdatedTime() -> Date?
-
-    func cellPlacesLabel() -> String
-    func cellUpdatedLabel() -> String
-
-}
+// MARK: - Displayable Extension
 
 extension StationCellItem {
-    func cellPlacesLabel() -> String {
+    func cellDisplayableFreePlace() -> String {
         "Place : \(cellFreePlaces()) sur \(cellTotalPlaces())"
     }
-
-    func cellUpdatedLabel() -> String {
-        staticDateTime()
+    func cellDisplayableUpdatedTime() -> String {
+        staticUpdatedTime()
     }
 
-    private func staticDateTime() -> String {
+    private func staticUpdatedTime() -> String {
         var dateAsString = "Inconnue"
         if let date = cellUpdatedTime() {
             let format = DateFormatter()
@@ -45,7 +27,7 @@ extension StationCellItem {
         return "Date : \(dateAsString)"
     }
 
-    private func dynamicDateTime() -> String {
+    private func dynamicUpdatedTime() -> String {
         var dateAsString = "Inconnu"
         if let date = cellUpdatedTime() {
             let now = Date()
@@ -74,5 +56,19 @@ extension StationCellItem {
         } else {
             return "Très récent"
         }
+    }
+}
+
+// MARK: - Favorite Extension
+
+extension StationCellItem {
+    func cellIsFavorite() -> Bool {
+        return CoreDataController.shared.isFavorite(self)
+    }
+    func cellFavoriteAdd() -> Void {
+        CoreDataController.shared.add(self)
+    }
+    func cellFavoriteDelete() throws -> Void {
+        try CoreDataController.shared.delete(self)
     }
 }

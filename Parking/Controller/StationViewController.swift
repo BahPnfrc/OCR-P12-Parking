@@ -212,15 +212,15 @@ extension StationViewController: UITableViewDataSource {
 
         switch dataType {
         case .Bike:
-            cell.freeLabel.text = item.cellPlacesLabel()
-            cell.updateLabel.text = item.cellUpdatedLabel()
+            cell.freeLabel.text = item.cellDisplayableFreePlace()
+            cell.updateLabel.text = item.cellDisplayableUpdatedTime()
             cell.typeImageView.image = Shared.cellBikeIcon
         case .Car:
             if !item.isLoaded {
                 NetworkService.shared.getCarValues(for: item as! CarStation) { result in
                     if case .success = result {
-                        cell.freeLabel.text = item.cellPlacesLabel()
-                        cell.updateLabel.text = item.cellUpdatedLabel()
+                        cell.freeLabel.text = item.cellDisplayableFreePlace()
+                        cell.updateLabel.text = item.cellDisplayableUpdatedTime()
                         cell.typeImageView.image = Shared.cellCarIcon
                     } else  {
                         cell.freeLabel.text = "--"

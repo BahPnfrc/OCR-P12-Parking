@@ -21,6 +21,4 @@ extension StationFavorite {
 
 }
 
-extension StationFavorite : Identifiable {
-
-}
+extension StationFavorite : Identifiable {}
