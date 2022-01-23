@@ -22,7 +22,7 @@ struct CarValues {
 class CarStation {
 
     static var metadata: CarMetaData?
-    static var allStations = [CarStation]()
+    static var allStations = [StationCellItem]()
 
     let name: String
     let url: String
@@ -34,13 +34,19 @@ class CarStation {
     }
 
     func reloadValues() {
-        NetworkService.shared.getCarValues(for: self) { result in
+        NetworkService.shared.getRemoteXmlData(fromUrl: url) { result in
             switch result {
-            case .failure(let error):
-                print(error)
+            case .failure:
+                print("🟧 CAR STATION XML : \(self.name)")
                 self.values = nil
-            case .success(let values):
+                return
+            case .success(let accessor):
+                guard let values = CarStation.parseCarXML(for: self.name, with: accessor) else {
+                    self.values = nil
+                    return
+                }
                 self.values = values
+                return
             }
         }
     }
@@ -50,13 +56,13 @@ class CarStation {
 // MARK: - XML Data Parsing
 
 extension CarStation {
-    static func parseCarXML(for name: String, with accessor: XML.Accessor) -> CarValues? {
+static func parseCarXML(for name: String, with accessor: XML.Accessor) -> CarValues? {
         guard let dateTime = accessor["park", CarValues.CodingKeys.dateTime.rawValue].text,
               let shortName = accessor["park", CarValues.CodingKeys.shortName.rawValue].text,
               let status = accessor["park", CarValues.CodingKeys.status.rawValue].text,
               let free = accessor["park", CarValues.CodingKeys.free.rawValue].text,
               let total = accessor["park", CarValues.CodingKeys.total.rawValue].text else {
-                  print("🟥 CAR STATION : \(name)")
+                  print("🟥 CAR STATION XML : \(name)")
                   return nil
               }
 
@@ -66,7 +72,7 @@ extension CarStation {
             status: status,
             free: Int(free) ?? 0,
             total: Int(total) ?? 0)
-        print("🟩 CAR STATION : \(name) :", free, "sur", total)
+        print("🟦 CAR STATION : OK@\(name) :", free, "sur", total)
         return values
     }
 

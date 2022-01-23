@@ -7,41 +7,26 @@
 
 import UIKit
 
-class StationViewController: GlobalViewController {
+class StationViewController: NetworkViewController {
 
     // MARK: - Outlets
 
     @IBOutlet weak var backImageView: UIImageView!
-
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerTopImageView: UIImageView!
-
     @IBOutlet weak var requestingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var headerTopLabel: UILabel!
-
     @IBOutlet weak var headerSubReloader: UIImageView!
     @IBOutlet weak var headerSubImageView: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
-
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: - Properties
 
-    var isLocalRequesting = false {
-        didSet {
-            if isLocalRequesting {
-                requestingIndicator.startAnimating()
-            } else {
-                requestingIndicator.stopAnimating()
-            }
-        }
-    }
-
     var isSearching = false
     var searchingKey: String?
 
-    var dataType: CellType = .Bike
-    var dataSource: [StationCellItem]? {
+    private var dataSource: [StationCellItem]? {
         didSet {
             defineNewHeaderTitle()
         }
@@ -64,19 +49,18 @@ class StationViewController: GlobalViewController {
         headerSubReloader.addGestureRecognizer(gesture)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         fatalError("Must override")
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        defineNewHeaderTitle()
-    }
-}
+    // MARK: - Paint functions
 
-// MARK: - Paint functions
-
-extension StationViewController {
     func paintHeader() {
         requestingIndicator.hidesWhenStopped = true
         headerView.backgroundColor = Paint.defViewColor
@@ -100,19 +84,19 @@ extension StationViewController {
     }
 
     func defineNewHeaderTitle() {
-        let count = countDataSource()
+        let count = countCurrentData()
         var newHeader:(image: UIImage?, label: String)
         if isSearching {
-            switch count.items {
+            switch count.stations {
             case 0:
                 newHeader = (Shared.paintedSystemImage(named: "magnifyingglass.circle.fill", .black, .systemRed, .systemRed), "Aucun résultat")
             case 1:
                 newHeader = (Shared.paintedSystemImage(named: "magnifyingglass.circle.fill", .black, .systemGreen, .systemGreen), "1 seul résultat")
             default:
-                newHeader = (Shared.paintedSystemImage(named: "magnifyingglass.circle.fill", .black, .systemGreen, .systemGreen), "\(count.items) résultats")
+                newHeader = (Shared.paintedSystemImage(named: "magnifyingglass.circle.fill", .black, .systemGreen, .systemGreen), "\(count.stations) résultats")
             }
         } else {
-            switch count.items {
+            switch count.stations {
             case 0:
                 newHeader = (Shared.paintedSystemImage(named: "parkingsign.circle.fill"), "Aucune place libre")
             case 1:
@@ -123,51 +107,36 @@ extension StationViewController {
         }
         (headerTopImageView.image, headerTopLabel.text) = newHeader
     }
-}
 
-// MARK: - Datasource functions
+    // MARK: - Data functions
 
-extension StationViewController {
-    func reloadDataSource() {
-        if isSearching {
-            dataSource = [StationCellItem]()
-            tableView.reloadData()
-            guard let searchingKey = searchingKey?.lowercased() else { return }
-            switch dataType {
-            case .Bike:
-                dataSource = BikeStation.allStations
-                    .filter({$0.cellName().lowercased()
-                    .contains(searchingKey)
-                }).sorted(by: { $0.cellName() < $1.cellName()})
-            case .Car:
-                dataSource = CarStation.allStations
-                    .filter({ $0.cellName().lowercased()
-                    .contains(searchingKey)
-                }).sorted(by: { $0.cellName() < $1.cellName()})
-            }
-        } else {
-            switch dataType {
-            case .Bike:
-                dataSource = BikeStation.allStations
-            case .Car:
-                dataSource = CarStation.allStations
-            }
-        }
+    func assignNewData(_ data: [StationCellItem]) {
+        dataSource = data
         tableView.reloadData()
     }
 
-    func countDataSource() -> (items: Int, freePlaces: Int) {
-        let items = dataSource?.count ?? 0
+    func clearOldData() {
+        dataSource = [StationCellItem]()
+        tableView.reloadData()
+    }
+
+    func defineNewData() {
+        fatalError("Must override")
+    }
+
+    func countCurrentData() -> (stations: Int, freePlaces: Int) {
+        let stations = dataSource?.count ?? 0
         let freePlaces: Int = { () -> Int in
             guard let dataSource = self.dataSource else {
                 return 0
             }
             return dataSource
                 .map({ $0.cellFreePlaces() })
-                .reduce(0, { $0 + $1 })
+                .reduce(0, +)
         }()
-        return (items, freePlaces)
+        return (stations, freePlaces)
     }
+
 }
 
 // MARK: UISearchBarDelegate
@@ -181,7 +150,6 @@ extension StationViewController: UISearchBarDelegate {
             isSearching = false
             searchingKey = nil
         }
-        reloadDataSource()
     }
 }
 
@@ -203,29 +171,28 @@ extension StationViewController: UITableViewDataSource {
         cell.station = station
         cell.isFavorite = station.cellIsFavorite()
         cell.nameLabel.text = station.cellName()
-        cell.isRequesting = true
 
-        switch dataType {
+
+        switch station.cellType {
         case .Bike:
             cell.freeLabel.text = station.cellDisplayableFreePlace()
             cell.updateLabel.text = station.cellDisplayableUpdatedTime()
             cell.typeImageView.image = Shared.cellBikeIcon
         case .Car:
-            if !station.cellIsLoaded {
-                NetworkService.shared.getCarValues(for: station as! CarStation) { result in
-                    if case .success = result {
-                        cell.freeLabel.text = station.cellDisplayableFreePlace()
-                        cell.updateLabel.text = station.cellDisplayableUpdatedTime()
-                        cell.typeImageView.image = Shared.cellCarIcon
-                    } else  {
-                        cell.freeLabel.text = "--"
-                        cell.updateLabel.text = "--"
-                        cell.typeImageView.image = Shared.cellDefaultIcon
-                    }
+            cell.freeLabel.text = "-"
+            cell.updateLabel.text = "-"
+            cell.typeImageView.image = Shared.cellDefaultIcon
+
+            cell.isRequesting = true
+            NetworkService.shared.reloadCarValues(for: station as! CarStation) { result in
+                cell.isRequesting = false
+                if case .success = result {
+                    cell.freeLabel.text = station.cellDisplayableFreePlace()
+                    cell.updateLabel.text = station.cellDisplayableUpdatedTime()
+                    cell.typeImageView.image = Shared.cellCarIcon
                 }
             }
         }
-        cell.isRequesting = false
         return cell
     }
 

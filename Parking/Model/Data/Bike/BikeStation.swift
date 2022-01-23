@@ -5,7 +5,7 @@ import SwiftyXMLParser
 class BikeStation {
 
     static var metadata: BikeMetaData?
-    static var allStations = [BikeStation]()
+    static var allStations = [StationCellItem]()
 
     let dateTime: Date
 

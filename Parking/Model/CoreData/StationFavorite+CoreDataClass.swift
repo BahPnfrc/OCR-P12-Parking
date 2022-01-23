@@ -13,11 +13,10 @@ import CoreData
 public class StationFavorite: NSManagedObject {}
 
 extension StationFavorite {
-    func getStations() -> [StationCellItem] {
-        let car = CarStation.allStations
-            .filter({ $0.cellName() == self.name }) as [StationCellItem]
-        let bike = BikeStation.allStations
-            .filter({ $0.cellName() == self.name }) as [StationCellItem]
-        return car + bike
+    func getStation() -> StationCellItem? {
+        return BikeStation.allStations.first(where: { $0.cellName() == self.name })
+        ?? CarStation.allStations
+            .first(where: { $0.cellName() == self.name })
+        ?? nil
     }
 }

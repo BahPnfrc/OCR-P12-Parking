@@ -34,27 +34,24 @@ extension CoreDataService {
         try? saveContext()
     }
 
-//    func get(stationNamed name: String = "",
-//             ascending: Bool = false)  throws -> [StationCellItem] {
-//        let request = StationFavorite.fetchRequest()
-//        if name.count > 0 {
-//            request.predicate = NSPredicate(format: "label CONTAINS[cd] %@", name)
-//        }
-//        request.sortDescriptors = [
-//            NSSortDescriptor(key: "timestamp", ascending: ascending)
-//        ]
-//        do {
-//            return try context.fetch(request).map({ $0.getStations() })
-//        } catch <#pattern#> {
-//            <#statements#>
-//        }
-//    }
-
     func isFavorite(_ station: StationCellItem) -> Bool {
         let request = StationFavorite.fetchRequest()
         request.predicate = NSPredicate(format: "name == %@", "\(station.cellName())")
         guard let stations = try? context.fetch(request) else { return false }
         return !stations.isEmpty
+    }
+
+    func getAllFavorites(ascending: Bool = false) throws -> [StationCellItem] {
+        let request = StationFavorite.fetchRequest()
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "timeStamp", ascending: ascending)
+        ]
+        do {
+            return try context.fetch(request)
+                .compactMap({ $0.getStation() })
+        } catch {
+            throw error
+        }
     }
 
     func delete(_ station: StationCellItem) throws -> Void {

@@ -129,18 +129,18 @@ class NetworkService {
         completion(.success(allStations))
     }
 
-    func getCarValues(for station: CarStation, completion: @escaping (Result<CarValues, ApiError>) -> Void) {
-        NetworkService.shared.getRemoteXmlData(fromUrl: station.url) { result in
+    func reloadCarValues(for car: CarStation, completion: @escaping (Result<CarValues, ApiError>) -> Void) {
+        NetworkService.shared.getRemoteXmlData(fromUrl: car.url) { result in
             switch result {
             case .failure(let error):
                 print(error)
                 completion(.failure(error))
             case .success(let accessor):
-                guard let values = CarStation.parseCarXML(for: station.name, with: accessor) else {
+                guard let values = CarStation.parseCarXML(for: car.name, with: accessor) else {
                     completion(.failure(.other(error: "Parsing Car XML")))
                     return
                 }
-                station.values = values
+                car.values = values
                 completion(.success(values))
             }
         }
