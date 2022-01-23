@@ -28,6 +28,7 @@
 		5269C061279C993700E29FDA /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C060279C993700E29FDA /* CoreDataService.swift */; };
 		5269C063279CBCBC00E29FDA /* StationCellItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C062279CBCBC00E29FDA /* StationCellItem+Extension.swift */; };
 		5269C06C279D6CE500E29FDA /* FavoriteStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C06B279D6CE500E29FDA /* FavoriteStationViewController.swift */; };
+		5269C072279E038600E29FDA /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C071279E038600E29FDA /* Notification+Extension.swift */; };
 		52C53C3D2788731F004586F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3C2788731F004586F6 /* AppDelegate.swift */; };
 		52C53C3F2788731F004586F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3E2788731F004586F6 /* SceneDelegate.swift */; };
 		52C53C412788731F004586F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C402788731F004586F6 /* ViewController.swift */; };
@@ -91,6 +92,7 @@
 		5269C060279C993700E29FDA /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		5269C062279CBCBC00E29FDA /* StationCellItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationCellItem+Extension.swift"; sourceTree = "<group>"; };
 		5269C06B279D6CE500E29FDA /* FavoriteStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStationViewController.swift; sourceTree = "<group>"; };
+		5269C071279E038600E29FDA /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		52C53C392788731F004586F6 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C53C3C2788731F004586F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C53C3E2788731F004586F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				524412D427933FE100BB3411 /* UIColor+Extension.swift */,
 				5269C03D2799F3B700E29FDA /* UINavigationController+Extension.swift */,
 				5269C041279A034900E29FDA /* UIViewController+Extension.swift */,
+				5269C071279E038600E29FDA /* Notification+Extension.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				5269C05F279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift in Sources */,
 				52C53C7427887D17004586F6 /* ApiError.swift in Sources */,
 				5269C047279A0F5F00E29FDA /* CarProtocol.swift in Sources */,
+				5269C072279E038600E29FDA /* Notification+Extension.swift in Sources */,
 				5269C0402799F44C00E29FDA /* StationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

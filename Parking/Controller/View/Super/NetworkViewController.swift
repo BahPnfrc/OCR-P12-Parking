@@ -9,32 +9,30 @@ import UIKit
 
 class NetworkViewController: UIViewController {
 
-    private var requestCount: Int = 0
-    var isRequesting: Bool {
-        get {
-            return requestCount > 0
-        }
-        set(newValue) {
-            requestCount += (newValue ? 1 : -1)
-            if requestCount < 0 { requestCount = 0 }
+    var updateSpan: TimeInterval = 60*5 // 5 min
+    var lastBikeUpdate = Date()
+    var lastCarUpdate = Date()
 
-            requestCount > 0 ? self.navigationController?.startSpinning() : self.navigationController?.stopSpinning()
-        }
+    func canAutoUpdate() -> (bike: Bool, car: Bool) {
+        let now = Date()
+        let bikeInterval = lastBikeUpdate.distance(to: now)
+        let carInterval = lastCarUpdate.distance(to: now)
+        return (bikeInterval > updateSpan, carInterval > updateSpan)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadBikeMetaData()
-        reloadCarMetaData()
     }
 
     // MARK: - Network Metadata
 
-    func reloadBikeMetaData() {
-        isRequesting = true
+    func reloadBikeMetaData(forced: Bool) {
+        guard forced == true || canAutoUpdate().bike else { return }
+
+        NotificationCenter.default.post(Notification.bikeIsRequesting)
         NetworkService.shared.getBikeMetaData { [weak self] result in
+            NotificationCenter.default.post(Notification.bikeIsDone)
             guard let self = self else { return }
-            self.isRequesting = false
             switch result {
             case .failure(let error):
                 print(error)
@@ -45,11 +43,13 @@ class NetworkViewController: UIViewController {
         }
     }
 
-    func reloadCarMetaData() {
-        isRequesting = true
+    func reloadCarMetaData(forced: Bool) {
+        guard forced == true || canAutoUpdate().car else { return }
+
+        NotificationCenter.default.post(Notification.carIsRequesting)
         NetworkService.shared.getCarMetaData { [weak self] result in
             guard let self = self else { return }
-            self.isRequesting = false
+            NotificationCenter.default.post(Notification.carIsDone)
             switch result {
             case .failure(let error):
                 print(error)
@@ -63,12 +63,28 @@ class NetworkViewController: UIViewController {
 
     // MARK: - Network Stations
 
+    func reloadBikeStations() {
+        guard let metadata = BikeStation.metadata else { return }
+        NotificationCenter.default.post(Notification.bikeIsRequesting)
+        NetworkService.shared.getBikeStations(from: metadata) { [weak self] result in
+            guard self != nil else { return }
+            NotificationCenter.default.post(Notification.bikeIsDone)
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let allStations):
+                BikeStation.allStations = allStations
+                NotificationCenter.default.post(Notification.bikeHasData)
+            }
+        }
+    }
+
     func reloadCarStations() {
         guard let metadata = CarStation.metadata else { return }
-        isRequesting = true
+        NotificationCenter.default.post(Notification.carIsRequesting)
         NetworkService.shared.getCarStations(from: metadata) { [weak self] result in
-            guard let self = self else { return }
-            self.isRequesting = false
+            guard self != nil else { return }
+            NotificationCenter.default.post(Notification.carIsDone)
             switch result {
             case .failure(let error):
                 print(error)
@@ -77,21 +93,7 @@ class NetworkViewController: UIViewController {
                 CarStation.allStations.forEach({
                     ($0 as! CarStation).reloadValues()
                 })
-            }
-        }
-    }
-
-    func reloadBikeStations() {
-        guard let metadata = BikeStation.metadata else { return }
-        isRequesting = true
-        NetworkService.shared.getBikeStations(from: metadata) { [weak self] result in
-            guard let self = self else { return }
-            self.isRequesting = false
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let allStations):
-                BikeStation.allStations = allStations
+                NotificationCenter.default.post(Notification.carHasData)
             }
         }
     }

@@ -11,12 +11,23 @@ class FavoriteStationViewController: StationViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        reloadBikeMetaData(forced: true)
+        reloadCarMetaData(forced: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        reloadBikeStations()
-        reloadCarStations()
         super.viewWillAppear(animated)
+        reloadBikeMetaData(forced: false)
+        reloadCarMetaData(forced: false)
+        defineNewData()
+    }
+
+    override func bikeHasData() {
+        defineNewData()
+    }
+
+    override func carHasData() {
+        defineNewData()
     }
 
     override func defineNewData() {
@@ -51,7 +62,7 @@ class FavoriteStationViewController: StationViewController {
         } else {
             super.assignNewData(favorites)
         }
-        tableView.reloadData()
+        defineNewHeaderTitle()
     }
 
     override func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -65,8 +76,8 @@ class FavoriteStationViewController: StationViewController {
         UIView.animate(withDuration: 0.5, animations: {
             tappedImage.transform = CGAffineTransform.init(rotationAngle: .pi)
             super.clearOldData()
-            super.reloadBikeMetaData()
-            super.reloadCarMetaData()
+            super.reloadBikeMetaData(forced: true)
+            super.reloadCarMetaData(forced: true)
             self.defineNewData()
         }, completion: { _ in
             UIView.animate(withDuration: 0.5, animations: {

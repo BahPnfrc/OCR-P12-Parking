@@ -47,19 +47,11 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddH-dd-w18">
-                                                        <rect key="frame" x="50" y="0.0" width="254" height="40"/>
+                                                        <rect key="frame" x="50" y="0.0" width="284" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="iCI-KB-3Bd">
-                                                        <rect key="frame" x="314" y="0.0" width="20" height="40"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="iCI-KB-3Bd" secondAttribute="height" multiplier="1:2" id="eGY-4M-HFQ"/>
-                                                            <constraint firstAttribute="width" constant="20" id="iJi-Mo-m2X"/>
-                                                        </constraints>
-                                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TdJ-dX-7JB" userLabel="V2">
@@ -87,11 +79,21 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="iCI-KB-3Bd">
+                                        <rect key="frame" x="334" y="30" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="iCI-KB-3Bd" secondAttribute="height" id="eGY-4M-HFQ"/>
+                                            <constraint firstAttribute="width" constant="20" id="iJi-Mo-m2X"/>
+                                        </constraints>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="qtu-Tk-Cw4" firstAttribute="top" secondItem="3GQ-3y-2sf" secondAttribute="top" constant="20" id="9YK-Hl-XbD"/>
+                                    <constraint firstAttribute="trailing" secondItem="iCI-KB-3Bd" secondAttribute="trailing" constant="20" id="ZSS-XJ-Z2h"/>
                                     <constraint firstAttribute="bottom" secondItem="qtu-Tk-Cw4" secondAttribute="bottom" constant="20" id="bPJ-Zy-xwP"/>
+                                    <constraint firstItem="iCI-KB-3Bd" firstAttribute="centerY" secondItem="8DK-QH-BV2" secondAttribute="centerY" id="cXu-N5-RI7"/>
                                     <constraint firstItem="qtu-Tk-Cw4" firstAttribute="leading" secondItem="3GQ-3y-2sf" secondAttribute="leading" constant="20" id="rY9-VP-LbK"/>
                                     <constraint firstAttribute="trailing" secondItem="qtu-Tk-Cw4" secondAttribute="trailing" constant="20" id="yhY-Gn-kBd"/>
                                 </constraints>
@@ -165,19 +167,11 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkN-7r-DtH">
-                                                        <rect key="frame" x="50" y="0.0" width="254" height="40"/>
+                                                        <rect key="frame" x="50" y="0.0" width="284" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-ee-fDK">
-                                                        <rect key="frame" x="314" y="0.0" width="20" height="40"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="TbY-er-3e5"/>
-                                                            <constraint firstAttribute="width" secondItem="F8U-ee-fDK" secondAttribute="height" multiplier="1:2" id="Vib-io-NxL"/>
-                                                        </constraints>
-                                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fIZ-1r-FP8" userLabel="V2">
@@ -205,13 +199,23 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-ee-fDK">
+                                        <rect key="frame" x="334" y="30" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="TbY-er-3e5"/>
+                                            <constraint firstAttribute="width" secondItem="F8U-ee-fDK" secondAttribute="height" id="Vib-io-NxL"/>
+                                        </constraints>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="pj2-iD-IX2" secondAttribute="bottom" constant="20" id="N9D-G7-NHY"/>
                                     <constraint firstAttribute="trailing" secondItem="pj2-iD-IX2" secondAttribute="trailing" constant="20" id="RFK-f3-UDa"/>
                                     <constraint firstItem="pj2-iD-IX2" firstAttribute="top" secondItem="jc0-an-Xce" secondAttribute="top" constant="20" id="VX0-w7-v8F"/>
+                                    <constraint firstAttribute="trailing" secondItem="F8U-ee-fDK" secondAttribute="trailing" constant="20" id="qmQ-LO-Bej"/>
                                     <constraint firstItem="pj2-iD-IX2" firstAttribute="leading" secondItem="jc0-an-Xce" secondAttribute="leading" constant="20" id="vnH-YK-KLj"/>
+                                    <constraint firstItem="F8U-ee-fDK" firstAttribute="centerY" secondItem="D7z-yM-YcP" secondAttribute="centerY" id="woy-eS-4c8"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vla-7l-JWT">
@@ -285,19 +289,11 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irV-bg-SQA">
-                                                        <rect key="frame" x="50" y="0.0" width="254" height="40"/>
+                                                        <rect key="frame" x="50" y="0.0" width="284" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-0L-OUL">
-                                                        <rect key="frame" x="314" y="0.0" width="20" height="40"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="0uq-N5-hEb"/>
-                                                            <constraint firstAttribute="width" secondItem="mLQ-0L-OUL" secondAttribute="height" multiplier="1:2" id="Jao-Mm-oo9"/>
-                                                        </constraints>
-                                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iOx-Ov-gx2" userLabel="V2">
@@ -325,11 +321,21 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-0L-OUL">
+                                        <rect key="frame" x="334" y="30" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="0uq-N5-hEb"/>
+                                            <constraint firstAttribute="width" secondItem="mLQ-0L-OUL" secondAttribute="height" id="Jao-Mm-oo9"/>
+                                        </constraints>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mLQ-0L-OUL" secondAttribute="trailing" constant="20" id="BiT-IW-r6I"/>
                                     <constraint firstAttribute="bottom" secondItem="pzT-9m-DgU" secondAttribute="bottom" constant="20" id="Sw0-ya-tXU"/>
                                     <constraint firstAttribute="trailing" secondItem="pzT-9m-DgU" secondAttribute="trailing" constant="20" id="W5A-Ba-HoF"/>
+                                    <constraint firstItem="mLQ-0L-OUL" firstAttribute="centerY" secondItem="aNd-kC-HOX" secondAttribute="centerY" id="WIw-TQ-LSW"/>
                                     <constraint firstItem="pzT-9m-DgU" firstAttribute="leading" secondItem="YbB-Ke-wFq" secondAttribute="leading" constant="20" id="X27-yF-gOy"/>
                                     <constraint firstItem="pzT-9m-DgU" firstAttribute="top" secondItem="YbB-Ke-wFq" secondAttribute="top" constant="20" id="nxR-Dd-IEp"/>
                                 </constraints>

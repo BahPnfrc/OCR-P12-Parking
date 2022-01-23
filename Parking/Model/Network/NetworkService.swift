@@ -142,6 +142,10 @@ class NetworkService {
                 }
                 car.values = values
                 completion(.success(values))
+
+                let name = Notification.Name(rawValue: "LOADED")
+                let notification = Notification(name: name)
+                NotificationCenter.default.post(notification)
             }
         }
     }

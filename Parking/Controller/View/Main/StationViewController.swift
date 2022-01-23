@@ -23,14 +23,22 @@ class StationViewController: NetworkViewController {
 
     // MARK: - Properties
 
-    var isSearching = false
-    var searchingKey: String?
+    private var requestCount: Int = 0
+    var isRequesting: Bool {
+        get {
+            return requestCount > 0
+        }
+        set(newValue) {
+            requestCount += (newValue ? 1 : -1)
+            if requestCount < 0 { requestCount = 0 }
 
-    private var dataSource: [StationCellItem]? {
-        didSet {
-            defineNewHeaderTitle()
+            requestCount > 0 ? requestingIndicator.startAnimating() : requestingIndicator.stopAnimating()
         }
     }
+
+    var isSearching = false
+    var searchingKey: String?
+    private var dataSource: [StationCellItem]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +47,7 @@ class StationViewController: NetworkViewController {
         paintHeader()
         paintSearchBar()
         paintTableView()
+        defineNotifications()
 
         searchBar.delegate = self
         tableView.delegate = self
@@ -47,6 +56,7 @@ class StationViewController: NetworkViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         headerSubReloader.isUserInteractionEnabled = true
         headerSubReloader.addGestureRecognizer(gesture)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +66,64 @@ class StationViewController: NetworkViewController {
 
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
+        fatalError("Must override")
+    }
+
+    // MARK: - Notification functions
+
+    func defineNotifications() {
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(bikeIsRequesting),
+            name: Notification.Name.bikeIsRequesting,
+            object: nil)
+
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(bikeIsDone),
+            name: Notification.Name.bikeIsDone,
+            object: nil)
+
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(bikeHasData),
+            name: Notification.Name.bikeHasData,
+            object: nil)
+
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(carIsRequesting),
+            name: Notification.Name.carIsRequesting,
+            object: nil)
+
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(carIsDone),
+            name: Notification.Name.carIsDone,
+            object: nil)
+
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(carHasData),
+            name: Notification.Name.carHasData,
+            object: nil)
+    }
+
+    @objc func bikeIsRequesting() {
+        self.isRequesting = true
+    }
+
+    @objc func carIsRequesting() {
+        self.isRequesting = true
+    }
+
+    @objc func bikeIsDone() {
+        self.isRequesting = false
+    }
+
+    @objc func carIsDone() {
+        self.isRequesting = false
+    }
+
+    @objc func bikeHasData() {
+        fatalError("Must override")
+    }
+
+    @objc func carHasData() {
         fatalError("Must override")
     }
 

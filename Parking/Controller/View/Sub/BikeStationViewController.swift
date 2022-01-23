@@ -10,12 +10,22 @@ import UIKit
 class BikeStationViewController: StationViewController {
 
     override func viewDidLoad() {
+        reloadBikeMetaData(forced: true)
         super.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.reloadBikeStations()
         super.viewWillAppear(animated)
+        reloadBikeMetaData(forced: false)
+        defineNewData()
+    }
+
+    override func bikeHasData() {
+        defineNewData()
+    }
+
+    override func carHasData() {
+        return
     }
 
     override func defineNewData() {
@@ -30,7 +40,7 @@ class BikeStationViewController: StationViewController {
         } else {
             super.assignNewData(BikeStation.allStations)
         }
-        tableView.reloadData()
+        defineNewHeaderTitle()
     }
 
     override func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -44,7 +54,7 @@ class BikeStationViewController: StationViewController {
         UIView.animate(withDuration: 0.5, animations: {
             tappedImage.transform = CGAffineTransform.init(rotationAngle: .pi)
             super.clearOldData()
-            super.reloadBikeMetaData()
+            super.reloadBikeMetaData(forced: true)
             self.defineNewData()
         }, completion: { _ in
             UIView.animate(withDuration: 0.5, animations: {
