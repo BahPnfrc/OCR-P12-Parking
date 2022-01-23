@@ -27,8 +27,6 @@ class StationViewController: GlobalViewController {
 
     // MARK: - Properties
 
-    let tableViewIsReversed = false
-
     var isLocalRequesting = false {
         didSet {
             if isLocalRequesting {
@@ -74,8 +72,6 @@ class StationViewController: GlobalViewController {
     override func viewWillAppear(_ animated: Bool) {
         defineNewHeaderTitle()
     }
-
-
 }
 
 // MARK: - Paint functions
@@ -101,9 +97,6 @@ extension StationViewController {
         let nib = UINib(nibName: "StationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "stationCell")
         tableView.backgroundColor = .white.withAlphaComponent(0)
-        if tableViewIsReversed {
-            tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
-        }
     }
 
     func defineNewHeaderTitle() {
@@ -206,21 +199,23 @@ extension StationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationCell", for: indexPath) as! StationTableViewCell
 
-        let item = dataSource![indexPath.row]
-        cell.nameLabel.text = item.cellName()
+        let station = dataSource![indexPath.row]
+        cell.station = station
+        cell.isFavorite = station.cellIsFavorite()
+        cell.nameLabel.text = station.cellName()
         cell.isRequesting = true
 
         switch dataType {
         case .Bike:
-            cell.freeLabel.text = item.cellDisplayableFreePlace()
-            cell.updateLabel.text = item.cellDisplayableUpdatedTime()
+            cell.freeLabel.text = station.cellDisplayableFreePlace()
+            cell.updateLabel.text = station.cellDisplayableUpdatedTime()
             cell.typeImageView.image = Shared.cellBikeIcon
         case .Car:
-            if !item.isLoaded {
-                NetworkService.shared.getCarValues(for: item as! CarStation) { result in
+            if !station.cellIsLoaded {
+                NetworkService.shared.getCarValues(for: station as! CarStation) { result in
                     if case .success = result {
-                        cell.freeLabel.text = item.cellDisplayableFreePlace()
-                        cell.updateLabel.text = item.cellDisplayableUpdatedTime()
+                        cell.freeLabel.text = station.cellDisplayableFreePlace()
+                        cell.updateLabel.text = station.cellDisplayableUpdatedTime()
                         cell.typeImageView.image = Shared.cellCarIcon
                     } else  {
                         cell.freeLabel.text = "--"
@@ -241,9 +236,5 @@ extension StationViewController: UITableViewDataSource {
         cell.contentView.layer.masksToBounds = true
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
-        if tableViewIsReversed {
-            cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
-        }
-
     }
 }

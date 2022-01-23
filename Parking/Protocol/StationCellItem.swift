@@ -13,7 +13,7 @@ enum CellType {
 
 protocol StationCellItem {
     var cellType: CellType { get }
-    var isLoaded: Bool { get }
+    var cellIsLoaded: Bool { get }
 
     func cellName() -> String
     func cellFreePlaces() -> Int

@@ -25,7 +25,7 @@
 		5269C04F279A9B3400E29FDA /* BikeStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C04E279A9B3400E29FDA /* BikeStationViewController.swift */; };
 		5269C05E279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C05C279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift */; };
 		5269C05F279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C05D279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift */; };
-		5269C061279C993700E29FDA /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C060279C993700E29FDA /* CoreDataController.swift */; };
+		5269C061279C993700E29FDA /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C060279C993700E29FDA /* CoreDataService.swift */; };
 		5269C063279CBCBC00E29FDA /* StationCellItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C062279CBCBC00E29FDA /* StationCellItem+Extension.swift */; };
 		52C53C3D2788731F004586F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3C2788731F004586F6 /* AppDelegate.swift */; };
 		52C53C3F2788731F004586F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3E2788731F004586F6 /* SceneDelegate.swift */; };
@@ -88,7 +88,7 @@
 		5269C04E279A9B3400E29FDA /* BikeStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationViewController.swift; sourceTree = "<group>"; };
 		5269C05C279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StationFavorite+CoreDataClass.swift"; path = "Parking/Model/CoreData/StationFavorite+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		5269C05D279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StationFavorite+CoreDataProperties.swift"; path = "Parking/Model/CoreData/StationFavorite+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		5269C060279C993700E29FDA /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		5269C060279C993700E29FDA /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		5269C062279CBCBC00E29FDA /* StationCellItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationCellItem+Extension.swift"; sourceTree = "<group>"; };
 		52C53C392788731F004586F6 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C53C3C2788731F004586F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,12 +199,7 @@
 		5269C050279A9F1A00E29FDA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				52C53C402788731F004586F6 /* ViewController.swift */,
-				52C53C7B2788897C004586F6 /* TestViewController.swift */,
-				5269C03B2799F36D00E29FDA /* GlobalViewController.swift */,
-				5269C03F2799F44C00E29FDA /* StationViewController.swift */,
-				5269C04C279A9ADB00E29FDA /* CarStationViewController.swift */,
-				5269C04E279A9B3400E29FDA /* BikeStationViewController.swift */,
+				5269C067279CCD3900E29FDA /* View */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -223,7 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				52C53C452788731F004586F6 /* Parking.xcdatamodeld */,
-				5269C060279C993700E29FDA /* CoreDataController.swift */,
+				5269C060279C993700E29FDA /* CoreDataService.swift */,
 				5269C05C279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift */,
 				5269C05D279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift */,
 			);
@@ -247,6 +242,19 @@
 				5269C062279CBCBC00E29FDA /* StationCellItem+Extension.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		5269C067279CCD3900E29FDA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52C53C402788731F004586F6 /* ViewController.swift */,
+				52C53C7B2788897C004586F6 /* TestViewController.swift */,
+				5269C03B2799F36D00E29FDA /* GlobalViewController.swift */,
+				5269C03F2799F44C00E29FDA /* StationViewController.swift */,
+				5269C04C279A9ADB00E29FDA /* CarStationViewController.swift */,
+				5269C04E279A9B3400E29FDA /* BikeStationViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		52C53C302788731F004586F6 = {
@@ -628,7 +636,7 @@
 				52C53C72278876C3004586F6 /* NetworkService.swift in Sources */,
 				5269C03E2799F3B700E29FDA /* UINavigationController+Extension.swift in Sources */,
 				52C53C7F27888F34004586F6 /* String+Extension.swift in Sources */,
-				5269C061279C993700E29FDA /* CoreDataController.swift in Sources */,
+				5269C061279C993700E29FDA /* CoreDataService.swift in Sources */,
 				5269C05E279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift in Sources */,
 				5269C04F279A9B3400E29FDA /* BikeStationViewController.swift in Sources */,
 				5269C03A2799BA1C00E29FDA /* StationTableViewCell.swift in Sources */,

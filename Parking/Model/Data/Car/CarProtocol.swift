@@ -12,7 +12,7 @@ extension CarStation: StationCellItem {
         .Car
     }
 
-    var isLoaded: Bool {
+    var cellIsLoaded: Bool {
         self.values != nil
     }
 

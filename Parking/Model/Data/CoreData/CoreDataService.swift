@@ -1,5 +1,5 @@
 //
-//  CoreDataController.swift
+//  CoreDataService.swift
 //  Parking
 //
 //  Created by Genapi on 22/01/2022.
@@ -8,9 +8,9 @@
 import Foundation
 import CoreData
 
-class CoreDataController {
+class CoreDataService {
 
-    static let shared = CoreDataController()
+    static let shared = CoreDataService()
     private init(){}
 
     private let context = AppDelegate.viewContext
@@ -25,7 +25,7 @@ class CoreDataController {
     }
 }
 
-extension CoreDataController {
+extension CoreDataService {
 
     func add(_ station: StationCellItem) {
         let newFavorite = StationFavorite(context: context)

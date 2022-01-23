@@ -24,6 +24,8 @@ class StationTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var favoriteButton: UIButton!
 
+    var station: StationCellItem?
+
     var isFavorite = false {
         didSet {
             if isFavorite {
@@ -61,7 +63,15 @@ class StationTableViewCell: UITableViewCell {
 
 
     @IBAction func didTapFavoriteButton(_ sender: Any) {
-        isFavorite = !isFavorite
+        guard let station = station else { return }
+        if isFavorite {
+            try? station.cellFavoriteDelete()
+            print("DELETE OK")
+        } else {
+            station.cellFavoriteAdd()
+            print("ADD OK")
+        }
+        isFavorite = station.cellIsFavorite()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

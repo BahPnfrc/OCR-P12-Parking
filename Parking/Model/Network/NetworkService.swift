@@ -8,6 +8,8 @@ class NetworkService {
     static let shared = NetworkService()
     private init() {}
 
+    let printXmlToConsole = false
+
     private var carSession = Alamofire.Session(configuration: URLSessionConfiguration.default)
     private var bikeSession = Alamofire.Session(configuration: URLSessionConfiguration.default)
     private var xmlSession = Alamofire.Session(configuration: URLSessionConfiguration.default)
@@ -161,9 +163,11 @@ class NetworkService {
                   }
 
             #if targetEnvironment(simulator)
-            let xml = String(decoding: data, as: UTF8.self)
-            print(String.init(repeating: "=", count: 20))
-            print("🟧", url, " : \n", xml)
+            if self.printXmlToConsole {
+                let xml = String(decoding: data, as: UTF8.self)
+                print(String.init(repeating: "=", count: 20))
+                print("🟧 REQUEST", url, " : \n", xml)
+            }
             #endif
 
             let accessor = XML.parse(data) // -> XML.Accessor

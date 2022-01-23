@@ -63,12 +63,12 @@ extension StationCellItem {
 
 extension StationCellItem {
     func cellIsFavorite() -> Bool {
-        return CoreDataController.shared.isFavorite(self)
+        return CoreDataService.shared.isFavorite(self)
     }
     func cellFavoriteAdd() -> Void {
-        CoreDataController.shared.add(self)
+        CoreDataService.shared.add(self)
     }
     func cellFavoriteDelete() throws -> Void {
-        try CoreDataController.shared.delete(self)
+        try CoreDataService.shared.delete(self)
     }
 }

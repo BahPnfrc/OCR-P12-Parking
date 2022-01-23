@@ -12,7 +12,7 @@ extension BikeStation: StationCellItem {
         .Bike
     }
 
-    var isLoaded: Bool {
+    var cellIsLoaded: Bool {
         true
     }
 
