@@ -6,6 +6,7 @@ target 'Parking' do
   use_frameworks!
   pod "SwiftyXMLParser", :git => 'https://github.com/yahoojapan/SwiftyXMLParser.git'
   pod 'Alamofire', '~> 5.5'
+  pod 'Mocker', '~> 2.5'
 
   # Pods for Parking
 

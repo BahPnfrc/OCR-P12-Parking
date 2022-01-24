@@ -1,14 +1,17 @@
 PODS:
   - Alamofire (5.5.0)
+  - Mocker (2.5.5)
   - SwiftyXMLParser (5.5.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
+  - Mocker (~> 2.5)
   - SwiftyXMLParser (from `https://github.com/yahoojapan/SwiftyXMLParser.git`)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Mocker
 
 EXTERNAL SOURCES:
   SwiftyXMLParser:
@@ -21,8 +24,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Mocker: 8c731a8104962f246cadf2b02556218e9edc1390
   SwiftyXMLParser: 027d9e6fb54a38d95dccec025bcea9693f699c47
 
-PODFILE CHECKSUM: fb4bb59aebebe4401f8624afc66b0c610fac2ce4
+PODFILE CHECKSUM: abb2f802472c9e3b86d7fa539ab2bd352864bed2
 
 COCOAPODS: 1.11.2
