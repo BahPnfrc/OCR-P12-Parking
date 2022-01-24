@@ -67,13 +67,14 @@ class NetworkViewController: UIViewController {
         guard let metadata = BikeStation.metadata else { return }
         NotificationCenter.default.post(Notification.bikeIsRequesting)
         NetworkService.shared.getBikeStations(from: metadata) { [weak self] result in
-            guard self != nil else { return }
+            guard let self = self else { return }
             NotificationCenter.default.post(Notification.bikeIsDone)
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let allStations):
                 BikeStation.allStations = allStations
+                self.lastBikeUpdate = Date()
                 NotificationCenter.default.post(Notification.bikeHasNewData)
             }
         }
@@ -83,13 +84,14 @@ class NetworkViewController: UIViewController {
         guard let metadata = CarStation.metadata else { return }
         NotificationCenter.default.post(Notification.carIsRequesting)
         NetworkService.shared.getCarStations(from: metadata) { [weak self] result in
-            guard self != nil else { return }
+            guard let self = self else { return }
             NotificationCenter.default.post(Notification.carIsDone)
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let allStations):
                 CarStation.allStations = allStations
+                self.lastCarUpdate = Date()
                 if CarStation.canReloadValues() {
                     CarStation.allStations.forEach({
                         ($0 as! CarStation).reloadValues(inLoopOf: allStations.count)

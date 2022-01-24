@@ -11,18 +11,8 @@ class MainUITabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavBar()
         setTabBar()
         setTabItems()
-    }
-
-    func setNavBar() {
-        if #available(iOS 15.0, *) {
-            let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.backgroundColor = Paint.defViewColor
-            UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-            UINavigationBar.appearance().standardAppearance = navBarAppearance
-        }
     }
     
     private func setTabBar() {
