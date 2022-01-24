@@ -133,7 +133,7 @@ class NetworkService {
         NetworkService.shared.getRemoteXmlData(fromUrl: car.url) { result in
             switch result {
             case .failure(let error):
-                print(error)
+                car.values = nil
                 completion(.failure(error))
             case .success(let accessor):
                 guard let values = CarStation.parseCarXML(for: car.name, with: accessor) else {

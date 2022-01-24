@@ -40,7 +40,7 @@ class BikeStationViewController: StationViewController {
         } else {
             super.assignNewData(BikeStation.allStations)
         }
-        defineNewHeaderTitle()
+        super.defineNewHeaderTitle()
     }
 
     override func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -48,7 +48,7 @@ class BikeStationViewController: StationViewController {
         self.defineNewData()
     }
 
-    override func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    override func forceReload(tapGestureRecognizer: UITapGestureRecognizer) {
         guard !isSearching else { return }
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         UIView.animate(withDuration: 0.5, animations: {

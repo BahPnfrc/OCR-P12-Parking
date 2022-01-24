@@ -34,23 +34,8 @@ class CarStation {
     }
 
     func reloadValues() {
-        NetworkService.shared.getRemoteXmlData(fromUrl: url) { result in
-            switch result {
-            case .failure:
-                print("🟧 CAR STATION XML : \(self.name)")
-                self.values = nil
-                return
-            case .success(let accessor):
-                guard let values = CarStation.parseCarXML(for: self.name, with: accessor) else {
-                    self.values = nil
-                    return
-                }
-                self.values = values
-                return
-            }
-        }
+        NetworkService.shared.reloadCarValues(for: self) { _ in }
     }
-
 }
 
 // MARK: - XML Data Parsing

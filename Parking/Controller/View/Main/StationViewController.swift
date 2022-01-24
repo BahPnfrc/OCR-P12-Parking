@@ -47,13 +47,13 @@ class StationViewController: NetworkViewController {
         paintHeader()
         paintSearchBar()
         paintTableView()
-        defineNotifications()
+        setObservers()
 
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
 
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(forceReload))
         headerSubReloader.isUserInteractionEnabled = true
         headerSubReloader.addGestureRecognizer(gesture)
 
@@ -64,14 +64,14 @@ class StationViewController: NetworkViewController {
         tableView.reloadData()
     }
 
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func forceReload(tapGestureRecognizer: UITapGestureRecognizer)
     {
         fatalError("Must override")
     }
 
     // MARK: - Notification functions
 
-    func defineNotifications() {
+    func setObservers() {
         NotificationCenter.default.addObserver(self,
             selector: #selector(bikeIsRequesting),
             name: Notification.Name.bikeIsRequesting,
