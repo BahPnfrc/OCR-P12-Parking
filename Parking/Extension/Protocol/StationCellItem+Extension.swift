@@ -11,7 +11,12 @@ import Foundation
 
 extension StationCellItem {
     func cellDisplayableFreePlace() -> String {
-        "Place : \(cellFreePlaces()) sur \(cellTotalPlaces())"
+        let free = cellFreePlaces()
+        if free > 1 {
+            return "Libres : \(free) sur \(cellTotalPlaces())"
+        } else {
+            return "Libre : \(free) sur \(cellTotalPlaces())"
+        }
     }
     func cellDisplayableUpdatedTime() -> String {
         staticUpdatedTime()

@@ -11,6 +11,8 @@ class StationViewController: NetworkViewController {
 
     // MARK: - Outlets
 
+    @IBOutlet weak var statusBarView: UIView!
+
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerTopImageView: UIImageView!
@@ -31,8 +33,12 @@ class StationViewController: NetworkViewController {
         set(newValue) {
             requestCount += (newValue ? 1 : -1)
             if requestCount < 0 { requestCount = 0 }
-
-            requestCount > 0 ? requestingIndicator.startAnimating() : requestingIndicator.stopAnimating()
+            if requestCount > 0 {
+                requestingIndicator.startAnimating()
+            } else {
+                requestingIndicator.stopAnimating()
+                defineNewHeaderTitle()
+            }
         }
     }
 
@@ -44,10 +50,10 @@ class StationViewController: NetworkViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
 
+        setObservers()
         paintHeader()
         paintSearchBar()
         paintTableView()
-        setObservers()
 
         searchBar.delegate = self
         tableView.delegate = self
@@ -83,8 +89,8 @@ class StationViewController: NetworkViewController {
             object: nil)
 
         NotificationCenter.default.addObserver(self,
-            selector: #selector(bikeHasData),
-            name: Notification.Name.bikeHasData,
+            selector: #selector(bikeHasNewData),
+            name: Notification.Name.bikeHasNewData,
             object: nil)
 
         NotificationCenter.default.addObserver(self,
@@ -98,8 +104,13 @@ class StationViewController: NetworkViewController {
             object: nil)
 
         NotificationCenter.default.addObserver(self,
-            selector: #selector(carHasData),
-            name: Notification.Name.carHasData,
+            selector: #selector(carHasNewData),
+            name: Notification.Name.carHasNewData,
+            object: nil)
+
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(carIsReadyToCount),
+            name: Notification.Name.carIsReadyToCount,
             object: nil)
     }
 
@@ -119,21 +130,26 @@ class StationViewController: NetworkViewController {
         self.isRequesting = false
     }
 
-    @objc func bikeHasData() {
+    @objc func bikeHasNewData() {
         fatalError("Must override")
     }
 
-    @objc func carHasData() {
+    @objc func carHasNewData() {
         fatalError("Must override")
+    }
+
+    @objc func carIsReadyToCount() {
+        defineNewHeaderTitle()
     }
 
     // MARK: - Paint functions
 
     func paintHeader() {
+        statusBarView.backgroundColor = Paint.defViewColor
         requestingIndicator.hidesWhenStopped = true
         headerView.backgroundColor = Paint.defViewColor
         headerView.layer.cornerRadius = Paint.defRadius
-        headerTopImageView.image = Shared.paintedSystemImage(named: "parkingsign.circle.fill")
+        headerTopImageView.image = Shared.headerDefaultIcon
         headerTopLabel.text = "Décompte parkings"
         headerSubImageView.image = Shared.paintedSystemImage(named: "magnifyingglass.circle.fill")
         headerSubReloader.image = Shared.paintedSystemImage(named: "arrow.triangle.2.circlepath.circle.fill")
@@ -161,16 +177,16 @@ class StationViewController: NetworkViewController {
             case 1:
                 newHeader = (Shared.paintedSystemImage(named: "magnifyingglass.circle.fill", .black, .systemGreen, .systemGreen), "1 seul résultat")
             default:
-                newHeader = (Shared.paintedSystemImage(named: "magnifyingglass.circle.fill", .black, .systemGreen, .systemGreen), "\(count.stations) résultats")
+                newHeader = (Shared.paintedSystemImage(named: "magnifyingglass.circle.fill", .black, .systemGreen, .systemGreen), "\(count.stations) résultats : \(count.freePlaces) places libres")
             }
         } else {
             switch count.stations {
             case 0:
-                newHeader = (Shared.paintedSystemImage(named: "parkingsign.circle.fill"), "Aucune place libre")
+                newHeader = (Shared.headerDefaultIcon, "Aucune station")
             case 1:
-                newHeader = (Shared.paintedSystemImage(named: "parkingsign.circle.fill"), "1 seule place libre")
+                newHeader = (Shared.headerDefaultIcon, "1 seule station")
             default:
-                newHeader = (Shared.paintedSystemImage(named: "parkingsign.circle.fill"), "\(count.freePlaces) places libres")
+                newHeader = (Shared.headerDefaultIcon, "\(count.stations) stations : \(count.freePlaces) places libres")
             }
         }
         (headerTopImageView.image, headerTopLabel.text) = newHeader

@@ -33,8 +33,19 @@ class CarStation {
         self.url = url
     }
 
-    func reloadValues() {
-        NetworkService.shared.reloadCarValues(for: self) { _ in }
+    static var reloadedValuesCount = 0
+    static func initReloadvalues() {
+        CarStation.reloadedValuesCount = 0
+    }
+    func reloadValues(inLoopOf totalElements: Int? = nil) {
+        NetworkService.shared.reloadCarValues(for: self) { result in
+            CarStation.reloadedValuesCount += 1
+            guard let totalElements = totalElements else { return }
+            if CarStation.reloadedValuesCount == totalElements {
+                NotificationCenter.default.post(Notification.carIsReadyToCount)
+                CarStation.initReloadvalues()
+            }
+        }
     }
 }
 

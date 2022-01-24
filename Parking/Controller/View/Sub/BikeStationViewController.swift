@@ -20,11 +20,11 @@ class BikeStationViewController: StationViewController {
         defineNewData()
     }
 
-    override func bikeHasData() {
+    override func bikeHasNewData() {
         defineNewData()
     }
 
-    override func carHasData() {
+    override func carHasNewData() {
         return
     }
 

@@ -74,7 +74,7 @@ class NetworkViewController: UIViewController {
                 print(error)
             case .success(let allStations):
                 BikeStation.allStations = allStations
-                NotificationCenter.default.post(Notification.bikeHasData)
+                NotificationCenter.default.post(Notification.bikeHasNewData)
             }
         }
     }
@@ -91,9 +91,9 @@ class NetworkViewController: UIViewController {
             case .success(let allStations):
                 CarStation.allStations = allStations
                 CarStation.allStations.forEach({
-                    ($0 as! CarStation).reloadValues()
+                    ($0 as! CarStation).reloadValues(inLoopOf: allStations.count)
                 })
-                NotificationCenter.default.post(Notification.carHasData)
+                NotificationCenter.default.post(Notification.carHasNewData)
             }
         }
     }
