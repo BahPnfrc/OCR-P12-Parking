@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ilw-OO-eh1">
-                                <rect key="frame" x="20" y="214" width="374" height="599"/>
+                                <rect key="frame" x="20" y="214" width="374" height="579"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="cnd-s2-OpC" id="7lX-wi-lL3"/>
@@ -117,7 +117,7 @@
                             <constraint firstItem="Kov-Kl-EhB" firstAttribute="trailing" secondItem="CC0-Kx-SoA" secondAttribute="trailing" id="Jya-rF-ej1"/>
                             <constraint firstItem="4O3-B5-K71" firstAttribute="trailing" secondItem="CC0-Kx-SoA" secondAttribute="trailing" id="O6O-hb-NVy"/>
                             <constraint firstItem="CC0-Kx-SoA" firstAttribute="trailing" secondItem="3GQ-3y-2sf" secondAttribute="trailing" constant="20" id="OGR-BX-0QA"/>
-                            <constraint firstItem="CC0-Kx-SoA" firstAttribute="bottom" secondItem="ilw-OO-eh1" secondAttribute="bottom" id="R9X-oe-4Vj"/>
+                            <constraint firstItem="CC0-Kx-SoA" firstAttribute="bottom" secondItem="ilw-OO-eh1" secondAttribute="bottom" constant="20" id="R9X-oe-4Vj"/>
                             <constraint firstAttribute="bottom" secondItem="4O3-B5-K71" secondAttribute="bottom" id="T6z-nf-9UT"/>
                             <constraint firstItem="CC0-Kx-SoA" firstAttribute="trailing" secondItem="ilw-OO-eh1" secondAttribute="trailing" constant="20" id="Ubl-MM-f3E"/>
                             <constraint firstItem="Pq2-kJ-7p4" firstAttribute="top" secondItem="jkc-9J-SW9" secondAttribute="top" id="XEb-ih-8aa"/>
@@ -227,7 +227,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vla-7l-JWT">
-                                <rect key="frame" x="20" y="214" width="374" height="599"/>
+                                <rect key="frame" x="20" y="214" width="374" height="579"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="uqB-8t-Ldf" id="hn8-hQ-dPy"/>
@@ -253,7 +253,7 @@
                             <constraint firstAttribute="bottom" secondItem="XWl-pT-J9J" secondAttribute="bottom" id="Ohh-SW-qUf"/>
                             <constraint firstItem="BKQ-QV-iLv" firstAttribute="top" secondItem="ZnM-sL-Y8M" secondAttribute="bottom" id="Sjt-qZ-Pje"/>
                             <constraint firstItem="BKQ-QV-iLv" firstAttribute="trailing" secondItem="jc0-an-Xce" secondAttribute="trailing" constant="20" id="T6f-bq-CyR"/>
-                            <constraint firstItem="BKQ-QV-iLv" firstAttribute="bottom" secondItem="vla-7l-JWT" secondAttribute="bottom" id="Tkp-BN-wAj"/>
+                            <constraint firstItem="BKQ-QV-iLv" firstAttribute="bottom" secondItem="vla-7l-JWT" secondAttribute="bottom" constant="20" id="Tkp-BN-wAj"/>
                             <constraint firstItem="vla-7l-JWT" firstAttribute="top" secondItem="jc0-an-Xce" secondAttribute="bottom" constant="20" id="b5Q-Qw-jhH"/>
                             <constraint firstItem="jc0-an-Xce" firstAttribute="leading" secondItem="BKQ-QV-iLv" secondAttribute="leading" constant="20" id="dlq-Mm-jJe"/>
                             <constraint firstItem="ZnM-sL-Y8M" firstAttribute="top" secondItem="DQK-wE-mBJ" secondAttribute="top" id="m3O-km-ld1"/>
@@ -358,7 +358,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EBl-Fs-drc">
-                                <rect key="frame" x="20" y="214" width="374" height="599"/>
+                                <rect key="frame" x="20" y="214" width="374" height="579"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="cnd-s2-OpC" id="ptq-4q-oyI"/>
@@ -375,7 +375,7 @@
                         <constraints>
                             <constraint firstItem="YbB-Ke-wFq" firstAttribute="leading" secondItem="whv-Y1-cjb" secondAttribute="leading" constant="20" id="1aY-iB-bcp"/>
                             <constraint firstItem="EBl-Fs-drc" firstAttribute="top" secondItem="YbB-Ke-wFq" secondAttribute="bottom" constant="20" id="3jh-jY-kbs"/>
-                            <constraint firstItem="EBl-Fs-drc" firstAttribute="bottom" secondItem="whv-Y1-cjb" secondAttribute="bottom" id="DrA-pa-NgU"/>
+                            <constraint firstItem="whv-Y1-cjb" firstAttribute="bottom" secondItem="EBl-Fs-drc" secondAttribute="bottom" constant="20" id="DrA-pa-NgU"/>
                             <constraint firstItem="O8e-9f-vM1" firstAttribute="leading" secondItem="OWc-ws-8Ni" secondAttribute="leading" id="Erl-p2-mKk"/>
                             <constraint firstItem="EBl-Fs-drc" firstAttribute="leading" secondItem="whv-Y1-cjb" secondAttribute="leading" constant="20" id="Kcj-Gf-g7c"/>
                             <constraint firstItem="whv-Y1-cjb" firstAttribute="trailing" secondItem="EBl-Fs-drc" secondAttribute="trailing" constant="20" id="QAB-5T-ygZ"/>

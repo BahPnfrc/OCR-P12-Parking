@@ -26,7 +26,7 @@ extension StationCellItem {
         var dateAsString = "Inconnue"
         if let date = cellUpdatedTime() {
             let format = DateFormatter()
-            format.dateFormat = "d/MM @ HH:mm:ss"
+            format.dateFormat = "dd/MM/yy à HH:mm"
             dateAsString = format.string(from: date)
         }
         return "Date : \(dateAsString)"

@@ -90,9 +90,11 @@ class NetworkViewController: UIViewController {
                 print(error)
             case .success(let allStations):
                 CarStation.allStations = allStations
-                CarStation.allStations.forEach({
-                    ($0 as! CarStation).reloadValues(inLoopOf: allStations.count)
-                })
+                if CarStation.canReloadValues() {
+                    CarStation.allStations.forEach({
+                        ($0 as! CarStation).reloadValues(inLoopOf: allStations.count)
+                    })
+                }
                 NotificationCenter.default.post(Notification.carHasNewData)
             }
         }

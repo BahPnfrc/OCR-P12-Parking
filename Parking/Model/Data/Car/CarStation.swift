@@ -33,10 +33,11 @@ class CarStation {
         self.url = url
     }
 
-    static var reloadedValuesCount = 0
-    static func initReloadvalues() {
-        CarStation.reloadedValuesCount = 0
-    }
+
+    private static var reloadedValuesCount = 0
+    static func canReloadValues() -> Bool { reloadedValuesCount == 0 }
+    static func initReloadvalues() -> Void { CarStation.reloadedValuesCount = 0 }
+
     func reloadValues(inLoopOf totalElements: Int? = nil) {
         NetworkService.shared.reloadCarValues(for: self) { result in
             CarStation.reloadedValuesCount += 1
