@@ -1,6 +1,7 @@
 import Foundation
 
 // MARK: - BikeMetaData
+
 struct BikeMetaData: Codable {
     let help: String
     let success: Bool
@@ -8,6 +9,7 @@ struct BikeMetaData: Codable {
 }
 
 // MARK: - BikeTopResult
+
 struct BikeTopResult: Codable {
     let help: String
     let success: Bool
@@ -15,6 +17,7 @@ struct BikeTopResult: Codable {
 }
 
 // MARK: - BikeSubResult
+
 struct BikeSubResult: Codable {
     let id: String
     let url: String

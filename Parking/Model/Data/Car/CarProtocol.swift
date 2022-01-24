@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: CarStation Protocol conforming
+
 extension CarStation: StationCellItem {
     var cellType: CellType {
         .Car
@@ -33,6 +35,6 @@ extension CarStation: StationCellItem {
     }
 
     func cellUpdatedTime() -> Date? {
-        self.values?.dateTime ?? nil
+        self.values?.lastTimeReloaded ?? nil
     }
 }

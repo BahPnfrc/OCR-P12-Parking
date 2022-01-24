@@ -2,12 +2,11 @@ import Foundation
 import SwiftyXMLParser
 
 // MARK: - BikeStation
+
 class BikeStation {
 
     static var metadata: BikeMetaData?
     static var allStations = [StationCellItem]()
-
-    let dateTime: Date
 
     let name: String
     let id: Int
@@ -25,6 +24,8 @@ class BikeStation {
         case total = "to"
     }
 
+    let lastTimeReloaded: Date?
+
     init(name: String, id: Int, latitude: Double, longitude: Double, free: Int, total: Int) {
         self.name = name
         self.id = id
@@ -32,11 +33,12 @@ class BikeStation {
         self.longitude = longitude
         self.free = free
         self.total = total
-        self.dateTime = Date()
+        self.lastTimeReloaded = Date()
     }
 }
 
 // MARK: XML Data Parsing
+
 extension BikeStation {
     static func parseBikeXML(with element: XML.Element) -> BikeStation? {
         guard let name = element.attributes[CodingKeys.name.rawValue],
@@ -45,7 +47,7 @@ extension BikeStation {
               let longitude = element.attributes[CodingKeys.longitude.rawValue],
               let free = element.attributes[CodingKeys.free.rawValue],
               let total = element.attributes[CodingKeys.total.rawValue] else {
-                  print("🟥 BIKE STATION : KO")
+                  print("🟥 BIKE STATION XML : KO")
                   return nil
               }
 
@@ -56,7 +58,7 @@ extension BikeStation {
             longitude: Double(longitude) ?? 0,
             free: Int(free) ?? 0,
             total: Int(total) ?? 0)
-        print("🟩 BIKE STATION : OK @\(name) :", free, "sur", total)
+        print("🟩 BIKE STATION \(name) :", free, "libre(s) sur", total)
         return bikeStation
     }
 }

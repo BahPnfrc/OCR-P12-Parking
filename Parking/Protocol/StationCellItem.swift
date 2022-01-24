@@ -11,6 +11,7 @@ enum CellType {
     case Car, Bike
 }
 
+/// All items used in UITableView must conform to this protocol
 protocol StationCellItem {
     var cellType: CellType { get }
     var cellIsLoaded: Bool { get }

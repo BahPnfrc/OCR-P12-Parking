@@ -7,12 +7,13 @@
 
 import UIKit
 
+// MARK: - StationViewController
+
 class StationViewController: NetworkViewController {
 
     // MARK: - Outlets
 
     @IBOutlet weak var statusBarView: UIView!
-
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerTopImageView: UIImageView!
@@ -21,7 +22,7 @@ class StationViewController: NetworkViewController {
     @IBOutlet weak var headerSubReloader: UIImageView!
     @IBOutlet weak var headerSubImageView: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Properties
 
@@ -46,23 +47,24 @@ class StationViewController: NetworkViewController {
     var searchingKey: String?
     private var dataSource: [StationCellItem]?
 
+    // MARK: - Loading
+
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
+
+        searchBar.delegate = self
+        tableView.delegate = self
+        tableView.dataSource = self
 
         setObservers()
         paintHeader()
         paintSearchBar()
         paintTableView()
 
-        searchBar.delegate = self
-        tableView.delegate = self
-        tableView.dataSource = self
-
         let gesture = UITapGestureRecognizer(target: self, action: #selector(forceReload))
         headerSubReloader.isUserInteractionEnabled = true
         headerSubReloader.addGestureRecognizer(gesture)
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,8 +74,9 @@ class StationViewController: NetworkViewController {
 
     @objc func forceReload(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        fatalError("Must override")
+        fatalError("Must override") // Handle in subclasses
     }
+
 
     // MARK: - Notification functions
 
@@ -131,11 +134,11 @@ class StationViewController: NetworkViewController {
     }
 
     @objc func bikeHasNewData() {
-        fatalError("Must override")
+        fatalError("Must override") // Handle in subclasses
     }
 
     @objc func carHasNewData() {
-        fatalError("Must override")
+        fatalError("Must override") // Handle in subclasses
     }
 
     @objc func carIsReadyToCount() {
@@ -167,6 +170,7 @@ class StationViewController: NetworkViewController {
         tableView.backgroundColor = .white.withAlphaComponent(0)
     }
 
+    /// Define a new header title according to operation and datasource.
     func defineNewHeaderTitle() {
         let count = countCurrentData()
         var newHeader:(image: UIImage?, label: String)
@@ -205,7 +209,7 @@ class StationViewController: NetworkViewController {
     }
 
     func defineNewData() {
-        fatalError("Must override")
+        fatalError("Must override") // Handle in subclasses
     }
 
     func countCurrentData() -> (stations: Int, freePlaces: Int) {
@@ -226,6 +230,7 @@ class StationViewController: NetworkViewController {
 // MARK: UISearchBarDelegate
 
 extension StationViewController: UISearchBarDelegate {
+    /// See subclasses for right use.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count > 0 {
             isSearching = true
@@ -248,6 +253,7 @@ extension StationViewController: UITableViewDataSource {
         dataSource?.count ?? 0
     }
 
+    /// func : all cell data are accessed via its protocole.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationCell", for: indexPath) as! StationTableViewCell
 
@@ -255,7 +261,6 @@ extension StationViewController: UITableViewDataSource {
         cell.station = station
         cell.isFavorite = station.cellIsFavorite()
         cell.nameLabel.text = station.cellName()
-
 
         switch station.cellType {
         case .Bike:
@@ -291,6 +296,7 @@ extension StationViewController: UITableViewDataSource {
         return cell
     }
 
+    // Mainly prepare cell design.
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let clearView = UIView()
         clearView.backgroundColor = .clear

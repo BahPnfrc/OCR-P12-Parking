@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - Displayable Extension
 
+/// Extension : contains defaults StationCellItem values for all object conforming to this protocol
 extension StationCellItem {
     func cellDisplayableFreePlace() -> String {
         let free = cellFreePlaces()
@@ -18,6 +19,10 @@ extension StationCellItem {
             return "Libre : \(free) sur \(cellTotalPlaces())"
         }
     }
+
+    /// Time can be displayed in two different ways :
+    /// - staticUpdatedTime : date time of last reloading
+    /// - dynamicUpdatedTime : time passed since last reloading
     func cellDisplayableUpdatedTime() -> String {
         staticUpdatedTime()
     }
@@ -37,12 +42,12 @@ extension StationCellItem {
         if let date = cellUpdatedTime() {
             let now = Date()
             let interval = date.distance(to: now)
-            dateAsString = distanceToString(interval)
+            dateAsString = timePassedIn(interval)
         }
         return "Délai : \(dateAsString)"
     }
 
-    private func distanceToString(_ interval: TimeInterval) -> String {
+    private func timePassedIn(_ interval: TimeInterval) -> String {
         var min = 0
         var hour = 0
         var interval = interval
@@ -66,6 +71,7 @@ extension StationCellItem {
 
 // MARK: - Favorite Extension
 
+/// Extension : contains defaults StationCellItem values for all object CoreData's operation
 extension StationCellItem {
     func cellIsFavorite() -> Bool {
         return CoreDataService.shared.isFavorite(self)

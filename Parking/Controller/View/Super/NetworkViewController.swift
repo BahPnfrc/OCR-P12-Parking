@@ -7,12 +7,24 @@
 
 import UIKit
 
+// MARK: - NetworkViewController
+
 class NetworkViewController: UIViewController {
 
-    var updateSpan: TimeInterval = 60*5 // 5 min
+    /// This class handle network call of its subclasses.
+    /// This class cannot access subclasses outlets directly.
+    /// Instead, notifications are used to tell subclasses when important events occur.
+    /// This truly matters since operations on car are syncronous.
+    /// In this case notifications help reload subclasses only when syncronous calls are done.
+
+    // MARK: - Properties
+
+    /// Span before an auto update can occur on changing Tab.
+    var updateSpan: TimeInterval = 300 // 5 min
     var lastBikeUpdate = Date()
     var lastCarUpdate = Date()
 
+    /// - returns : A tuple telling wheither or not bike and car can autoupdate based on last time update.
     func canAutoUpdate() -> (bike: Bool, car: Bool) {
         let now = Date()
         let bikeInterval = lastBikeUpdate.distance(to: now)
@@ -20,12 +32,15 @@ class NetworkViewController: UIViewController {
         return (bikeInterval > updateSpan, carInterval > updateSpan)
     }
 
+    // MARK: - Loading
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     // MARK: - Network Metadata
 
+    /// - parameter forced: force reloading even though autoupdate span is not reached.
     func reloadBikeMetaData(forced: Bool) {
         guard forced == true || canAutoUpdate().bike else { return }
 
@@ -38,11 +53,12 @@ class NetworkViewController: UIViewController {
                 print(error)
             case .success(let metaData):
                 BikeStation.metadata = metaData
-                self.reloadBikeStations()
+                self.reloadBikeStations() // Call objects update on termination
             }
         }
     }
 
+    /// - parameter forced: force reloading even though autoupdate span is not reached.
     func reloadCarMetaData(forced: Bool) {
         guard forced == true || canAutoUpdate().car else { return }
 
@@ -55,7 +71,7 @@ class NetworkViewController: UIViewController {
                 print(error)
             case .success(let metaData):
                 CarStation.metadata = metaData
-                self.reloadCarStations()
+                self.reloadCarStations() // Call objects update on termination
             }
         }
     }
@@ -95,6 +111,7 @@ class NetworkViewController: UIViewController {
                 if CarStation.canReloadValues() {
                     CarStation.allStations.forEach({
                         ($0 as! CarStation).reloadValues(inLoopOf: allStations.count)
+                        // A notification is also sent when all objects are reloaded.
                     })
                 }
                 NotificationCenter.default.post(Notification.carHasNewData)

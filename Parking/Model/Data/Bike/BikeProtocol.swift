@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: BikeStation Protocol conforming
+
 extension BikeStation: StationCellItem {
     var cellType: CellType {
         .Bike
@@ -33,6 +35,6 @@ extension BikeStation: StationCellItem {
     }
 
     func cellUpdatedTime() -> Date? {
-        self.dateTime
+        self.lastTimeReloaded ?? nil
     }
 }

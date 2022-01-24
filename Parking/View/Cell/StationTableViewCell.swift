@@ -10,6 +10,8 @@ import MapKit
 
 class StationTableViewCell: UITableViewCell {
 
+    // MARK: - Outlets
+
     @IBOutlet private weak var background: UIImageView!
     @IBOutlet weak var typeImageView: UIImageView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
@@ -24,18 +26,19 @@ class StationTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var favoriteButton: UIButton!
 
-    var station: StationCellItem?
+    // MARK: - Properties
 
+    var station: StationCellItem?
     var isFavorite = false {
         didSet {
             if isFavorite {
-                favoriteImageView.image = Shared.paintedSystemImage(named: "star.fill", .black, .black, .black)
+                favoriteImageView.image = Shared.favoriteCheckedIcon
             } else {
-                favoriteImageView.image = Shared.paintedSystemImage(named: "star.slash", .black, .black, .black)
+                favoriteImageView.image = Shared.favoriteUncheckedIcon
             }
         }
     }
-    var isRequesting: Bool = false {
+    var isRequesting = false {
         didSet {
             if isRequesting {
                 activityIndicator.startAnimating()
@@ -45,11 +48,17 @@ class StationTableViewCell: UITableViewCell {
         }
     }
 
+    // MARK: - Loading
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        isFavorite = false
-        isRequesting = false
         paint()
+    }
+
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        // Configure the view for the selected state
     }
 
     private func paint() {
@@ -61,23 +70,20 @@ class StationTableViewCell: UITableViewCell {
         updatedImageView.image = Shared.paintedSystemImage(named: "clock.badge.checkmark", .black, .black, .black)
     }
 
+    // MARK: - Other functions
 
     @IBAction func didTapFavoriteButton(_ sender: Any) {
         guard let station = station else { return }
         if isFavorite {
             try? station.cellFavoriteDelete()
-            print("DELETE OK")
+            print("🟪 CORE DATA Deleted : \(station.cellName())")
         } else {
             station.cellFavoriteAdd()
-            print("ADD OK")
+            print("🟪 CORE DATA Saved : \(station.cellName())")
         }
         isFavorite = station.cellIsFavorite()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
 
 
 

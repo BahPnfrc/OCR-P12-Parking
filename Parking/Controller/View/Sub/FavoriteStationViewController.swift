@@ -7,7 +7,11 @@
 
 import UIKit
 
+// MARK: - FavoriteStationViewController
+
 class FavoriteStationViewController: StationViewController {
+
+    // MARK: - Loading
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +25,8 @@ class FavoriteStationViewController: StationViewController {
         super.reloadCarMetaData(forced: false)
         defineNewData()
     }
+
+    // MARK: - Data functions
 
     override func bikeHasNewData() {
         defineNewData()
@@ -65,10 +71,14 @@ class FavoriteStationViewController: StationViewController {
         super.defineNewHeaderTitle()
     }
 
+    // MARK: - Delegate functions
+
     override func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         super.searchBar(searchBar, textDidChange: searchText)
         self.defineNewData()
     }
+
+    // MARK: - Gesture functions
 
     override func forceReload(tapGestureRecognizer: UITapGestureRecognizer) {
         guard !isSearching else { return }

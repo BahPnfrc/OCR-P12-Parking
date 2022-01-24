@@ -8,6 +8,8 @@
 import Foundation
 import CoreData
 
+// MARK: - CoreDataService
+
 class CoreDataService {
 
     static let shared = CoreDataService()
@@ -24,6 +26,8 @@ class CoreDataService {
         }
     }
 }
+
+// MARK: - CoreDataService Extension
 
 extension CoreDataService {
 
@@ -47,8 +51,7 @@ extension CoreDataService {
             NSSortDescriptor(key: "timeStamp", ascending: ascending)
         ]
         do {
-            return try context.fetch(request)
-                .compactMap({ $0.getStation() })
+            return try context.fetch(request).compactMap({ $0.getStation() })
         } catch {
             throw error
         }
