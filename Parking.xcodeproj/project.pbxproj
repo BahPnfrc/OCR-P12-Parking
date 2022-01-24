@@ -260,8 +260,8 @@
 		5269C068279D6C6B00E29FDA /* Sub */ = {
 			isa = PBXGroup;
 			children = (
-				5269C04C279A9ADB00E29FDA /* CarStationViewController.swift */,
 				5269C04E279A9B3400E29FDA /* BikeStationViewController.swift */,
+				5269C04C279A9ADB00E29FDA /* CarStationViewController.swift */,
 				5269C06B279D6CE500E29FDA /* FavoriteStationViewController.swift */,
 			);
 			path = Sub;

@@ -243,21 +243,32 @@ extension StationViewController: UITableViewDataSource {
 
         switch station.cellType {
         case .Bike:
+
             cell.freeLabel.text = station.cellDisplayableFreePlace()
             cell.updateLabel.text = station.cellDisplayableUpdatedTime()
             cell.typeImageView.image = Shared.cellBikeIcon
-        case .Car:
-            cell.freeLabel.text = "-"
-            cell.updateLabel.text = "-"
-            cell.typeImageView.image = Shared.cellDefaultIcon
 
-            cell.isRequesting = true
-            NetworkService.shared.reloadCarValues(for: station as! CarStation) { result in
-                cell.isRequesting = false
-                if case .success = result {
-                    cell.freeLabel.text = station.cellDisplayableFreePlace()
-                    cell.updateLabel.text = station.cellDisplayableUpdatedTime()
-                    cell.typeImageView.image = Shared.cellCarIcon
+        case .Car:
+
+            if station.cellIsLoaded {
+                cell.freeLabel.text = station.cellDisplayableFreePlace()
+                cell.updateLabel.text = station.cellDisplayableUpdatedTime()
+                cell.typeImageView.image = Shared.cellCarIcon
+                return cell
+            } else {
+                cell.isRequesting = true
+                NetworkService.shared.reloadCarValues(for: station as! CarStation) { result in
+                    cell.isRequesting = false
+                    switch result {
+                    case .failure:
+                        cell.freeLabel.text = "-"
+                        cell.updateLabel.text = "-"
+                        cell.typeImageView.image = Shared.cellDefaultIcon
+                    case .success:
+                        cell.freeLabel.text = station.cellDisplayableFreePlace()
+                        cell.updateLabel.text = station.cellDisplayableUpdatedTime()
+                        cell.typeImageView.image = Shared.cellCarIcon
+                    }
                 }
             }
         }
