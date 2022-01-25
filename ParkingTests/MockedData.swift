@@ -1,0 +1,45 @@
+//
+//  MockedData.swift
+//  ParkingTests
+//
+//  Created by Genapi on 24/01/2022.
+//
+
+import Foundation
+
+class MockedData {
+
+    // MARK: - URL
+
+    static let bikeMetaDataURL = URL(string: "https://data.montpellier3m.fr/api/3/action/resource_show?id=adb98f8d-c4d2-4012-8abe-cf02903e2ea0")!
+
+
+    static let carMetaDataURL = URL(string: "https://data.montpellier3m.fr/api/3/action/package_show?id=90e17b94-989f-4d66-83f4-766d4587bec2")!
+
+    static let carXmlURL = URL(string: "https://data.montpellier3m.fr/sites/default/files/ressources/FR_MTP_COME.xml")!
+
+//    static let remoteXmlURL: String
+
+    // MARK: - DATA OK
+
+    public static var bikeMetaDataOK: Data = try! Data(
+        contentsOf: Bundle(for: MockedData.self)
+            .url(forResource: "BikeMetaData", withExtension: "json")!)
+
+    public static var carMetaDataOK: Data = try! Data(
+        contentsOf: Bundle(for: MockedData.self)
+        .url(forResource: "CarMetaData", withExtension: "json")!)
+
+    public static var carDataOK: Data = try! Data(
+        contentsOf: Bundle(for: MockedData.self)
+        .url(forResource: "CarData", withExtension: "xml")!)
+
+    // MARK: - DATA KO
+
+    public static let bikeMetaDataKO = "someBikeMetaData".data(using: .utf8)!
+
+    public static let carMetaDataKO = "someCarMetaData".data(using: .utf8)!
+    public static let carDataKO = "someCarData".data(using: .utf8)!
+
+    
+}

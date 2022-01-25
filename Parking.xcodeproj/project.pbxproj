@@ -11,6 +11,10 @@
 		524412D027933B3300BB3411 /* StationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524412CF27933B3300BB3411 /* StationCell.xib */; };
 		524412D327933F0A00BB3411 /* Paint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524412D227933F0A00BB3411 /* Paint.swift */; };
 		524412D527933FE100BB3411 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524412D427933FE100BB3411 /* UIColor+Extension.swift */; };
+		5254B811279F43D10095D30F /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5254B810279F43D10095D30F /* MockedData.swift */; };
+		5254B818279F65AD0095D30F /* BikeMetaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5254B812279F49FC0095D30F /* BikeMetaData.json */; };
+		5254B819279F65B30095D30F /* CarMetaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5254B813279F4A760095D30F /* CarMetaData.json */; };
+		5254B81B279F8FCF0095D30F /* CarData.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5254B81A279F8A920095D30F /* CarData.xml */; };
 		5269C036279998E300E29FDA /* MainUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C035279998E300E29FDA /* MainUITabBarController.swift */; };
 		5269C03827999BD600E29FDA /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C03727999BD600E29FDA /* Shared.swift */; };
 		5269C03A2799BA1C00E29FDA /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C0392799BA1C00E29FDA /* StationTableViewCell.swift */; };
@@ -40,7 +44,6 @@
 		52C53C6327887320004586F6 /* ParkingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C6227887320004586F6 /* ParkingUITestsLaunchTests.swift */; };
 		52C53C72278876C3004586F6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C71278876C3004586F6 /* NetworkService.swift */; };
 		52C53C7427887D17004586F6 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C7327887D17004586F6 /* ApiError.swift */; };
-		52C53C7627887D56004586F6 /* CarModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 52C53C7527887D56004586F6 /* CarModel.json */; };
 		52C53C7827887F3F004586F6 /* CarMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C7727887F3F004586F6 /* CarMetaData.swift */; };
 		52C53C7F27888F34004586F6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C7E27888F34004586F6 /* String+Extension.swift */; };
 		52C53C8127889908004586F6 /* CarStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C8027889908004586F6 /* CarStation.swift */; };
@@ -74,6 +77,10 @@
 		524412CF27933B3300BB3411 /* StationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationCell.xib; sourceTree = "<group>"; };
 		524412D227933F0A00BB3411 /* Paint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paint.swift; sourceTree = "<group>"; };
 		524412D427933FE100BB3411 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		5254B810279F43D10095D30F /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
+		5254B812279F49FC0095D30F /* BikeMetaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BikeMetaData.json; sourceTree = "<group>"; };
+		5254B813279F4A760095D30F /* CarMetaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CarMetaData.json; sourceTree = "<group>"; };
+		5254B81A279F8A920095D30F /* CarData.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CarData.xml; sourceTree = "<group>"; };
 		5269C035279998E300E29FDA /* MainUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUITabBarController.swift; sourceTree = "<group>"; };
 		5269C03727999BD600E29FDA /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		5269C0392799BA1C00E29FDA /* StationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,7 +114,6 @@
 		52C53C6227887320004586F6 /* ParkingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		52C53C71278876C3004586F6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		52C53C7327887D17004586F6 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
-		52C53C7527887D56004586F6 /* CarModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CarModel.json; sourceTree = "<group>"; };
 		52C53C7727887F3F004586F6 /* CarMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMetaData.swift; sourceTree = "<group>"; };
 		52C53C7E27888F34004586F6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		52C53C8027889908004586F6 /* CarStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarStation.swift; sourceTree = "<group>"; };
@@ -320,8 +326,11 @@
 		52C53C5527887320004586F6 /* ParkingTests */ = {
 			isa = PBXGroup;
 			children = (
+				5254B810279F43D10095D30F /* MockedData.swift */,
+				5254B812279F49FC0095D30F /* BikeMetaData.json */,
+				5254B813279F4A760095D30F /* CarMetaData.json */,
+				5254B81A279F8A920095D30F /* CarData.xml */,
 				52C53C5627887320004586F6 /* ParkingTests.swift */,
-				52C53C7527887D56004586F6 /* CarModel.json */,
 			);
 			path = ParkingTests;
 			sourceTree = "<group>";
@@ -534,7 +543,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52C53C7627887D56004586F6 /* CarModel.json in Resources */,
+				5254B81B279F8FCF0095D30F /* CarData.xml in Resources */,
+				5254B819279F65B30095D30F /* CarMetaData.json in Resources */,
+				5254B818279F65AD0095D30F /* BikeMetaData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +703,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5254B811279F43D10095D30F /* MockedData.swift in Sources */,
 				52C53C5727887320004586F6 /* ParkingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

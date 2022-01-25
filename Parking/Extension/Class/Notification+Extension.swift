@@ -14,7 +14,6 @@ enum NotificationName: String {
     case carIsRequesting
     case carIsDone
     case carHasNewData
-    case carIsReadyToCount
 }
 
 // MARK: - NotificationName.Name Extension
@@ -26,7 +25,6 @@ extension Notification.Name {
     static let carIsRequesting = Notification.Name(NotificationName.carIsRequesting.rawValue)
     static let carIsDone = Notification.Name(NotificationName.carIsDone.rawValue)
     static let carHasNewData = Notification.Name(NotificationName.carHasNewData.rawValue)
-    static let carIsReadyToCount = Notification.Name(NotificationName.carIsReadyToCount.rawValue)
 }
 
 // MARK: - NotificationName Extension
@@ -38,5 +36,4 @@ extension Notification {
     static let carIsRequesting = Notification(name: Notification.Name(rawValue: NotificationName.carIsRequesting.rawValue))
     static let carIsDone = Notification(name: Notification.Name(rawValue: NotificationName.carIsDone.rawValue))
     static let carHasNewData = Notification(name: Notification.Name(rawValue: NotificationName.carHasNewData.rawValue))
-    static let carIsReadyToCount = Notification(name: Notification.Name(rawValue: NotificationName.carIsReadyToCount.rawValue))
 }

@@ -48,17 +48,34 @@ class CarStation {
             CarStation.reloadedValuesCount += 1
             guard let totalElements = totalElements else { return }
             if CarStation.reloadedValuesCount == totalElements {
-                NotificationCenter.default.post(Notification.carIsReadyToCount)
+                NotificationCenter.default.post(Notification.carIsDone)
+                NotificationCenter.default.post(Notification.carHasNewData)
                 CarStation.initReloadvalues()
             }
         }
     }
 }
 
-// MARK: - XML Data Parsing
+// MARK: - CarStation Extension
 
 extension CarStation {
-static func parseCarXML(for name: String, with accessor: XML.Accessor) -> CarValues? {
+    ///  - returns : an array of car stations objects containing name and URL to load details from.
+    static func getCarStations(from metadata: CarMetaData) -> [CarStation] {
+        let ressources = metadata.result.resources
+        var stations = [CarStation]()
+        for resource in ressources {
+            let url = resource.url
+            let name = resource.name
+            guard !name.contains("_") else { continue } // Skip certains objects
+            let parking = CarStation(name: name, url: url)
+            stations.append(parking)
+        }
+        return stations
+    }
+
+    // MARK: - XML Data Parsing
+
+    static func parseCarXML(for name: String, with accessor: XML.Accessor) -> CarValues? {
         guard let dateTime = accessor["park", CarValues.CodingKeys.dateTime.rawValue].text,
               let shortName = accessor["park", CarValues.CodingKeys.shortName.rawValue].text,
               let status = accessor["park", CarValues.CodingKeys.status.rawValue].text,

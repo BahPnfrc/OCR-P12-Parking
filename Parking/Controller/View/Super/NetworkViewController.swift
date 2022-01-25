@@ -38,7 +38,7 @@ class NetworkViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    // MARK: - Network Metadata
+    // MARK: - Bike functions
 
     /// - parameter forced: force reloading even though autoupdate span is not reached.
     func reloadBikeMetaData(forced: Bool) {
@@ -58,6 +58,25 @@ class NetworkViewController: UIViewController {
         }
     }
 
+    func reloadBikeStations() {
+        guard let metadata = BikeStation.metadata else { return }
+        NotificationCenter.default.post(Notification.bikeIsRequesting)
+        BikeStation.getBikeStations(from: metadata) { [weak self] result in
+            guard let self = self else { return }
+            NotificationCenter.default.post(Notification.bikeIsDone)
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let allStations):
+                BikeStation.allStations = allStations
+                self.lastBikeUpdate = Date()
+                NotificationCenter.default.post(Notification.bikeHasNewData)
+            }
+        }
+    }
+
+    // MARK: - Car functions
+
     /// - parameter forced: force reloading even though autoupdate span is not reached.
     func reloadCarMetaData(forced: Bool) {
         guard forced == true || canAutoUpdate().car else { return }
@@ -76,46 +95,16 @@ class NetworkViewController: UIViewController {
         }
     }
 
-
-    // MARK: - Network Stations
-
-    func reloadBikeStations() {
-        guard let metadata = BikeStation.metadata else { return }
-        NotificationCenter.default.post(Notification.bikeIsRequesting)
-        NetworkService.shared.getBikeStations(from: metadata) { [weak self] result in
-            guard let self = self else { return }
-            NotificationCenter.default.post(Notification.bikeIsDone)
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let allStations):
-                BikeStation.allStations = allStations
-                self.lastBikeUpdate = Date()
-                NotificationCenter.default.post(Notification.bikeHasNewData)
-            }
-        }
-    }
-
     func reloadCarStations() {
         guard let metadata = CarStation.metadata else { return }
-        NotificationCenter.default.post(Notification.carIsRequesting)
-        NetworkService.shared.getCarStations(from: metadata) { [weak self] result in
-            guard let self = self else { return }
-            NotificationCenter.default.post(Notification.carIsDone)
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let allStations):
-                CarStation.allStations = allStations
-                self.lastCarUpdate = Date()
-                if CarStation.canReloadValues() {
-                    CarStation.allStations.forEach({
-                        ($0 as! CarStation).reloadValues(inLoopOf: allStations.count)
-                        // A notification is also sent when all objects are reloaded.
-                    })
-                }
-                NotificationCenter.default.post(Notification.carHasNewData)
-            }
+        CarStation.allStations = CarStation.getCarStations(from: metadata)
+        if CarStation.canReloadValues() {
+            NotificationCenter.default.post(Notification.carIsRequesting)
+            CarStation.allStations.forEach({
+                ($0 as! CarStation).reloadValues(inLoopOf: CarStation.allStations.count)
+                // A notification is also sent when all objects are reloaded.
+            })
+            self.lastCarUpdate = Date()
         }
     }
 

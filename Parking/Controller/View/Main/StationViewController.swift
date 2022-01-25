@@ -110,11 +110,6 @@ class StationViewController: NetworkViewController {
             selector: #selector(carHasNewData),
             name: Notification.Name.carHasNewData,
             object: nil)
-
-        NotificationCenter.default.addObserver(self,
-            selector: #selector(carIsReadyToCount),
-            name: Notification.Name.carIsReadyToCount,
-            object: nil)
     }
 
     @objc func bikeIsRequesting() {
@@ -139,10 +134,6 @@ class StationViewController: NetworkViewController {
 
     @objc func carHasNewData() {
         fatalError("Must override") // Handle in subclasses
-    }
-
-    @objc func carIsReadyToCount() {
-        defineNewHeaderTitle()
     }
 
     // MARK: - Paint functions

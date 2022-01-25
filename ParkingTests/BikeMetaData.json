@@ -1,0 +1,19 @@
+{
+    "help": "",
+    "success": true,
+    "result": {
+        "help": "Return the metadata of a resource. :param id: the id of the resource :type id: string :rtype: dictionary",
+        "success": true,
+        "result": {
+            "id": "adb98f8d-c4d2-4012-8abe-cf02903e2ea0",
+            "url": "https://data.montpellier3m.fr/sites/default/files/ressources/TAM_MMM_VELOMAG.xml",
+            "format": "xml",
+            "revision_timestamp": "2017-11-30T15:27:46",
+            "name": "TAM_MMM_VELOMAG.xml",
+            "mimetype": "application/xml",
+            "size": "5.3 Ko",
+            "created": "2017-11-30T15:27:46",
+            "last_modified": "Date changed\t2017-11-30T15:27:46"
+        }
+    }
+}
