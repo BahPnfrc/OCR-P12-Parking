@@ -1,10 +1,3 @@
-//
-//  MockedData.swift
-//  ParkingTests
-//
-//  Created by Genapi on 24/01/2022.
-//
-
 import Foundation
 
 class MockedData {

@@ -1,10 +1,3 @@
-//
-//  MainUITabBarController.swift
-//  Parking
-//
-//  Created by Genapi on 20/01/2022.
-//
-
 import UIKit
 
 class MainUITabBarController: UITabBarController {

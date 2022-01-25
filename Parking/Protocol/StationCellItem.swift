@@ -1,10 +1,3 @@
-//
-//  StationCell+Protocole.swift
-//  Parking
-//
-//  Created by Genapi on 20/01/2022.
-//
-
 import Foundation
 
 enum CellType {

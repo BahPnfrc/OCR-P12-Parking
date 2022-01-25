@@ -1,10 +1,3 @@
-//
-//  Notification.swift
-//  Parking
-//
-//  Created by Genapi on 23/01/2022.
-//
-
 import Foundation
 
 enum NotificationName: String {

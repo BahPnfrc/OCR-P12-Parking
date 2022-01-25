@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Parking
-//
-//  Created by Genapi on 07/01/2022.
-//
-
 import UIKit
 import CoreData
 

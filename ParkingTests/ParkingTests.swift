@@ -1,10 +1,3 @@
-//
-//  ParkingTests.swift
-//  ParkingTests
-//
-//  Created by Genapi on 07/01/2022.
-//
-
 import XCTest
 import Alamofire
 import Mocker

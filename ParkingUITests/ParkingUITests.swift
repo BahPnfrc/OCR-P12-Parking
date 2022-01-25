@@ -1,10 +1,3 @@
-//
-//  ParkingUITests.swift
-//  ParkingUITests
-//
-//  Created by Genapi on 07/01/2022.
-//
-
 import XCTest
 
 class ParkingUITests: XCTestCase {

@@ -1,10 +1,3 @@
-//
-//  BikeStationViewController.swift
-//  Parking
-//
-//  Created by Genapi on 21/01/2022.
-//
-
 import UIKit
 
 // MARK: - BikeStationViewController
