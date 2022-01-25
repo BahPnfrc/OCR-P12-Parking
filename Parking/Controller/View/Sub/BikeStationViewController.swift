@@ -14,7 +14,7 @@ class BikeStationViewController: StationViewController {
     // MARK: - Loading
 
     override func viewDidLoad() {
-        reloadBikeMetaData(forced: true)
+        reloadBikeMetaData(forced: false)
         super.viewDidLoad()
     }
 
@@ -25,6 +25,7 @@ class BikeStationViewController: StationViewController {
     }
 
     override func bikeHasNewData() {
+        super.bikeHasNewData()
         defineNewData()
     }
 

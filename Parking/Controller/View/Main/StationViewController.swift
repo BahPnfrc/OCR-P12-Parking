@@ -129,11 +129,11 @@ class StationViewController: NetworkViewController {
     }
 
     @objc func bikeHasNewData() {
-        fatalError("Must override") // Handle in subclasses
+        NetworkViewController.lastBikeUpdate = Date()
     }
 
     @objc func carHasNewData() {
-        fatalError("Must override") // Handle in subclasses
+        NetworkViewController.lastCarUpdate = Date()
     }
 
     // MARK: - Paint functions

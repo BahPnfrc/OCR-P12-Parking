@@ -15,8 +15,8 @@ class FavoriteStationViewController: StationViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.reloadBikeMetaData(forced: true)
-        super.reloadCarMetaData(forced: true)
+        super.reloadBikeMetaData(forced: false)
+        super.reloadCarMetaData(forced: false)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,10 +29,12 @@ class FavoriteStationViewController: StationViewController {
     // MARK: - Data functions
 
     override func bikeHasNewData() {
+        super.bikeHasNewData()
         defineNewData()
     }
 
     override func carHasNewData() {
+        super.carHasNewData()
         defineNewData()
     }
 

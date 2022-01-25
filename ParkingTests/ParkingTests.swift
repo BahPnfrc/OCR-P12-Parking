@@ -200,7 +200,6 @@ class ParkingTests: XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
 
-
     func testGivenInvalidCode_whenCallingCarStation_thenCompletionFails() throws {
         let mock = Mock(
             url: MockedData.carXmlURL,
@@ -247,7 +246,7 @@ class ParkingTests: XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
 
-    func testGivenValidData_whenCallingCarStation_thenCompletionSuccess() throws {
+    func testGivenValidData_whenCallingSingleCarValues_thenCompletionSuccess() throws {
         let mock = Mock(
             url: MockedData.carXmlURL,
             ignoreQuery: true,
@@ -268,6 +267,30 @@ class ParkingTests: XCTestCase {
                 expectation.fulfill()
             }
         }
+        wait(for: [expectation], timeout: timeout)
+    }
+
+    func testGivenValidData_whenCallingLoopCarValues_thenCompletionSuccess() throws {
+        let mock = Mock(
+            url: MockedData.carXmlURL,
+            ignoreQuery: true,
+            dataType: .json,
+            statusCode: 200,
+            data: [.get: MockedData.carDataOK])
+        mock.register()
+
+        let expectation = expectation(
+            forNotification: Notification.Name.carHasNewData,
+            object: nil, handler: nil)
+
+        guard let meta = try? JSONDecoder().decode(CarMetaData.self, from: MockedData.carMetaDataOK) else {
+            XCTFail()
+            return
+        }
+
+        let carStations = CarStation.getCarStations(from: meta)
+        let session = NetworkService.init(xmlSession: mockedXmlSession)
+        session.reloadCarValues(for: carStations)
         wait(for: [expectation], timeout: timeout)
     }
 

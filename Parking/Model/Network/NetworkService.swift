@@ -32,7 +32,7 @@ class NetworkService {
         let id: String
     }
 
-    // MARK: - Bike Stations
+    // MARK: - Bike MetaData
 
     private let bikeMetaParams = MetaParams(
         id: NetworkService.bikeMetaDataID
@@ -57,7 +57,7 @@ class NetworkService {
         }
     }
 
-    // MARK: - Car Stations
+    // MARK: - Car MetaData
 
     private let carMetaParams = MetaParams(
         id: NetworkService.carMetaDataID
@@ -83,6 +83,8 @@ class NetworkService {
             }
     }
 
+    // MARK: - Car Stations
+
     /// - returns: return a CarValues object *after assigning* it to the car.
     func reloadCarValues(for car: CarStation, completion: @escaping (Result<CarValues, ApiError>) -> Void) {
         getRemoteXmlData(fromUrl: car.url) { result in
@@ -101,7 +103,31 @@ class NetworkService {
         }
     }
 
-    
+    /// CarStation are divided into several XML files which all imply their own API call.
+    /// Var and func here help  keep track of syncronous return to make sure all XML were loaded.
+    private(set) static var reloadedValuesCount = 0
+    static func canReloadValues() -> Bool { reloadedValuesCount == 0 }
+    static func initReloadvalues() -> Void { reloadedValuesCount = 0 }
+
+    /// Func : reload a single object or several in a loop.
+    /// SInce it's done a syncronous way, a notification will be sent only once all object sent back a result.
+    /// - parameter totalElements: number of elements to loop through and expect result from.
+    func reloadCarValues(for cars: [CarStation]) {
+        if NetworkService.canReloadValues() {
+            NotificationCenter.default.post(Notification.carIsRequesting)
+            cars.forEach({
+                reloadCarValues(for: $0) { _ in
+                    NetworkService.reloadedValuesCount += 1
+                    if NetworkService.reloadedValuesCount == cars.count {
+                        NetworkService.initReloadvalues()
+                        NotificationCenter.default.post(Notification.carIsDone)
+                        NotificationCenter.default.post(Notification.carHasNewData)
+                    }
+                }
+            })
+        }
+    }
+
     // MARK: - XML File
 
     /// - returns : an XML.Accessor object to help read the file via the SwiftyXMLParser Pod.

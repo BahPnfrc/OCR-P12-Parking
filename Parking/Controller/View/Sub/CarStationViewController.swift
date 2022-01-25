@@ -15,7 +15,7 @@ class CarStationViewController: StationViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.reloadCarMetaData(forced: true)
+        super.reloadCarMetaData(forced: false)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +31,7 @@ class CarStationViewController: StationViewController {
     }
 
     override func carHasNewData() {
+        super.carHasNewData()
         defineNewData()
     }
 

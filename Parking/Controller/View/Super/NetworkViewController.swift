@@ -20,16 +20,16 @@ class NetworkViewController: UIViewController {
     // MARK: - Properties
 
     /// Span before an auto update can occur on changing Tab.
-    var updateSpan: TimeInterval = 300 // 5 min
-    var lastBikeUpdate = Date()
-    var lastCarUpdate = Date()
+    static let updateSpan: TimeInterval = 300 // 5 min
+    static var lastBikeUpdate = Date() - updateSpan
+    static var lastCarUpdate = Date() - updateSpan
 
     /// - returns : A tuple telling wheither or not bike and car can autoupdate based on last time update.
     func canAutoUpdate() -> (bike: Bool, car: Bool) {
         let now = Date()
-        let bikeInterval = lastBikeUpdate.distance(to: now)
-        let carInterval = lastCarUpdate.distance(to: now)
-        return (bikeInterval > updateSpan, carInterval > updateSpan)
+        let bikeInterval = NetworkViewController.lastBikeUpdate.distance(to: now)
+        let carInterval = NetworkViewController.lastCarUpdate.distance(to: now)
+        return (bikeInterval > NetworkViewController.updateSpan, carInterval > NetworkViewController.updateSpan)
     }
 
     // MARK: - Loading
@@ -62,14 +62,13 @@ class NetworkViewController: UIViewController {
         guard let metadata = BikeStation.metadata else { return }
         NotificationCenter.default.post(Notification.bikeIsRequesting)
         BikeStation.getBikeStations(from: metadata) { [weak self] result in
-            guard let self = self else { return }
+            guard self != nil else { return }
             NotificationCenter.default.post(Notification.bikeIsDone)
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let allStations):
                 BikeStation.allStations = allStations
-                self.lastBikeUpdate = Date()
                 NotificationCenter.default.post(Notification.bikeHasNewData)
             }
         }
@@ -98,14 +97,6 @@ class NetworkViewController: UIViewController {
     func reloadCarStations() {
         guard let metadata = CarStation.metadata else { return }
         CarStation.allStations = CarStation.getCarStations(from: metadata)
-        if CarStation.canReloadValues() {
-            NotificationCenter.default.post(Notification.carIsRequesting)
-            CarStation.allStations.forEach({
-                ($0 as! CarStation).reloadValues(inLoopOf: CarStation.allStations.count)
-                // A notification is also sent when all objects are reloaded.
-            })
-            self.lastCarUpdate = Date()
-        }
+        NetworkService.shared.reloadCarValues(for: CarStation.allStations as! [CarStation])
     }
-
 }

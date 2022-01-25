@@ -21,7 +21,6 @@ struct CarValues {
 // MARK: - CarParking
 
 class CarStation {
-
     static var metadata: CarMetaData?
     static var allStations = [StationCellItem]()
 
@@ -32,27 +31,6 @@ class CarStation {
     init(name: String, url: String) {
         self.name = name
         self.url = url
-    }
-
-    /// CarStation are divided into several XML files which all imply their own API call.
-    /// Var and func here help  keep track of syncronous return to make sure all XML were loaded.
-    private static var reloadedValuesCount = 0
-    static func canReloadValues() -> Bool { reloadedValuesCount == 0 }
-    static func initReloadvalues() -> Void { CarStation.reloadedValuesCount = 0 }
-
-    /// Func : reload a single object or several in a loop.
-    /// SInce it's done a syncronous way, a notification will be sent only once all object sent back a result.
-    /// - parameter totalElements: number of elements to loop through and expect result from.
-    func reloadValues(inLoopOf totalElements: Int? = nil) {
-        NetworkService.shared.reloadCarValues(for: self) { result in
-            CarStation.reloadedValuesCount += 1
-            guard let totalElements = totalElements else { return }
-            if CarStation.reloadedValuesCount == totalElements {
-                NotificationCenter.default.post(Notification.carIsDone)
-                NotificationCenter.default.post(Notification.carHasNewData)
-                CarStation.initReloadvalues()
-            }
-        }
     }
 }
 
