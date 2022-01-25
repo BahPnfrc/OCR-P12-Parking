@@ -1,5 +1,3 @@
-//   let parkingData = try? newJSONDecoder().decode(ParkingData.self, from: jsonData)
-
 import Foundation
 
 // MARK: - CarMetadata

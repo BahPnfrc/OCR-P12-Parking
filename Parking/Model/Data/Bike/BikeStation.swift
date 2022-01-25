@@ -41,30 +41,6 @@ class BikeStation {
 
 extension BikeStation {
 
-    /// Func : Parse MetaData JSON for a single XML file retrieving all stations details at once.
-    ///  - parameter metadata: a JSON object retrieved from the bike MetaData func.
-    ///  - returns : an array of bike stations objects with all details inside.
-    static func getBikeStations(from metadata: BikeMetaData, completion: @escaping (Result<[BikeStation], ApiError>) -> Void) {
-        let url = metadata.result.result.url
-        NetworkService.shared.getRemoteXmlData(fromUrl: url) { result in
-            switch result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let accessor):
-                guard let stations = accessor["vcs", "sl", "si"].all, stations.count > 0 else {
-                    return
-                }
-                var allStations = [BikeStation]()
-                for station in stations {
-                    if let bikeStation = BikeStation.parseBikeXML(with: station) {
-                        allStations.append(bikeStation)
-                    }
-                }
-                completion(.success(allStations))
-            }
-        }
-    }
-
     // MARK: XML Data Parsing
 
     static func parseBikeXML(with element: XML.Element) -> BikeStation? {

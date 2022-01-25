@@ -61,7 +61,7 @@ class NetworkViewController: UIViewController {
     func reloadBikeStations() {
         guard let metadata = BikeStation.metadata else { return }
         NotificationCenter.default.post(Notification.bikeIsRequesting)
-        BikeStation.getBikeStations(from: metadata) { [weak self] result in
+        NetworkService.shared.getBikeStations(from: metadata) { [weak self] result in
             guard self != nil else { return }
             NotificationCenter.default.post(Notification.bikeIsDone)
             switch result {

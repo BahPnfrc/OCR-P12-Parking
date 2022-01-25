@@ -14,7 +14,8 @@
 		5254B811279F43D10095D30F /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5254B810279F43D10095D30F /* MockedData.swift */; };
 		5254B818279F65AD0095D30F /* BikeMetaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5254B812279F49FC0095D30F /* BikeMetaData.json */; };
 		5254B819279F65B30095D30F /* CarMetaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5254B813279F4A760095D30F /* CarMetaData.json */; };
-		5254B81B279F8FCF0095D30F /* CarData.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5254B81A279F8A920095D30F /* CarData.xml */; };
+		5254B81B279F8FCF0095D30F /* CarXmlData.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5254B81A279F8A920095D30F /* CarXmlData.xml */; };
+		5254B81D27A0111D0095D30F /* BikeXmlData.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5254B81C27A010FD0095D30F /* BikeXmlData.xml */; };
 		5269C036279998E300E29FDA /* MainUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C035279998E300E29FDA /* MainUITabBarController.swift */; };
 		5269C03827999BD600E29FDA /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C03727999BD600E29FDA /* Shared.swift */; };
 		5269C03A2799BA1C00E29FDA /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C0392799BA1C00E29FDA /* StationTableViewCell.swift */; };
@@ -48,6 +49,7 @@
 		52C53C7F27888F34004586F6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C7E27888F34004586F6 /* String+Extension.swift */; };
 		52C53C8127889908004586F6 /* CarStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C8027889908004586F6 /* CarStation.swift */; };
 		52C53C89278F7D90004586F6 /* BikeMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C88278F7D90004586F6 /* BikeMetaData.swift */; };
+		52D5F95827A07DFD006356F7 /* CarValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5F95727A07DFD006356F7 /* CarValues.swift */; };
 		52E8A9A62790886E00212D88 /* BikeStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E8A9A52790886E00212D88 /* BikeStation.swift */; };
 		B56C7EC4E8506416AE72087E /* Pods_Parking_ParkingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C8243120BFC703C70730BE /* Pods_Parking_ParkingUITests.framework */; };
 		C3AD8C5C9BEBF24837D7D6B3 /* Pods_ParkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF50652B4A49CAEEB78ADD9 /* Pods_ParkingTests.framework */; };
@@ -80,7 +82,8 @@
 		5254B810279F43D10095D30F /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		5254B812279F49FC0095D30F /* BikeMetaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BikeMetaData.json; sourceTree = "<group>"; };
 		5254B813279F4A760095D30F /* CarMetaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CarMetaData.json; sourceTree = "<group>"; };
-		5254B81A279F8A920095D30F /* CarData.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CarData.xml; sourceTree = "<group>"; };
+		5254B81A279F8A920095D30F /* CarXmlData.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CarXmlData.xml; sourceTree = "<group>"; };
+		5254B81C27A010FD0095D30F /* BikeXmlData.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BikeXmlData.xml; sourceTree = "<group>"; };
 		5269C035279998E300E29FDA /* MainUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUITabBarController.swift; sourceTree = "<group>"; };
 		5269C03727999BD600E29FDA /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		5269C0392799BA1C00E29FDA /* StationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 		52C53C7E27888F34004586F6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		52C53C8027889908004586F6 /* CarStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarStation.swift; sourceTree = "<group>"; };
 		52C53C88278F7D90004586F6 /* BikeMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeMetaData.swift; sourceTree = "<group>"; };
+		52D5F95727A07DFD006356F7 /* CarValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarValues.swift; sourceTree = "<group>"; };
 		52E8A9A52790886E00212D88 /* BikeStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStation.swift; sourceTree = "<group>"; };
 		6C7C19270883F0A62CD7A933 /* Pods-Parking-ParkingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking-ParkingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Parking-ParkingUITests/Pods-Parking-ParkingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		82114403BC4438E5CD499ADB /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
@@ -327,10 +331,8 @@
 			isa = PBXGroup;
 			children = (
 				5254B810279F43D10095D30F /* MockedData.swift */,
-				5254B812279F49FC0095D30F /* BikeMetaData.json */,
-				5254B813279F4A760095D30F /* CarMetaData.json */,
-				5254B81A279F8A920095D30F /* CarData.xml */,
 				52C53C5627887320004586F6 /* ParkingTests.swift */,
+				52D5F95627A07B67006356F7 /* Data */,
 			);
 			path = ParkingTests;
 			sourceTree = "<group>";
@@ -393,11 +395,23 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		52D5F95627A07B67006356F7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5254B812279F49FC0095D30F /* BikeMetaData.json */,
+				5254B813279F4A760095D30F /* CarMetaData.json */,
+				5254B81C27A010FD0095D30F /* BikeXmlData.xml */,
+				5254B81A279F8A920095D30F /* CarXmlData.xml */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		52E8A9A927918A9A00212D88 /* Car */ = {
 			isa = PBXGroup;
 			children = (
 				52C53C7727887F3F004586F6 /* CarMetaData.swift */,
 				52C53C8027889908004586F6 /* CarStation.swift */,
+				52D5F95727A07DFD006356F7 /* CarValues.swift */,
 				5269C046279A0F5F00E29FDA /* CarProtocol.swift */,
 			);
 			path = Car;
@@ -543,7 +557,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5254B81B279F8FCF0095D30F /* CarData.xml in Resources */,
+				5254B81D27A0111D0095D30F /* BikeXmlData.xml in Resources */,
+				5254B81B279F8FCF0095D30F /* CarXmlData.xml in Resources */,
 				5254B819279F65B30095D30F /* CarMetaData.json in Resources */,
 				5254B818279F65AD0095D30F /* BikeMetaData.json in Resources */,
 			);
@@ -688,6 +703,7 @@
 				52C53C3D2788731F004586F6 /* AppDelegate.swift in Sources */,
 				52C53C3F2788731F004586F6 /* SceneDelegate.swift in Sources */,
 				5269C03827999BD600E29FDA /* Shared.swift in Sources */,
+				52D5F95827A07DFD006356F7 /* CarValues.swift in Sources */,
 				5269C06C279D6CE500E29FDA /* FavoriteStationViewController.swift in Sources */,
 				5269C042279A034900E29FDA /* UIViewController+Extension.swift in Sources */,
 				5269C04D279A9ADB00E29FDA /* CarStationViewController.swift in Sources */,

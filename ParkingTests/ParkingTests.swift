@@ -81,9 +81,7 @@ class ParkingTests: XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
 
-    // MARK: Bike Station
-
-    func testGivenValidData_whenCallingBikeStation_thenCompletionSuccess() throws {
+    func testGivenValidData_whenCallingBikeMetaData_thenCompletionSuccess() throws {
         let mock = Mock(
             url: MockedData.bikeMetaDataURL,
             ignoreQuery: true,
@@ -99,6 +97,63 @@ class ParkingTests: XCTestCase {
             case .failure:
                 XCTFail()
             case .success:
+                expectation.fulfill()
+            }
+        }
+        wait(for: [expectation], timeout: timeout)
+    }
+
+    // MARK: Bike Station
+
+    func testGivenInvalidData_whenCallingBikeStation_thenCompletionFails() throws {
+        let mock = Mock(
+            url: MockedData.bikeXmlURL,
+            ignoreQuery: true,
+            dataType: .html,
+            statusCode: 404,
+            data: [.get: MockedData.bikeXmlDataKO])
+        mock.register()
+
+        guard let meta = try? JSONDecoder().decode(BikeMetaData.self, from: MockedData.bikeMetaDataOK) else {
+            XCTFail()
+            return
+        }
+
+        let expectation = expectation(description: "Test passed")
+        let session = NetworkService.init(xmlSession: mockedXmlSession)
+        session.getBikeStations(from: meta) { result in
+            switch result {
+            case .failure:
+                expectation.fulfill()
+            case .success:
+                XCTFail()
+            }
+        }
+        wait(for: [expectation], timeout: timeout)
+    }
+
+    func testGivenValidData_whenCallingBikeStation_thenCompletionSuccess() throws {
+        let mock = Mock(
+            url: MockedData.bikeXmlURL,
+            ignoreQuery: true,
+            dataType: .html,
+            statusCode: 200,
+            data: [.get: MockedData.bikeXmlDataOK])
+        mock.register()
+
+        guard let meta = try? JSONDecoder().decode(BikeMetaData.self, from: MockedData.bikeMetaDataOK) else {
+            XCTFail()
+            return
+        }
+
+        let expectation = expectation(description: "Test passed")
+        let session = NetworkService.init(xmlSession: mockedXmlSession)
+        session.getBikeStations(from: meta) { result in
+            switch result {
+            case .failure:
+                XCTFail()
+            case .success(let bikeStations):
+                XCTAssertTrue(bikeStations.count > 0)
                 expectation.fulfill()
             }
         }
@@ -183,7 +238,7 @@ class ParkingTests: XCTestCase {
             ignoreQuery: true,
             dataType: .json,
             statusCode: 200,
-            data: [.get: MockedData.carDataOK])
+            data: [.get: MockedData.carXmlDataOK])
         mock.register()
 
         let expectation = expectation(description: "Test passed")
@@ -206,7 +261,7 @@ class ParkingTests: XCTestCase {
             ignoreQuery: true,
             dataType: .json,
             statusCode: 404,
-            data: [.get: MockedData.carDataOK])
+            data: [.get: MockedData.carXmlDataOK])
         mock.register()
 
         let expectation = expectation(description: "Test passed")
@@ -229,7 +284,7 @@ class ParkingTests: XCTestCase {
             ignoreQuery: true,
             dataType: .json,
             statusCode: 200,
-            data: [.get: MockedData.carDataKO])
+            data: [.get: MockedData.carXmlDataKO])
         mock.register()
 
         let expectation = expectation(description: "Test passed")
@@ -252,7 +307,7 @@ class ParkingTests: XCTestCase {
             ignoreQuery: true,
             dataType: .json,
             statusCode: 200,
-            data: [.get: MockedData.carDataOK])
+            data: [.get: MockedData.carXmlDataOK])
         mock.register()
 
         let expectation = expectation(description: "Test passed")
@@ -276,7 +331,7 @@ class ParkingTests: XCTestCase {
             ignoreQuery: true,
             dataType: .json,
             statusCode: 200,
-            data: [.get: MockedData.carDataOK])
+            data: [.get: MockedData.carXmlDataOK])
         mock.register()
 
         let expectation = expectation(
@@ -292,13 +347,6 @@ class ParkingTests: XCTestCase {
         let session = NetworkService.init(xmlSession: mockedXmlSession)
         session.reloadCarValues(for: carStations)
         wait(for: [expectation], timeout: timeout)
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }
