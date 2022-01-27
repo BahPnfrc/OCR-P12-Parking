@@ -3,6 +3,11 @@
     <entity name="StationFavorite" representedClassName="StationFavorite" syncable="YES">
         <attribute name="name" attributeType="String"/>
         <attribute name="timeStamp" attributeType="Date" usesScalarValueType="NO"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="StationFavorite" positionX="-54" positionY="-9" width="128" height="59"/>

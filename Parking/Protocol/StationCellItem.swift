@@ -15,8 +15,8 @@ protocol StationCellItem {
     func cellCoordonates() -> (Lat: Double, Lon: Double)?
     func cellUpdatedTime() -> Date?
 
-    func cellDisplayableFreePlace() -> String
-    func cellDisplayableUpdatedTime() -> String
+    func cellLabelForFreePlace() -> String
+    func cellLabelForUpdatedTime() -> String
 
     func cellIsFavorite() -> Bool
     func cellFavoriteAdd() -> Void

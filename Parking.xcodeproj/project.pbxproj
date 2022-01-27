@@ -33,6 +33,7 @@
 		5269C063279CBCBC00E29FDA /* StationCellItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C062279CBCBC00E29FDA /* StationCellItem+Extension.swift */; };
 		5269C06C279D6CE500E29FDA /* FavoriteStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C06B279D6CE500E29FDA /* FavoriteStationViewController.swift */; };
 		5269C072279E038600E29FDA /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C071279E038600E29FDA /* Notification+Extension.swift */; };
+		52B6A73F27A2D3A300C84589 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A73E27A2D3A300C84589 /* CoreDataServiceTests.swift */; };
 		52C53C3D2788731F004586F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3C2788731F004586F6 /* AppDelegate.swift */; };
 		52C53C3F2788731F004586F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3E2788731F004586F6 /* SceneDelegate.swift */; };
 		52C53C412788731F004586F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C402788731F004586F6 /* ViewController.swift */; };
@@ -40,7 +41,7 @@
 		52C53C472788731F004586F6 /* Parking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C452788731F004586F6 /* Parking.xcdatamodeld */; };
 		52C53C4927887320004586F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C53C4827887320004586F6 /* Assets.xcassets */; };
 		52C53C4C27887320004586F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C53C4A27887320004586F6 /* LaunchScreen.storyboard */; };
-		52C53C5727887320004586F6 /* ParkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C5627887320004586F6 /* ParkingTests.swift */; };
+		52C53C5727887320004586F6 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C5627887320004586F6 /* NetworkServiceTests.swift */; };
 		52C53C6127887320004586F6 /* ParkingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C6027887320004586F6 /* ParkingUITests.swift */; };
 		52C53C6327887320004586F6 /* ParkingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C6227887320004586F6 /* ParkingUITestsLaunchTests.swift */; };
 		52C53C72278876C3004586F6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C71278876C3004586F6 /* NetworkService.swift */; };
@@ -102,6 +103,7 @@
 		5269C062279CBCBC00E29FDA /* StationCellItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationCellItem+Extension.swift"; sourceTree = "<group>"; };
 		5269C06B279D6CE500E29FDA /* FavoriteStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStationViewController.swift; sourceTree = "<group>"; };
 		5269C071279E038600E29FDA /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		52B6A73E27A2D3A300C84589 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
 		52C53C392788731F004586F6 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C53C3C2788731F004586F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C53C3E2788731F004586F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +114,7 @@
 		52C53C4B27887320004586F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52C53C4D27887320004586F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52C53C5227887320004586F6 /* ParkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		52C53C5627887320004586F6 /* ParkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingTests.swift; sourceTree = "<group>"; };
+		52C53C5627887320004586F6 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		52C53C5C27887320004586F6 /* ParkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C53C6027887320004586F6 /* ParkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingUITests.swift; sourceTree = "<group>"; };
 		52C53C6227887320004586F6 /* ParkingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -333,8 +335,9 @@
 		52C53C5527887320004586F6 /* ParkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				52C53C5627887320004586F6 /* ParkingTests.swift */,
-				52D5F95627A07B67006356F7 /* Data */,
+				52D5F95627A07B67006356F7 /* NetworkServiceData */,
+				52C53C5627887320004586F6 /* NetworkServiceTests.swift */,
+				52B6A73E27A2D3A300C84589 /* CoreDataServiceTests.swift */,
 			);
 			path = ParkingTests;
 			sourceTree = "<group>";
@@ -397,7 +400,7 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		52D5F95627A07B67006356F7 /* Data */ = {
+		52D5F95627A07B67006356F7 /* NetworkServiceData */ = {
 			isa = PBXGroup;
 			children = (
 				5254B810279F43D10095D30F /* MockedData.swift */,
@@ -406,7 +409,7 @@
 				5254B81C27A010FD0095D30F /* BikeXmlData.xml */,
 				5254B81A279F8A920095D30F /* CarXmlData.xml */,
 			);
-			path = Data;
+			path = NetworkServiceData;
 			sourceTree = "<group>";
 		};
 		52E8A9A927918A9A00212D88 /* Car */ = {
@@ -723,8 +726,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B6A73F27A2D3A300C84589 /* CoreDataServiceTests.swift in Sources */,
 				5254B811279F43D10095D30F /* MockedData.swift in Sources */,
-				52C53C5727887320004586F6 /* ParkingTests.swift in Sources */,
+				52C53C5727887320004586F6 /* NetworkServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

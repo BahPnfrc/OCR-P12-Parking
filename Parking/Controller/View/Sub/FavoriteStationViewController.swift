@@ -34,7 +34,7 @@ class FavoriteStationViewController: StationViewController {
     override func defineNewData() {
         let favorites = {() -> [StationCellItem] in
             do {
-                return try CoreDataService.shared.getAllFavorites()
+                return try CoreDataService.shared.getAll()
             } catch {
                 let alert = UIAlertController(
                     title: "Parking",

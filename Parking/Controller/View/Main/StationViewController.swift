@@ -249,15 +249,15 @@ extension StationViewController: UITableViewDataSource {
         switch station.cellType {
         case .Bike:
 
-            cell.freeLabel.text = station.cellDisplayableFreePlace()
-            cell.updateLabel.text = station.cellDisplayableUpdatedTime()
+            cell.freeLabel.text = station.cellLabelForFreePlace()
+            cell.updateLabel.text = station.cellLabelForUpdatedTime()
             cell.typeImageView.image = Shared.cellBikeIcon
 
         case .Car:
 
             if station.cellIsLoaded {
-                cell.freeLabel.text = station.cellDisplayableFreePlace()
-                cell.updateLabel.text = station.cellDisplayableUpdatedTime()
+                cell.freeLabel.text = station.cellLabelForFreePlace()
+                cell.updateLabel.text = station.cellLabelForUpdatedTime()
                 cell.typeImageView.image = Shared.cellCarIcon
                 return cell
             } else {
@@ -270,8 +270,8 @@ extension StationViewController: UITableViewDataSource {
                         cell.updateLabel.text = "-"
                         cell.typeImageView.image = Shared.cellDefaultIcon
                     case .success:
-                        cell.freeLabel.text = station.cellDisplayableFreePlace()
-                        cell.updateLabel.text = station.cellDisplayableUpdatedTime()
+                        cell.freeLabel.text = station.cellLabelForFreePlace()
+                        cell.updateLabel.text = station.cellLabelForUpdatedTime()
                         cell.typeImageView.image = Shared.cellCarIcon
                     }
                 }

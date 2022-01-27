@@ -4,7 +4,7 @@ import Mocker
 
 @testable import Parking
 
-class ParkingTests: XCTestCase {
+class NetworkServiceTests: XCTestCase {
 
     private let timeout = 10.0
     var configuration = URLSessionConfiguration.af.default
@@ -24,11 +24,7 @@ class ParkingTests: XCTestCase {
         mockedXmlSession = Alamofire.Session(configuration: configuration)
     }
 
-    // MARK: - Network Test
-
-
-
-    // MARK: Bike MetaData
+    // MARK: - Bike MetaData
 
     func testGivenInvalidCode_whenCallingBikeMetaData_thenCompletionFails() throws {
         let mock = Mock(
@@ -96,7 +92,7 @@ class ParkingTests: XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
 
-    // MARK: Bike Station
+    // MARK: - Bike Station
 
     func testGivenInvalidData_whenCallingBikeStation_thenCompletionFails() throws {
         let mock = Mock(
@@ -153,7 +149,7 @@ class ParkingTests: XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
 
-    // MARK: Car MetaData
+    // MARK: - Car MetaData
 
     func testGivenInvalidCode_whenCallingCarMetaData_thenCompletionFails() throws {
         let mock = Mock(
@@ -223,7 +219,7 @@ class ParkingTests: XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
 
-    // MARK: Car Station
+    // MARK: - Car Station
 
     func testGivenInvalidURL_whenCallingCarStation_thenCompletionFails() throws {
         let mock = Mock(

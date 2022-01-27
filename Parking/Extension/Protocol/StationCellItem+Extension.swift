@@ -1,22 +1,26 @@
 import Foundation
+import UIKit
 
 // MARK: - Displayable Extension
 
 /// Extension : contains defaults StationCellItem values for all object conforming to this protocol
 extension StationCellItem {
-    func cellDisplayableFreePlace() -> String {
+    func cellLabelForFreePlace() -> String {
         let free = cellFreePlaces()
-        if free > 1 {
+        switch free {
+        case 0:
+            return "Libre : aucune sur \(cellTotalPlaces())"
+        case 1:
+            return "Libre : \(free) seule sur \(cellTotalPlaces())"
+        default:
             return "Libres : \(free) sur \(cellTotalPlaces())"
-        } else {
-            return "Libre : \(free) sur \(cellTotalPlaces())"
         }
     }
 
     /// Time can be displayed in two different ways :
     /// - staticUpdatedTime : date time of last reloading
     /// - dynamicUpdatedTime : time passed since last reloading
-    func cellDisplayableUpdatedTime() -> String {
+    func cellLabelForUpdatedTime() -> String {
         staticUpdatedTime()
     }
 
@@ -67,12 +71,27 @@ extension StationCellItem {
 /// Extension : contains defaults StationCellItem values for all object CoreData's operation
 extension StationCellItem {
     func cellIsFavorite() -> Bool {
-        return CoreDataService.shared.isFavorite(self)
+        do {
+            return try CoreDataService.shared.isFavorite(self)
+        } catch {
+            print("🟥 COREDATA : \(#function) failed.")
+            return false
+        }
     }
     func cellFavoriteAdd() -> Void {
-        CoreDataService.shared.add(self)
+        do {
+            try CoreDataService.shared.add(self)
+        } catch {
+            print("🟥 COREDATA : \(#function) failed.")
+            return
+        }
     }
     func cellFavoriteDelete() throws -> Void {
-        try CoreDataService.shared.delete(self)
+        do {
+            try CoreDataService.shared.delete(self)
+        } catch {
+            print("🟥 COREDATA : \(#function) failed.")
+            return
+        }
     }
 }
