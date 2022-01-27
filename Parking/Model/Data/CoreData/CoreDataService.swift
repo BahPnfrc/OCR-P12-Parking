@@ -6,17 +6,13 @@ import CoreData
 class CoreDataService {
 
     static let shared = CoreDataService()
-    private init(){}
+    private init() {}
 
-    private let context = AppDelegate.viewContext
-    private func saveContext() throws -> Void {
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                throw error
-            }
-        }
+    private var stack = CoreDataStack.init(.persistent)
+    lazy var context = stack.context
+
+    init(_ storageType: CoreDataStorage) {
+        self.stack = CoreDataStack.init(storageType)
     }
 }
 
@@ -28,7 +24,7 @@ extension CoreDataService {
         let newFavorite = StationFavorite(context: context)
         newFavorite.name = station.cellName()
         newFavorite.timeStamp = Date()
-        try? saveContext()
+        try? stack.saveContext()
     }
 
     func isFavorite(_ station: StationCellItem) -> Bool {
@@ -56,7 +52,7 @@ extension CoreDataService {
         do {
             let result = try context.fetch(request)
             for object in result { context.delete(object)}
-            try? saveContext()
+            try? stack.saveContext()
         } catch {
             throw error
         }

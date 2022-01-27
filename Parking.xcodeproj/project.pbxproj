@@ -50,6 +50,7 @@
 		52C53C8127889908004586F6 /* CarStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C8027889908004586F6 /* CarStation.swift */; };
 		52C53C89278F7D90004586F6 /* BikeMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C88278F7D90004586F6 /* BikeMetaData.swift */; };
 		52D5F95827A07DFD006356F7 /* CarValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5F95727A07DFD006356F7 /* CarValues.swift */; };
+		52D5F95C27A16EED006356F7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D5F95B27A16EED006356F7 /* CoreDataStack.swift */; };
 		52E8A9A62790886E00212D88 /* BikeStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E8A9A52790886E00212D88 /* BikeStation.swift */; };
 		B56C7EC4E8506416AE72087E /* Pods_Parking_ParkingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C8243120BFC703C70730BE /* Pods_Parking_ParkingUITests.framework */; };
 		C3AD8C5C9BEBF24837D7D6B3 /* Pods_ParkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF50652B4A49CAEEB78ADD9 /* Pods_ParkingTests.framework */; };
@@ -122,6 +123,7 @@
 		52C53C8027889908004586F6 /* CarStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarStation.swift; sourceTree = "<group>"; };
 		52C53C88278F7D90004586F6 /* BikeMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeMetaData.swift; sourceTree = "<group>"; };
 		52D5F95727A07DFD006356F7 /* CarValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarValues.swift; sourceTree = "<group>"; };
+		52D5F95B27A16EED006356F7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		52E8A9A52790886E00212D88 /* BikeStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStation.swift; sourceTree = "<group>"; };
 		6C7C19270883F0A62CD7A933 /* Pods-Parking-ParkingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking-ParkingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Parking-ParkingUITests/Pods-Parking-ParkingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		82114403BC4438E5CD499ADB /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				52C53C452788731F004586F6 /* Parking.xcdatamodeld */,
+				52D5F95B27A16EED006356F7 /* CoreDataStack.swift */,
 				5269C060279C993700E29FDA /* CoreDataService.swift */,
 				5269C05C279C97EC00E29FDA /* StationFavorite+CoreDataClass.swift */,
 				5269C05D279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift */,
@@ -330,7 +333,6 @@
 		52C53C5527887320004586F6 /* ParkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				5254B810279F43D10095D30F /* MockedData.swift */,
 				52C53C5627887320004586F6 /* ParkingTests.swift */,
 				52D5F95627A07B67006356F7 /* Data */,
 			);
@@ -398,6 +400,7 @@
 		52D5F95627A07B67006356F7 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5254B810279F43D10095D30F /* MockedData.swift */,
 				5254B812279F49FC0095D30F /* BikeMetaData.json */,
 				5254B813279F4A760095D30F /* CarMetaData.json */,
 				5254B81C27A010FD0095D30F /* BikeXmlData.xml */,
@@ -695,6 +698,7 @@
 				52C53C8127889908004586F6 /* CarStation.swift in Sources */,
 				5269C049279A0FB400E29FDA /* BikeProtocol.swift in Sources */,
 				524412D527933FE100BB3411 /* UIColor+Extension.swift in Sources */,
+				52D5F95C27A16EED006356F7 /* CoreDataStack.swift in Sources */,
 				52E8A9A62790886E00212D88 /* BikeStation.swift in Sources */,
 				52C53C89278F7D90004586F6 /* BikeMetaData.swift in Sources */,
 				52C53C412788731F004586F6 /* ViewController.swift in Sources */,
