@@ -354,9 +354,7 @@
 		52C53C6F278876A5004586F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				52C53C7327887D17004586F6 /* ApiError.swift */,
 				52C53C79278882A0004586F6 /* Data */,
-				52C53C70278876AC004586F6 /* Network */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,6 +362,7 @@
 		52C53C70278876AC004586F6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				52C53C7327887D17004586F6 /* ApiError.swift */,
 				52C53C71278876C3004586F6 /* NetworkService.swift */,
 			);
 			path = Network;
@@ -372,6 +371,7 @@
 		52C53C79278882A0004586F6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				52C53C70278876AC004586F6 /* Network */,
 				5269C057279C95C600E29FDA /* CoreData */,
 				52E8A9AA27918AB100212D88 /* Bike */,
 				52E8A9A927918A9A00212D88 /* Car */,
