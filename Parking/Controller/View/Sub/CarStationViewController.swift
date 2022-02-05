@@ -5,28 +5,24 @@ import UIKit
 class CarStationViewController: StationViewController {
 
     // MARK: - Loading
+
+    private func makeMainView() {
+        NetworkCaller.shared.delegate = self
+        NetworkCaller.shared.reloadCarMetaData(forced: false)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.reloadCarMetaData(forced: false)
+        makeMainView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        makeMainView()
         super.viewWillAppear(animated)
-        super.reloadCarMetaData(forced: false)
         defineNewData()
     }
 
     // MARK: - Data functions
-
-    override func bikeHasNewData() {
-        return
-    }
-
-    override func carHasNewData() {
-        super.carHasNewData()
-        defineNewData()
-    }
 
     override func defineNewData() {
         if isSearching {
@@ -58,7 +54,7 @@ class CarStationViewController: StationViewController {
         UIView.animate(withDuration: 0.5, animations: {
             tappedImage.transform = CGAffineTransform.init(rotationAngle: .pi)
             super.clearOldData()
-            super.reloadCarMetaData(forced: true)
+            NetworkCaller.shared.reloadCarMetaData(forced: true)
             self.defineNewData()
         }, completion: { _ in
             UIView.animate(withDuration: 0.5, animations: {
@@ -66,4 +62,12 @@ class CarStationViewController: StationViewController {
             })
         })
     }
+}
+
+// MARK: - NetworkDataDelegate
+
+extension CarStationViewController: NetworkCallerDelegate {
+    func didUpdateRequestState(_ state: Bool) { super.isRequesting = state }
+    func didUpdateBikeData() { return }
+    func didUpdateCarData() { defineNewData() }
 }

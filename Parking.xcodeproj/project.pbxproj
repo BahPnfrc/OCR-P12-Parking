@@ -19,7 +19,7 @@
 		5269C036279998E300E29FDA /* MainUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C035279998E300E29FDA /* MainUITabBarController.swift */; };
 		5269C03827999BD600E29FDA /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C03727999BD600E29FDA /* Shared.swift */; };
 		5269C03A2799BA1C00E29FDA /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C0392799BA1C00E29FDA /* StationTableViewCell.swift */; };
-		5269C03C2799F36D00E29FDA /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C03B2799F36D00E29FDA /* NetworkViewController.swift */; };
+		5269C03C2799F36D00E29FDA /* NetworkCaller+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C03B2799F36D00E29FDA /* NetworkCaller+Delegate.swift */; };
 		5269C0402799F44C00E29FDA /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C03F2799F44C00E29FDA /* StationViewController.swift */; };
 		5269C042279A034900E29FDA /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C041279A034900E29FDA /* UIViewController+Extension.swift */; };
 		5269C045279A06FA00E29FDA /* StationCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C044279A06FA00E29FDA /* StationCellItem.swift */; };
@@ -32,7 +32,6 @@
 		5269C061279C993700E29FDA /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C060279C993700E29FDA /* CoreDataService.swift */; };
 		5269C063279CBCBC00E29FDA /* StationCellItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C062279CBCBC00E29FDA /* StationCellItem+Extension.swift */; };
 		5269C06C279D6CE500E29FDA /* FavoriteStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C06B279D6CE500E29FDA /* FavoriteStationViewController.swift */; };
-		5269C072279E038600E29FDA /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5269C071279E038600E29FDA /* Notification+Extension.swift */; };
 		52B6A73F27A2D3A300C84589 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6A73E27A2D3A300C84589 /* CoreDataServiceTests.swift */; };
 		52C53C3D2788731F004586F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3C2788731F004586F6 /* AppDelegate.swift */; };
 		52C53C3F2788731F004586F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C53C3E2788731F004586F6 /* SceneDelegate.swift */; };
@@ -89,7 +88,7 @@
 		5269C035279998E300E29FDA /* MainUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUITabBarController.swift; sourceTree = "<group>"; };
 		5269C03727999BD600E29FDA /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		5269C0392799BA1C00E29FDA /* StationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
-		5269C03B2799F36D00E29FDA /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
+		5269C03B2799F36D00E29FDA /* NetworkCaller+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkCaller+Delegate.swift"; sourceTree = "<group>"; };
 		5269C03F2799F44C00E29FDA /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		5269C041279A034900E29FDA /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5269C044279A06FA00E29FDA /* StationCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCellItem.swift; sourceTree = "<group>"; };
@@ -102,7 +101,6 @@
 		5269C060279C993700E29FDA /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		5269C062279CBCBC00E29FDA /* StationCellItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationCellItem+Extension.swift"; sourceTree = "<group>"; };
 		5269C06B279D6CE500E29FDA /* FavoriteStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStationViewController.swift; sourceTree = "<group>"; };
-		5269C071279E038600E29FDA /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		52B6A73E27A2D3A300C84589 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
 		52C53C392788731F004586F6 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C53C3C2788731F004586F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 				52C53C7E27888F34004586F6 /* String+Extension.swift */,
 				524412D427933FE100BB3411 /* UIColor+Extension.swift */,
 				5269C041279A034900E29FDA /* UIViewController+Extension.swift */,
-				5269C071279E038600E29FDA /* Notification+Extension.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -291,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				52C53C402788731F004586F6 /* ViewController.swift */,
-				5269C03B2799F36D00E29FDA /* NetworkViewController.swift */,
 			);
 			path = Super;
 			sourceTree = "<group>";
@@ -364,6 +360,7 @@
 			children = (
 				52C53C7327887D17004586F6 /* ApiError.swift */,
 				52C53C71278876C3004586F6 /* NetworkService.swift */,
+				5269C03B2799F36D00E29FDA /* NetworkCaller+Delegate.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -706,7 +703,7 @@
 				52C53C89278F7D90004586F6 /* BikeMetaData.swift in Sources */,
 				52C53C412788731F004586F6 /* ViewController.swift in Sources */,
 				5269C045279A06FA00E29FDA /* StationCellItem.swift in Sources */,
-				5269C03C2799F36D00E29FDA /* NetworkViewController.swift in Sources */,
+				5269C03C2799F36D00E29FDA /* NetworkCaller+Delegate.swift in Sources */,
 				52C53C3D2788731F004586F6 /* AppDelegate.swift in Sources */,
 				52C53C3F2788731F004586F6 /* SceneDelegate.swift in Sources */,
 				5269C03827999BD600E29FDA /* Shared.swift in Sources */,
@@ -717,7 +714,6 @@
 				5269C05F279C97EC00E29FDA /* StationFavorite+CoreDataProperties.swift in Sources */,
 				52C53C7427887D17004586F6 /* ApiError.swift in Sources */,
 				5269C047279A0F5F00E29FDA /* CarProtocol.swift in Sources */,
-				5269C072279E038600E29FDA /* Notification+Extension.swift in Sources */,
 				5269C0402799F44C00E29FDA /* StationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

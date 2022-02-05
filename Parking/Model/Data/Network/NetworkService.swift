@@ -10,7 +10,7 @@ class NetworkService {
     static let shared = NetworkService()
     private init() {}
 
-    let printXmlToConsole = false // Debugging purpose
+    private let printXmlToConsole = false // Debugging purpose
 
     /// Private default sessions for internal use.
     private var carSession = Alamofire.Session(configuration: URLSessionConfiguration.default)
@@ -22,11 +22,11 @@ class NetworkService {
     init(carSession: Session) { self.carSession = carSession }
     init(xmlSession: Session) { self.xmlSession = xmlSession }
 
-    let montpellier3mURL = "https://data.montpellier3m.fr/api/3/"
-    let bikeEndpoint = "action/resource_show?"
-    let carEndpoint = "action/package_show?"
-    static let bikeMetaDataID = "adb98f8d-c4d2-4012-8abe-cf02903e2ea0"
-    static let carMetaDataID = "90e17b94-989f-4d66-83f4-766d4587bec2"
+    private let montpellier3mURL = "https://data.montpellier3m.fr/api/3/"
+    private let bikeEndpoint = "action/resource_show?"
+    private let carEndpoint = "action/package_show?"
+    private let bikeMetaDataID = "adb98f8d-c4d2-4012-8abe-cf02903e2ea0"
+    private let carMetaDataID = "90e17b94-989f-4d66-83f4-766d4587bec2"
 
     private struct MetaParams: Encodable {
         let id: String
@@ -34,8 +34,8 @@ class NetworkService {
 
     // MARK: - Bike MetaData
 
-    private let bikeMetaParams = MetaParams(
-        id: NetworkService.bikeMetaDataID
+    private lazy var bikeMetaParams = MetaParams(
+        id: bikeMetaDataID
     )
 
     /// Func : Retrieve a JSON file linking to a *single XML file* for all stations.
@@ -59,7 +59,7 @@ class NetworkService {
 
     // MARK: - Bike Station
 
-    /// Func : Parse MetaData JSON for a single XML file retrieving all stations details at once.
+    /// Func : Parse MetaData JSON for a single XML file retrieving all stations details.
     ///  - parameter metadata: a JSON object retrieved from the bike MetaData func.
     ///  - returns : an array of bike stations objects with all details inside.
     func getBikeStations(from metadata: BikeMetaData, completion: @escaping (Result<[BikeStation], ApiError>) -> Void) {
@@ -71,6 +71,7 @@ class NetworkService {
             case .success(let accessor):
                 guard let stations = accessor["vcs", "sl", "si"].all, stations.count > 0 else {
                     return
+
                 }
                 var allStations = [BikeStation]()
                 for station in stations {
@@ -85,8 +86,8 @@ class NetworkService {
 
     // MARK: - Car MetaData
 
-    private let carMetaParams = MetaParams(
-        id: NetworkService.carMetaDataID
+    private lazy var carMetaParams = MetaParams(
+        id: carMetaDataID
     )
 
     /// Func : Retrieve a JSON file linking to an individual XML file *for each station*.
@@ -129,35 +130,10 @@ class NetworkService {
         }
     }
 
-    /// CarStation are divided into several XML files which all imply their own API call.
-    /// Var and func here help  keep track of syncronous return to make sure all XML were loaded.
-    private(set) static var reloadedValuesCount = 0
-    static func canReloadValues() -> Bool { reloadedValuesCount == 0 }
-    static func initReloadvalues() -> Void { reloadedValuesCount = 0 }
-
-    /// Func : reload a single object or several in a loop.
-    /// SInce it's done a syncronous way, a notification will be sent only once all object sent back a result.
-    /// - parameter totalElements: number of elements to loop through and expect result from.
-    func reloadCarValues(for cars: [CarStation]) {
-        if NetworkService.canReloadValues() {
-            NotificationCenter.default.post(Notification.carIsRequesting)
-            cars.forEach({
-                reloadCarValues(for: $0) { _ in
-                    NetworkService.reloadedValuesCount += 1
-                    if NetworkService.reloadedValuesCount == cars.count {
-                        NetworkService.initReloadvalues()
-                        NotificationCenter.default.post(Notification.carIsDone)
-                        NotificationCenter.default.post(Notification.carHasNewData)
-                    }
-                }
-            })
-        }
-    }
-
     // MARK: - XML File
 
     /// - returns : an XML.Accessor object to help read the file via the SwiftyXMLParser Pod.
-    func getRemoteXmlData(fromUrl url: String, completion: @escaping (Result<XML.Accessor, ApiError>) -> Void) {
+    private func getRemoteXmlData(fromUrl url: String, completion: @escaping (Result<XML.Accessor, ApiError>) -> Void) {
         guard url.hasPrefix("https://"), url.hasSuffix(".xml") else {
             completion(.failure(.url))
             return

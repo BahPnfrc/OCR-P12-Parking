@@ -6,30 +6,24 @@ class FavoriteStationViewController: StationViewController {
 
     // MARK: - Loading
 
+    private func makeMainView() {
+        NetworkCaller.shared.delegate = self
+        NetworkCaller.shared.reloadBikeMetaData(forced: false)
+        NetworkCaller.shared.reloadCarMetaData(forced: false)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.reloadBikeMetaData(forced: false)
-        super.reloadCarMetaData(forced: false)
+        makeMainView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        makeMainView()
         super.viewWillAppear(animated)
-        super.reloadBikeMetaData(forced: false)
-        super.reloadCarMetaData(forced: false)
         defineNewData()
     }
 
     // MARK: - Data functions
-
-    override func bikeHasNewData() {
-        super.bikeHasNewData()
-        defineNewData()
-    }
-
-    override func carHasNewData() {
-        super.carHasNewData()
-        defineNewData()
-    }
 
     override func defineNewData() {
         let favorites = {() -> [StationCellItem] in
@@ -81,8 +75,8 @@ class FavoriteStationViewController: StationViewController {
         UIView.animate(withDuration: 0.5, animations: {
             tappedImage.transform = CGAffineTransform.init(rotationAngle: .pi)
             super.clearOldData()
-            super.reloadBikeMetaData(forced: true)
-            super.reloadCarMetaData(forced: true)
+            NetworkCaller.shared.reloadBikeMetaData(forced: true)
+            NetworkCaller.shared.reloadCarMetaData(forced: true)
             self.defineNewData()
         }, completion: { _ in
             UIView.animate(withDuration: 0.5, animations: {
@@ -90,4 +84,13 @@ class FavoriteStationViewController: StationViewController {
             })
         })
     }
+}
+
+
+// MARK: - NetworkDataDelegate
+
+extension FavoriteStationViewController: NetworkCallerDelegate {
+    func didUpdateRequestState(_ state: Bool) { super.isRequesting = state }
+    func didUpdateBikeData() { defineNewData() }
+    func didUpdateCarData() { defineNewData() }
 }

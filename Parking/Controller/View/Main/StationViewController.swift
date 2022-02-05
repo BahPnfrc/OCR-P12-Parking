@@ -2,7 +2,7 @@ import UIKit
 
 // MARK: - StationViewController
 
-class StationViewController: NetworkViewController {
+class StationViewController: UIViewController {
 
     // MARK: - Outlets
 
@@ -19,15 +19,9 @@ class StationViewController: NetworkViewController {
 
     // MARK: - Properties
 
-    private var requestCount: Int = 0
-    var isRequesting: Bool {
-        get {
-            return requestCount > 0
-        }
-        set(newValue) {
-            requestCount += (newValue ? 1 : -1)
-            if requestCount < 0 { requestCount = 0 }
-            if requestCount > 0 {
+    var isRequesting: Bool = false {
+        didSet {
+            if isRequesting {
                 requestingIndicator.startAnimating()
             } else {
                 requestingIndicator.stopAnimating()
@@ -50,7 +44,6 @@ class StationViewController: NetworkViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        setObservers()
         paintHeader()
         paintSearchBar()
         paintTableView()
@@ -68,65 +61,6 @@ class StationViewController: NetworkViewController {
     @objc func forceReload(tapGestureRecognizer: UITapGestureRecognizer)
     {
         fatalError("Must override") // Handle in subclasses
-    }
-
-
-    // MARK: - Notification functions
-
-    func setObservers() {
-        NotificationCenter.default.addObserver(self,
-            selector: #selector(bikeIsRequesting),
-            name: Notification.Name.bikeIsRequesting,
-            object: nil)
-
-        NotificationCenter.default.addObserver(self,
-            selector: #selector(bikeIsDone),
-            name: Notification.Name.bikeIsDone,
-            object: nil)
-
-        NotificationCenter.default.addObserver(self,
-            selector: #selector(bikeHasNewData),
-            name: Notification.Name.bikeHasNewData,
-            object: nil)
-
-        NotificationCenter.default.addObserver(self,
-            selector: #selector(carIsRequesting),
-            name: Notification.Name.carIsRequesting,
-            object: nil)
-
-        NotificationCenter.default.addObserver(self,
-            selector: #selector(carIsDone),
-            name: Notification.Name.carIsDone,
-            object: nil)
-
-        NotificationCenter.default.addObserver(self,
-            selector: #selector(carHasNewData),
-            name: Notification.Name.carHasNewData,
-            object: nil)
-    }
-
-    @objc func bikeIsRequesting() {
-        self.isRequesting = true
-    }
-
-    @objc func carIsRequesting() {
-        self.isRequesting = true
-    }
-
-    @objc func bikeIsDone() {
-        self.isRequesting = false
-    }
-
-    @objc func carIsDone() {
-        self.isRequesting = false
-    }
-
-    @objc func bikeHasNewData() {
-        NetworkViewController.lastBikeUpdate = Date()
-    }
-
-    @objc func carHasNewData() {
-        NetworkViewController.lastCarUpdate = Date()
     }
 
     // MARK: - Paint functions
@@ -211,7 +145,7 @@ class StationViewController: NetworkViewController {
 
 }
 
-// MARK: UISearchBarDelegate
+// MARK: - UISearchBarDelegate
 
 extension StationViewController: UISearchBarDelegate {
     /// See subclasses for right use.
