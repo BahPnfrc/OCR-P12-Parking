@@ -11,6 +11,7 @@ class NetworkService {
     private init() {}
 
     private let printXmlToConsole = false // Debugging purpose
+    typealias handler<T> = (Result<T, ApiError>) -> Void
 
     /// Private default sessions for internal use.
     private var carSession = Alamofire.Session(configuration: URLSessionConfiguration.default)
@@ -39,7 +40,7 @@ class NetworkService {
     )
 
     /// Func : Retrieve a JSON file linking to a *single XML file* for all stations.
-    func getBikeMetaData(completion: @escaping (Result<BikeMetaData, ApiError>) -> Void) {
+    func getBikeMetaData(completion: @escaping handler<BikeMetaData>) {
         bikeSession.request(montpellier3mURL + bikeEndpoint,
                             method: .get,
                             parameters: bikeMetaParams).response { response in
@@ -62,7 +63,7 @@ class NetworkService {
     /// Func : Parse MetaData JSON for a single XML file retrieving all stations details.
     ///  - parameter metadata: a JSON object retrieved from the bike MetaData func.
     ///  - returns : an array of bike stations objects with all details inside.
-    func getBikeStations(from metadata: BikeMetaData, completion: @escaping (Result<[BikeStation], ApiError>) -> Void) {
+    func getBikeStations(from metadata: BikeMetaData, completion: @escaping handler<[BikeStation]>) {
         let url = metadata.result.result.url
         getRemoteXmlData(fromUrl: url) { result in
             switch result {
@@ -91,7 +92,7 @@ class NetworkService {
     )
 
     /// Func : Retrieve a JSON file linking to an individual XML file *for each station*.
-    func getCarMetaData(completion: @escaping (Result<CarMetaData, ApiError>) -> Void) {
+    func getCarMetaData(completion: @escaping handler<CarMetaData>) {
         carSession.request(
             montpellier3mURL + carEndpoint,
             method: .get,
@@ -113,7 +114,7 @@ class NetworkService {
     // MARK: - Car Stations
 
     /// - returns: return a CarValues object *after assigning* it to the car.
-    func reloadCarValues(for car: CarStation, completion: @escaping (Result<CarValues, ApiError>) -> Void) {
+    func reloadCarValues(for car: CarStation, completion: @escaping handler<CarValues>) {
         getRemoteXmlData(fromUrl: car.url) { result in
             switch result {
             case .failure(let error):
@@ -133,7 +134,7 @@ class NetworkService {
     // MARK: - XML File
 
     /// - returns : an XML.Accessor object to help read the file via the SwiftyXMLParser Pod.
-    private func getRemoteXmlData(fromUrl url: String, completion: @escaping (Result<XML.Accessor, ApiError>) -> Void) {
+    private func getRemoteXmlData(fromUrl url: String, completion: @escaping handler<XML.Accessor>) {
         guard url.hasPrefix("https://"), url.hasSuffix(".xml") else {
             completion(.failure(.url))
             return
