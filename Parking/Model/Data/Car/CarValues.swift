@@ -7,6 +7,8 @@ struct CarValues {
     let lastTimeReloaded: Date?
     let shortName, status: String
     let free, total: Int
+    let latitude: Double? = nil
+    let longitude: Double? = nil
 
     enum CodingKeys: String, CodingKey {
         case dateTime = "DateTime"

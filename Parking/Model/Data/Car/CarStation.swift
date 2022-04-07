@@ -42,7 +42,9 @@ extension CarStation {
               let status = accessor["park", CarValues.CodingKeys.status.rawValue].text,
               let free = accessor["park", CarValues.CodingKeys.free.rawValue].text,
               let total = accessor["park", CarValues.CodingKeys.total.rawValue].text else {
-                  print("🟥 CAR STATION XML : KO")
+                  if Setting.showXML {
+                      print("🟥 CAR STATION : XML KO")
+                  }
                   return nil
               }
 
@@ -52,7 +54,9 @@ extension CarStation {
             status: status,
             free: Int(free) ?? 0,
             total: Int(total) ?? 0)
-        print("🟦 CAR STATION \(name) :", free, "libre(s) sur", total)
+        if Setting.showXML {
+            print("🟦 CAR STATION", name, ":", free, "libre(s) sur", total)
+        }
         return values
     }
 }

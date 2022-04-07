@@ -50,7 +50,9 @@ extension BikeStation {
               let longitude = element.attributes[CodingKeys.longitude.rawValue],
               let free = element.attributes[CodingKeys.free.rawValue],
               let total = element.attributes[CodingKeys.total.rawValue] else {
-                  print("🟥 BIKE STATION XML : KO")
+                  if Setting.showXML {
+                      print("🟥 BIKE STATION : XML KO")
+                  }
                   return nil
               }
 
@@ -61,7 +63,9 @@ extension BikeStation {
             longitude: Double(longitude) ?? 0,
             free: Int(free) ?? 0,
             total: Int(total) ?? 0)
-        print("🟩 BIKE STATION \(name) :", free, "libre(s) sur", total)
+        if Setting.showXML {
+            print("🟩 BIKE STATION", name, ":", free, "libre(s) sur", total)
+        }
         return bikeStation
     }
 }
