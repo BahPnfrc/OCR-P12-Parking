@@ -6,25 +6,33 @@ class StationViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet weak var statusBarView: UIView!
-    @IBOutlet weak var backImageView: UIImageView!
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var headerTopImageView: UIImageView!
-    @IBOutlet weak var requestingIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var headerTopLabel: UILabel!
-    @IBOutlet weak var headerSubReloader: UIImageView!
-    @IBOutlet weak var headerSubImageView: UIImageView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet private weak var tableView: UITableView!
+    var statusBarView: UIView!
+    var requestingIndicator: UIActivityIndicatorView?
+    var headerView: UIView!
 
+    var topRowImageView: UIImageView!
+    var topRowLabel: UILabel!
+    var bottomRowLeftImageView: UIImageView!
+    var bottomRowRightImageView: UIImageView!
+    var bottomRowSearchBar: UISearchBar!
+    
+    private var tableView: UITableView!
+    
+    lazy var mainView: UIView! = {
+        self.view
+    }()
+    
+    let headerViewImageSize: CGFloat = 40
+    let headerViewTableSpacing: CGFloat = 10
+    
     // MARK: - Properties
 
     var isRequesting: Bool = false {
         didSet {
             if isRequesting {
-                requestingIndicator.startAnimating()
+                requestingIndicator?.startAnimating()
             } else {
-                requestingIndicator.stopAnimating()
+                requestingIndicator?.stopAnimating()
                 defineNewHeaderTitle()
             }
         }
@@ -35,22 +43,147 @@ class StationViewController: UIViewController {
     private var dataSource: [StationCellItem]?
 
     // MARK: - Loading
+    
+    func initViews() {
+        initBackgroundView()
+        initStatusBarView()
+        initHeaderView()
+        initTableView()
+        initActivityIndicator()
+    }
+    
+    func initBackgroundView() {
+        let backgroundView = UIImageView(frame: UIScreen.main.bounds)
+            backgroundView.image = UIImage(named: "AppBackground")
+            backgroundView.contentMode = .scaleToFill
+            mainView.insertSubview(backgroundView, at: 0)
+    }
+    
+    func initStatusBarView() {
+        let statusBarView = UIView()
+        statusBarView.translatesAutoresizingMaskIntoConstraints = false
+        mainView.addSubview(statusBarView)
+        statusBarView.leftAnchor.constraint(equalTo: mainView.leftAnchor).isActive = true
+        statusBarView.bottomAnchor.constraint(equalTo: mainView.safeAreaLayoutGuide.topAnchor).isActive = true
+        statusBarView.rightAnchor.constraint(equalTo: mainView.rightAnchor).isActive = true
+        statusBarView.heightAnchor.constraint(equalToConstant: mainView.frame.height).isActive = true
+        self.statusBarView = statusBarView
+    }
+    
+    func initHeaderView() {
+        let headerView = UIView()
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        mainView.addSubview(headerView)
+        headerView.topAnchor.constraint(equalTo: mainView.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        headerView.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 20).isActive = true
+        headerView.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -20).isActive = true
+        headerView.backgroundColor = .green
+        self.headerView = headerView
+        
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = headerViewTableSpacing
+        stackView.contentMode = .scaleToFill
+        headerView.addSubview(stackView)
+        stackView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 20).isActive = true
+        stackView.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 20).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -20).isActive = true
+        stackView.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: -20).isActive = true
+        
+        let stackViewTopRow = UIStackView()
+        let stackViewBottomRow = UIStackView()
+        for stackViewRow in [stackViewTopRow, stackViewBottomRow] {
+            stackViewRow.translatesAutoresizingMaskIntoConstraints = false
+            stackViewRow.axis = .horizontal
+            stackViewRow.alignment = .fill
+            stackViewRow.distribution = .fill
+            stackViewRow.spacing = headerViewTableSpacing
+            stackViewRow.contentMode = .scaleToFill
+            stackView.addArrangedSubview(stackViewRow)
+        }
+        
+        initHeaderViewTopRow(in: stackViewTopRow)
+        initHeaderViewBottomRow(in: stackViewBottomRow)
+    }
+    
+    func initHeaderViewTopRow(in stackView: UIStackView) {
+        let topRowImageView = UIImageView()
+        topRowImageView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(topRowImageView)
+        topRowImageView.widthAnchor.constraint(equalToConstant: headerViewImageSize).isActive = true
+        topRowImageView.heightAnchor.constraint(equalTo: topRowImageView.widthAnchor).isActive = true
+        self.topRowImageView = topRowImageView
+        
+        let topRowLabel = UILabel()
+        topRowLabel.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(topRowLabel)
+        self.topRowLabel = topRowLabel
+    }
+    
+    func initHeaderViewBottomRow(in stackView: UIStackView) {
+        let bottomRowLeftImageView = UIImageView()
+        bottomRowLeftImageView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(bottomRowLeftImageView)
+        bottomRowLeftImageView.widthAnchor.constraint(equalToConstant: headerViewImageSize).isActive = true
+        bottomRowLeftImageView.heightAnchor.constraint(equalTo: bottomRowLeftImageView.widthAnchor).isActive = true
+        self.bottomRowLeftImageView = bottomRowLeftImageView
+        
+        let bottomRowRightImageView = UIImageView()
+        bottomRowRightImageView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(bottomRowRightImageView)
+        bottomRowRightImageView.widthAnchor.constraint(equalToConstant: headerViewImageSize).isActive = true
+        bottomRowRightImageView.heightAnchor.constraint(equalTo: bottomRowRightImageView.widthAnchor).isActive = true
+        self.bottomRowRightImageView = bottomRowRightImageView
+        
+        let bottomRowSearchBar = UISearchBar()
+        bottomRowSearchBar.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(bottomRowSearchBar)
+        self.bottomRowSearchBar = bottomRowSearchBar
+    }
+    
+    func initTableView() {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        mainView.addSubview(tableView)
+        tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20).isActive = true
+        tableView.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 20).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: mainView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        tableView.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: -20).isActive = true
+        tableView.backgroundColor = .red
+        self.tableView = tableView
+    }
+    
+    func initActivityIndicator() {
+        let activityIndicatorView = UIActivityIndicatorView()
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicatorView.hidesWhenStopped = true
+        headerView.addSubview(activityIndicatorView)
+        activityIndicatorView.topAnchor.constraint(equalTo: headerView.topAnchor, constant:  10).isActive = true
+        activityIndicatorView.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: -10).isActive = true
+        activityIndicatorView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        activityIndicatorView.widthAnchor.constraint(equalTo: activityIndicatorView.heightAnchor).isActive = true
+        self.requestingIndicator = activityIndicatorView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initViews()
         hideKeyboardWhenTappedAround()
-
-        searchBar.delegate = self
+        bottomRowSearchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-
+        
         paintHeader()
         paintSearchBar()
         paintTableView()
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(forceReload))
-        headerSubReloader.isUserInteractionEnabled = true
-        headerSubReloader.addGestureRecognizer(gesture)
+        bottomRowLeftImageView.isUserInteractionEnabled = true
+        bottomRowLeftImageView.addGestureRecognizer(gesture)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -67,19 +200,19 @@ class StationViewController: UIViewController {
 
     func paintHeader() {
         statusBarView.backgroundColor = Paint.defViewColor
-        requestingIndicator.hidesWhenStopped = true
+        requestingIndicator?.hidesWhenStopped = true
         headerView.backgroundColor = Paint.defViewColor
         headerView.layer.cornerRadius = Paint.defRadius
-        headerTopImageView.image = Shared.headerDefaultIcon
-        headerTopLabel.text = "Décompte parkings"
-        headerSubImageView.image = Shared.paintedSystemImage(named: "magnifyingglass.circle.fill")
-        headerSubReloader.image = Shared.paintedSystemImage(named: "arrow.triangle.2.circlepath.circle.fill")
+        topRowImageView.image = Shared.headerDefaultIcon
+        topRowLabel.text = "Décompte parkings"
+        bottomRowRightImageView.image = Shared.paintedSystemImage(named: "magnifyingglass.circle.fill")
+        bottomRowLeftImageView.image = Shared.paintedSystemImage(named: "arrow.triangle.2.circlepath.circle.fill")
     }
 
     func paintSearchBar() {
-        searchBar.placeholder = "Filtrer"
-        searchBar.setImage(UIImage(), for: .search, state: .normal)
-        searchBar.backgroundImage = UIImage()
+        bottomRowSearchBar.placeholder = "Filtrer"
+        bottomRowSearchBar.setImage(UIImage(), for: .search, state: .normal)
+        bottomRowSearchBar.backgroundImage = UIImage()
     }
 
     func paintTableView() {
@@ -111,7 +244,7 @@ class StationViewController: UIViewController {
                 newHeader = (Shared.headerDefaultIcon, "\(count.stations) stations : \(count.freePlaces) places libres")
             }
         }
-        (headerTopImageView.image, headerTopLabel.text) = newHeader
+        (topRowImageView.image, topRowLabel.text) = newHeader
     }
 
     // MARK: - Data functions

@@ -1,7 +1,14 @@
 import UIKit
 
-class MainUITabBarController: UITabBarController {
-
+final class MainUITabBarController: UITabBarController {
+    
+    private let wrapInNavigationController = false
+    let tabDataSource: [(view: UIViewController, title: String, image: UIImage?)] = [
+        (CarStationViewController(), "Voiture", Shared.tabCarIcon),
+        (BikeStationViewController(), "Vélo", Shared.tabBikeIcon),
+        (FavoriteStationViewController(), "Favoris", Shared.tabFavoriteIcon)
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTabBar()
@@ -14,23 +21,23 @@ class MainUITabBarController: UITabBarController {
     }
 
     private func setTabItems() {
-        let items = tabBar.items! as [UITabBarItem]
-        let data: [(title: String, image: UIImage?)] = [
-            ("Voiture", Shared.tabCarIcon),
-            ("Vélo", Shared.tabBikeIcon),
-            ("Favoris", Shared.tabFavoriteIcon)
-        ]
-
-        guard items.count == data.count else {
-            fatalError()
+        var views = [UIViewController]()
+        for tab in tabDataSource {
+            tab.view.title = tab.title
+            tab.view.tabBarItem.image = tab.image
+            tab.view.tabBarItem.title = tab.title
+            views.append(tab.view)
         }
-
-        for index in 0...items.count - 1 {
-            items[index].title = data[index].title
-            items[index].image = data[index].image
-            items[index].selectedImage = data[index].image
-        }
-
+        
+        self.viewControllers = !wrapInNavigationController ?
+        views : views.map({
+            let nc = UINavigationController(rootViewController: $0)
+            nc.navigationBar.prefersLargeTitles = false
+            nc.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            nc.navigationBar.isTranslucent = true
+            return nc
+        })
+        
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
     }
